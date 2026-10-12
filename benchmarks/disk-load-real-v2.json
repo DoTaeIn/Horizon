@@ -1,0 +1,2314 @@
+{
+  "schema_version": 1,
+  "scope": "End-to-end load of prepared container files from local disk followed by horizon.codec.decode, per method. Timed read includes open, read, close and, for os_cache_bypass, the volume geometry query, aligned buffer allocation, copy to bytes and buffer release. warm_buffered: each measured read is preceded by an unmeasured complete ordinary read of the same file, so the OS file cache is expected to be present. os_cache_bypass: the reading handle is opened with FILE_FLAG_NO_BUFFERING, bypassing the Windows file data cache for that read; this is NOT a physically cold device read (SSD/controller/drive caches are not evicted, no global cache purge is performed, and physical read counters were not verified).",
+  "generated_utc": "2026-10-12T05:36:47.877051+00:00",
+  "script_sha256": "a4f2deb970b393dee6629c21e19b28dd79bd1c04290eb4dda84ac864e7981b5e",
+  "codec_source_sha256": "4e69e6748af02fbfd443537749c3eb16cb08d3b059f994db8448f41d47a2a3c2",
+  "source_files_sha256": {
+    "scripts/compare_disk.py": "a4f2deb970b393dee6629c21e19b28dd79bd1c04290eb4dda84ac864e7981b5e",
+    "horizon/__init__.py": "78a61bbc8af31cddc5a95f6377de0ae2688df5f3b8e2307fbd63e71463cae90f",
+    "horizon/__main__.py": "cca6cb341a2a172dddd2c241559b9dbf9e4227c152a5e3b064f03a36daac9a45",
+    "horizon/benchmark.py": "28846840494ee8b43c8f74a702fdc9099949817248c5ef3b0944ad8e07fd160f",
+    "horizon/codec.py": "4e69e6748af02fbfd443537749c3eb16cb08d3b059f994db8448f41d47a2a3c2"
+  },
+  "environment": {
+    "python": "3.10.6 (tags/v3.10.6:9c7b4bd, Aug  1 2022, 21:53:49) [MSC v.1932 64 bit (AMD64)]",
+    "implementation": "CPython",
+    "os": "Windows-10-10.0.26300-SP0",
+    "os_version": "10.0.26300",
+    "machine": "AMD64",
+    "cpu": "Intel64 Family 6 Model 198 Stepping 2, GenuineIntel",
+    "cpu_count": 20,
+    "numpy": "2.2.6",
+    "zstandard": "0.25.0",
+    "lz4": "4.4.5"
+  },
+  "settings": {
+    "repeats": 50,
+    "warmups": 2,
+    "methods": [
+      "zstd",
+      "delta_zstd"
+    ],
+    "modes": [
+      "warm_buffered",
+      "os_cache_bypass"
+    ],
+    "codec_version": 1,
+    "codec_header_size": 60,
+    "codec_max_raw_bytes": 67108864,
+    "compression_level": 3,
+    "max_file_bytes": 68157440,
+    "timer": "time.perf_counter_ns: before reader, after reader, after decode; total_ns = read_ns + decode_ns; validation after final timer",
+    "p95_policy": "numpy.percentile(method=linear) and numpy.median over all raw samples; total/read/decode summarized independently, never summed; no min-of-runs",
+    "order": {
+      "cases": "sequential in --input order; each case fully benchmarked before the next",
+      "warmups": "2 unmeasured complete measure_once calls per mode+method per case, in MODES x METHODS order, before timed repetitions",
+      "method_order": "per repetition r: zstd,delta_zstd when r is even, reversed when odd",
+      "mode_order": "blocks of 2 repetitions: warm_buffered,os_cache_bypass when (r // 2) is even, reversed when odd",
+      "nesting": "within a repetition: for each mode in mode order, for each method in method order, one measured call"
+    },
+    "caching_policy": "containers written once to a new --containers-dir with fsync, kept for audit; no in-process data cache; every measured call reads the file anew and discards bytes and decoded array after validation; only source arrays are retained for validation"
+  },
+  "cache_mode_evidence": {
+    "warm_buffered": {
+      "api": "Python open(rb), fstat size validation, read of actual file size+1 bytes",
+      "priming": "complete unmeasured ordinary read immediately before each measured read"
+    },
+    "os_cache_bypass": {
+      "api": "CreateFileW, GetFileSizeEx, VirtualAlloc, one synchronous ReadFile, VirtualFree(MEM_RELEASE), CloseHandle",
+      "desired_access": 2147483648,
+      "share_mode": 1,
+      "creation_disposition": 3,
+      "flags_and_attributes": 671088640,
+      "flags_and_attributes_hex": "0x28000000",
+      "flag_values": {
+        "FILE_FLAG_NO_BUFFERING": "0x20000000",
+        "FILE_FLAG_SEQUENTIAL_SCAN": "0x8000000"
+      },
+      "alignment_policy": "max(4096, bytes_per_sector) from GetDiskFreeSpaceW on the GetVolumePathNameW root, queried per call inside the read timing; request rounded up to alignment; buffer from VirtualAlloc (allocation-granularity aligned, verified per call)",
+      "eof_policy": "ReadFile byte count must equal GetFileSizeEx size from the same handle; file on disk is never padded or modified",
+      "volume_geometry": {
+        "volume_root": "C:\\",
+        "bytes_per_sector": 512,
+        "sectors_per_cluster": 8,
+        "alignment_bytes": 4096
+      },
+      "limitations": "bypasses only the Windows file data cache for the reading handle; device and controller caches are not evicted; physical read counters and disk model were not queried or verified"
+    }
+  },
+  "cases": [
+    {
+      "name": "000_N37E127",
+      "source": "data\\terrain\\N37E127.npy",
+      "source_npy_sha256": "45aad23c759b6137722f6a451df132c6a686c43fbbd249dee22dfe57c03d1247",
+      "shape": [
+        3601,
+        3601
+      ],
+      "dtype": "<u2",
+      "raw_bytes": 25934402,
+      "array_sha256": "a5df71b98ff6b50de1a855102d062e22e7effcd42a67fec63935422d484eec65",
+      "files": {
+        "zstd": {
+          "path": "data\\disk-load-v2\\000_zstd.bin",
+          "container_bytes": 12024378,
+          "sha256": "99d44614eb186e94827d9be15fe59466a683a04c1595e7246cbaeac23190777b",
+          "post_benchmark_bytes": 12024378,
+          "post_benchmark_sha256": "99d44614eb186e94827d9be15fe59466a683a04c1595e7246cbaeac23190777b",
+          "post_benchmark_match": true
+        },
+        "delta_zstd": {
+          "path": "data\\disk-load-v2\\000_delta_zstd.bin",
+          "container_bytes": 7996675,
+          "sha256": "b36a8a4df6387b37cae55234d655de80530142b83840cca16c781b9fabae2089",
+          "post_benchmark_bytes": 7996675,
+          "post_benchmark_sha256": "b36a8a4df6387b37cae55234d655de80530142b83840cca16c781b9fabae2089",
+          "post_benchmark_match": true
+        }
+      },
+      "modes": {
+        "warm_buffered": {
+          "zstd": {
+            "repeats": 50,
+            "total": {
+              "median_ms": 82.83565,
+              "p95_ms": 98.744795
+            },
+            "read": {
+              "median_ms": 3.1747,
+              "p95_ms": 3.459045
+            },
+            "decode": {
+              "median_ms": 79.78645,
+              "p95_ms": 95.56806
+            },
+            "samples_ns": [
+              {
+                "total_ns": 83334200,
+                "read_ns": 3013100,
+                "decode_ns": 80321100
+              },
+              {
+                "total_ns": 85188000,
+                "read_ns": 3073200,
+                "decode_ns": 82114800
+              },
+              {
+                "total_ns": 82378200,
+                "read_ns": 3131100,
+                "decode_ns": 79247100
+              },
+              {
+                "total_ns": 88510800,
+                "read_ns": 3269000,
+                "decode_ns": 85241800
+              },
+              {
+                "total_ns": 82775000,
+                "read_ns": 2935000,
+                "decode_ns": 79840000
+              },
+              {
+                "total_ns": 81166500,
+                "read_ns": 2955800,
+                "decode_ns": 78210700
+              },
+              {
+                "total_ns": 80734500,
+                "read_ns": 3052700,
+                "decode_ns": 77681800
+              },
+              {
+                "total_ns": 80806700,
+                "read_ns": 3184700,
+                "decode_ns": 77622000
+              },
+              {
+                "total_ns": 82886000,
+                "read_ns": 3153100,
+                "decode_ns": 79732900
+              },
+              {
+                "total_ns": 101013600,
+                "read_ns": 3202600,
+                "decode_ns": 97811000
+              },
+              {
+                "total_ns": 85746300,
+                "read_ns": 3230100,
+                "decode_ns": 82516200
+              },
+              {
+                "total_ns": 80759100,
+                "read_ns": 2940600,
+                "decode_ns": 77818500
+              },
+              {
+                "total_ns": 82469900,
+                "read_ns": 3100200,
+                "decode_ns": 79369700
+              },
+              {
+                "total_ns": 84595700,
+                "read_ns": 3112500,
+                "decode_ns": 81483200
+              },
+              {
+                "total_ns": 93149000,
+                "read_ns": 3568500,
+                "decode_ns": 89580500
+              },
+              {
+                "total_ns": 101871500,
+                "read_ns": 3437100,
+                "decode_ns": 98434400
+              },
+              {
+                "total_ns": 80309900,
+                "read_ns": 3247500,
+                "decode_ns": 77062400
+              },
+              {
+                "total_ns": 82136500,
+                "read_ns": 3164700,
+                "decode_ns": 78971800
+              },
+              {
+                "total_ns": 87480600,
+                "read_ns": 3341300,
+                "decode_ns": 84139300
+              },
+              {
+                "total_ns": 92297700,
+                "read_ns": 3326700,
+                "decode_ns": 88971000
+              },
+              {
+                "total_ns": 84446000,
+                "read_ns": 3239300,
+                "decode_ns": 81206700
+              },
+              {
+                "total_ns": 88225900,
+                "read_ns": 3686400,
+                "decode_ns": 84539500
+              },
+              {
+                "total_ns": 84297400,
+                "read_ns": 3199700,
+                "decode_ns": 81097700
+              },
+              {
+                "total_ns": 82293400,
+                "read_ns": 3114300,
+                "decode_ns": 79179100
+              },
+              {
+                "total_ns": 81092500,
+                "read_ns": 3032600,
+                "decode_ns": 78059900
+              },
+              {
+                "total_ns": 84413100,
+                "read_ns": 3344400,
+                "decode_ns": 81068700
+              },
+              {
+                "total_ns": 82370100,
+                "read_ns": 3477000,
+                "decode_ns": 78893100
+              },
+              {
+                "total_ns": 82310400,
+                "read_ns": 3086200,
+                "decode_ns": 79224200
+              },
+              {
+                "total_ns": 86046400,
+                "read_ns": 3267000,
+                "decode_ns": 82779400
+              },
+              {
+                "total_ns": 82162000,
+                "read_ns": 3335200,
+                "decode_ns": 78826800
+              },
+              {
+                "total_ns": 82472000,
+                "read_ns": 3224900,
+                "decode_ns": 79247100
+              },
+              {
+                "total_ns": 77176700,
+                "read_ns": 3148900,
+                "decode_ns": 74027800
+              },
+              {
+                "total_ns": 81736500,
+                "read_ns": 3121500,
+                "decode_ns": 78615000
+              },
+              {
+                "total_ns": 82785300,
+                "read_ns": 3242300,
+                "decode_ns": 79543000
+              },
+              {
+                "total_ns": 90518300,
+                "read_ns": 3076600,
+                "decode_ns": 87441700
+              },
+              {
+                "total_ns": 81176300,
+                "read_ns": 2990700,
+                "decode_ns": 78185600
+              },
+              {
+                "total_ns": 86488800,
+                "read_ns": 3186200,
+                "decode_ns": 83302600
+              },
+              {
+                "total_ns": 91612500,
+                "read_ns": 3302500,
+                "decode_ns": 88310000
+              },
+              {
+                "total_ns": 81788100,
+                "read_ns": 3129900,
+                "decode_ns": 78658200
+              },
+              {
+                "total_ns": 97546400,
+                "read_ns": 3092200,
+                "decode_ns": 94454200
+              },
+              {
+                "total_ns": 79355500,
+                "read_ns": 2857100,
+                "decode_ns": 76498400
+              },
+              {
+                "total_ns": 99725300,
+                "read_ns": 3245900,
+                "decode_ns": 96479400
+              },
+              {
+                "total_ns": 81704200,
+                "read_ns": 3100500,
+                "decode_ns": 78603700
+              },
+              {
+                "total_ns": 83476200,
+                "read_ns": 3424600,
+                "decode_ns": 80051600
+              },
+              {
+                "total_ns": 83435400,
+                "read_ns": 3379300,
+                "decode_ns": 80056100
+              },
+              {
+                "total_ns": 81984200,
+                "read_ns": 3377900,
+                "decode_ns": 78606300
+              },
+              {
+                "total_ns": 84774700,
+                "read_ns": 3143300,
+                "decode_ns": 81631400
+              },
+              {
+                "total_ns": 81105600,
+                "read_ns": 2913100,
+                "decode_ns": 78192500
+              },
+              {
+                "total_ns": 81630800,
+                "read_ns": 3079300,
+                "decode_ns": 78551500
+              },
+              {
+                "total_ns": 83472000,
+                "read_ns": 3196400,
+                "decode_ns": 80275600
+              }
+            ]
+          },
+          "delta_zstd": {
+            "repeats": 50,
+            "total": {
+              "median_ms": 86.5765,
+              "p95_ms": 101.80888
+            },
+            "read": {
+              "median_ms": 2.1507,
+              "p95_ms": 2.399755
+            },
+            "decode": {
+              "median_ms": 84.42945,
+              "p95_ms": 99.55012
+            },
+            "samples_ns": [
+              {
+                "total_ns": 84296700,
+                "read_ns": 2220100,
+                "decode_ns": 82076600
+              },
+              {
+                "total_ns": 85263400,
+                "read_ns": 2091700,
+                "decode_ns": 83171700
+              },
+              {
+                "total_ns": 85202300,
+                "read_ns": 2130400,
+                "decode_ns": 83071900
+              },
+              {
+                "total_ns": 86754600,
+                "read_ns": 2142900,
+                "decode_ns": 84611700
+              },
+              {
+                "total_ns": 96911400,
+                "read_ns": 2150400,
+                "decode_ns": 94761000
+              },
+              {
+                "total_ns": 92505300,
+                "read_ns": 2152500,
+                "decode_ns": 90352800
+              },
+              {
+                "total_ns": 85002700,
+                "read_ns": 2183000,
+                "decode_ns": 82819700
+              },
+              {
+                "total_ns": 90341100,
+                "read_ns": 2223500,
+                "decode_ns": 88117600
+              },
+              {
+                "total_ns": 89937100,
+                "read_ns": 2063100,
+                "decode_ns": 87874000
+              },
+              {
+                "total_ns": 98671000,
+                "read_ns": 2412400,
+                "decode_ns": 96258600
+              },
+              {
+                "total_ns": 93604900,
+                "read_ns": 2107000,
+                "decode_ns": 91497900
+              },
+              {
+                "total_ns": 101896900,
+                "read_ns": 2347000,
+                "decode_ns": 99549900
+              },
+              {
+                "total_ns": 90712500,
+                "read_ns": 2588200,
+                "decode_ns": 88124300
+              },
+              {
+                "total_ns": 85459900,
+                "read_ns": 2133900,
+                "decode_ns": 83326000
+              },
+              {
+                "total_ns": 84160300,
+                "read_ns": 2255900,
+                "decode_ns": 81904400
+              },
+              {
+                "total_ns": 92282600,
+                "read_ns": 2240600,
+                "decode_ns": 90042000
+              },
+              {
+                "total_ns": 91721300,
+                "read_ns": 2355200,
+                "decode_ns": 89366100
+              },
+              {
+                "total_ns": 97540100,
+                "read_ns": 2002400,
+                "decode_ns": 95537700
+              },
+              {
+                "total_ns": 101701300,
+                "read_ns": 2151000,
+                "decode_ns": 99550300
+              },
+              {
+                "total_ns": 84791100,
+                "read_ns": 2161800,
+                "decode_ns": 82629300
+              },
+              {
+                "total_ns": 85910700,
+                "read_ns": 2250900,
+                "decode_ns": 83659800
+              },
+              {
+                "total_ns": 99295000,
+                "read_ns": 2272100,
+                "decode_ns": 97022900
+              },
+              {
+                "total_ns": 85546400,
+                "read_ns": 2103300,
+                "decode_ns": 83443100
+              },
+              {
+                "total_ns": 86243300,
+                "read_ns": 2467300,
+                "decode_ns": 83776000
+              },
+              {
+                "total_ns": 84558000,
+                "read_ns": 2095700,
+                "decode_ns": 82462300
+              },
+              {
+                "total_ns": 86724600,
+                "read_ns": 2142900,
+                "decode_ns": 84581700
+              },
+              {
+                "total_ns": 84448300,
+                "read_ns": 2122900,
+                "decode_ns": 82325400
+              },
+              {
+                "total_ns": 84408000,
+                "read_ns": 2210300,
+                "decode_ns": 82197700
+              },
+              {
+                "total_ns": 86396000,
+                "read_ns": 2118800,
+                "decode_ns": 84277200
+              },
+              {
+                "total_ns": 85399300,
+                "read_ns": 2170100,
+                "decode_ns": 83229200
+              },
+              {
+                "total_ns": 85025300,
+                "read_ns": 2187900,
+                "decode_ns": 82837400
+              },
+              {
+                "total_ns": 86428400,
+                "read_ns": 2384300,
+                "decode_ns": 84044100
+              },
+              {
+                "total_ns": 92167000,
+                "read_ns": 2013400,
+                "decode_ns": 90153600
+              },
+              {
+                "total_ns": 88269100,
+                "read_ns": 2130500,
+                "decode_ns": 86138600
+              },
+              {
+                "total_ns": 104415300,
+                "read_ns": 2111100,
+                "decode_ns": 102304200
+              },
+              {
+                "total_ns": 103644300,
+                "read_ns": 2108100,
+                "decode_ns": 101536200
+              },
+              {
+                "total_ns": 95621700,
+                "read_ns": 2308100,
+                "decode_ns": 93313600
+              },
+              {
+                "total_ns": 90974500,
+                "read_ns": 2288600,
+                "decode_ns": 88685900
+              },
+              {
+                "total_ns": 84495500,
+                "read_ns": 2307500,
+                "decode_ns": 82188000
+              },
+              {
+                "total_ns": 90363900,
+                "read_ns": 2107600,
+                "decode_ns": 88256300
+              },
+              {
+                "total_ns": 85007300,
+                "read_ns": 2102800,
+                "decode_ns": 82904500
+              },
+              {
+                "total_ns": 85516800,
+                "read_ns": 2217000,
+                "decode_ns": 83299800
+              },
+              {
+                "total_ns": 85278800,
+                "read_ns": 1997800,
+                "decode_ns": 83281000
+              },
+              {
+                "total_ns": 89745000,
+                "read_ns": 2252000,
+                "decode_ns": 87493000
+              },
+              {
+                "total_ns": 84368500,
+                "read_ns": 2104400,
+                "decode_ns": 82264100
+              },
+              {
+                "total_ns": 84135200,
+                "read_ns": 2111500,
+                "decode_ns": 82023700
+              },
+              {
+                "total_ns": 84576700,
+                "read_ns": 2293500,
+                "decode_ns": 82283200
+              },
+              {
+                "total_ns": 92027000,
+                "read_ns": 2071300,
+                "decode_ns": 89955700
+              },
+              {
+                "total_ns": 84106900,
+                "read_ns": 2041400,
+                "decode_ns": 82065500
+              },
+              {
+                "total_ns": 89812600,
+                "read_ns": 2117400,
+                "decode_ns": 87695200
+              }
+            ]
+          }
+        },
+        "os_cache_bypass": {
+          "zstd": {
+            "repeats": 50,
+            "total": {
+              "median_ms": 92.71565,
+              "p95_ms": 110.28831
+            },
+            "read": {
+              "median_ms": 10.2652,
+              "p95_ms": 11.01708
+            },
+            "decode": {
+              "median_ms": 82.8026,
+              "p95_ms": 99.41264
+            },
+            "samples_ns": [
+              {
+                "total_ns": 89677700,
+                "read_ns": 10341600,
+                "decode_ns": 79336100
+              },
+              {
+                "total_ns": 89352100,
+                "read_ns": 10334000,
+                "decode_ns": 79018100
+              },
+              {
+                "total_ns": 92787400,
+                "read_ns": 9627200,
+                "decode_ns": 83160200
+              },
+              {
+                "total_ns": 87685200,
+                "read_ns": 9586900,
+                "decode_ns": 78098300
+              },
+              {
+                "total_ns": 87316800,
+                "read_ns": 9262000,
+                "decode_ns": 78054800
+              },
+              {
+                "total_ns": 97729500,
+                "read_ns": 10041500,
+                "decode_ns": 87688000
+              },
+              {
+                "total_ns": 89971500,
+                "read_ns": 9686500,
+                "decode_ns": 80285000
+              },
+              {
+                "total_ns": 90230800,
+                "read_ns": 9363400,
+                "decode_ns": 80867400
+              },
+              {
+                "total_ns": 98358000,
+                "read_ns": 8871800,
+                "decode_ns": 89486200
+              },
+              {
+                "total_ns": 109888900,
+                "read_ns": 11308300,
+                "decode_ns": 98580600
+              },
+              {
+                "total_ns": 93509300,
+                "read_ns": 10932600,
+                "decode_ns": 82576700
+              },
+              {
+                "total_ns": 92555600,
+                "read_ns": 9017500,
+                "decode_ns": 83538100
+              },
+              {
+                "total_ns": 97384300,
+                "read_ns": 12327600,
+                "decode_ns": 85056700
+              },
+              {
+                "total_ns": 93423100,
+                "read_ns": 9583200,
+                "decode_ns": 83839900
+              },
+              {
+                "total_ns": 88472000,
+                "read_ns": 10018900,
+                "decode_ns": 78453100
+              },
+              {
+                "total_ns": 91069100,
+                "read_ns": 10629100,
+                "decode_ns": 80440000
+              },
+              {
+                "total_ns": 87515900,
+                "read_ns": 10159600,
+                "decode_ns": 77356300
+              },
+              {
+                "total_ns": 110615100,
+                "read_ns": 10521700,
+                "decode_ns": 100093400
+              },
+              {
+                "total_ns": 91597700,
+                "read_ns": 10763400,
+                "decode_ns": 80834300
+              },
+              {
+                "total_ns": 90973500,
+                "read_ns": 10778700,
+                "decode_ns": 80194800
+              },
+              {
+                "total_ns": 99619500,
+                "read_ns": 10449300,
+                "decode_ns": 89170200
+              },
+              {
+                "total_ns": 87777200,
+                "read_ns": 10336100,
+                "decode_ns": 77441100
+              },
+              {
+                "total_ns": 92916900,
+                "read_ns": 9793200,
+                "decode_ns": 83123700
+              },
+              {
+                "total_ns": 95328700,
+                "read_ns": 10608800,
+                "decode_ns": 84719900
+              },
+              {
+                "total_ns": 91499600,
+                "read_ns": 10256200,
+                "decode_ns": 81243400
+              },
+              {
+                "total_ns": 92913100,
+                "read_ns": 10034100,
+                "decode_ns": 82879000
+              },
+              {
+                "total_ns": 98760400,
+                "read_ns": 9998200,
+                "decode_ns": 88762200
+              },
+              {
+                "total_ns": 97887800,
+                "read_ns": 10539300,
+                "decode_ns": 87348500
+              },
+              {
+                "total_ns": 98844600,
+                "read_ns": 11086200,
+                "decode_ns": 87758400
+              },
+              {
+                "total_ns": 95442900,
+                "read_ns": 10335200,
+                "decode_ns": 85107700
+              },
+              {
+                "total_ns": 90438300,
+                "read_ns": 9866600,
+                "decode_ns": 80571700
+              },
+              {
+                "total_ns": 111247300,
+                "read_ns": 10508200,
+                "decode_ns": 100739100
+              },
+              {
+                "total_ns": 111059100,
+                "read_ns": 10448800,
+                "decode_ns": 100610300
+              },
+              {
+                "total_ns": 92643900,
+                "read_ns": 10577500,
+                "decode_ns": 82066400
+              },
+              {
+                "total_ns": 95882400,
+                "read_ns": 9671000,
+                "decode_ns": 86211400
+              },
+              {
+                "total_ns": 89769400,
+                "read_ns": 9084600,
+                "decode_ns": 80684800
+              },
+              {
+                "total_ns": 89280500,
+                "read_ns": 10504700,
+                "decode_ns": 78775800
+              },
+              {
+                "total_ns": 91179800,
+                "read_ns": 10515000,
+                "decode_ns": 80664800
+              },
+              {
+                "total_ns": 91363700,
+                "read_ns": 9783300,
+                "decode_ns": 81580400
+              },
+              {
+                "total_ns": 95491800,
+                "read_ns": 10445200,
+                "decode_ns": 85046600
+              },
+              {
+                "total_ns": 99085500,
+                "read_ns": 10422800,
+                "decode_ns": 88662700
+              },
+              {
+                "total_ns": 102087000,
+                "read_ns": 10345400,
+                "decode_ns": 91741600
+              },
+              {
+                "total_ns": 87908500,
+                "read_ns": 9417600,
+                "decode_ns": 78490900
+              },
+              {
+                "total_ns": 91847000,
+                "read_ns": 9120800,
+                "decode_ns": 82726200
+              },
+              {
+                "total_ns": 96230800,
+                "read_ns": 8923500,
+                "decode_ns": 87307300
+              },
+              {
+                "total_ns": 106264400,
+                "read_ns": 10153800,
+                "decode_ns": 96110600
+              },
+              {
+                "total_ns": 91520300,
+                "read_ns": 10774400,
+                "decode_ns": 80745900
+              },
+              {
+                "total_ns": 94794000,
+                "read_ns": 10180400,
+                "decode_ns": 84613600
+              },
+              {
+                "total_ns": 86432500,
+                "read_ns": 8964200,
+                "decode_ns": 77468300
+              },
+              {
+                "total_ns": 90515700,
+                "read_ns": 10274200,
+                "decode_ns": 80241500
+              }
+            ]
+          },
+          "delta_zstd": {
+            "repeats": 50,
+            "total": {
+              "median_ms": 92.87585,
+              "p95_ms": 105.66304
+            },
+            "read": {
+              "median_ms": 7.563,
+              "p95_ms": 8.938085
+            },
+            "decode": {
+              "median_ms": 85.4021,
+              "p95_ms": 98.4779
+            },
+            "samples_ns": [
+              {
+                "total_ns": 90958200,
+                "read_ns": 7632700,
+                "decode_ns": 83325500
+              },
+              {
+                "total_ns": 91166500,
+                "read_ns": 7689800,
+                "decode_ns": 83476700
+              },
+              {
+                "total_ns": 91907700,
+                "read_ns": 7586100,
+                "decode_ns": 84321600
+              },
+              {
+                "total_ns": 101664200,
+                "read_ns": 7499900,
+                "decode_ns": 94164300
+              },
+              {
+                "total_ns": 107194300,
+                "read_ns": 6677200,
+                "decode_ns": 100517100
+              },
+              {
+                "total_ns": 90506000,
+                "read_ns": 7812300,
+                "decode_ns": 82693700
+              },
+              {
+                "total_ns": 99637500,
+                "read_ns": 7266800,
+                "decode_ns": 92370700
+              },
+              {
+                "total_ns": 90326200,
+                "read_ns": 7636200,
+                "decode_ns": 82690000
+              },
+              {
+                "total_ns": 103868700,
+                "read_ns": 6799900,
+                "decode_ns": 97068800
+              },
+              {
+                "total_ns": 115318900,
+                "read_ns": 7669000,
+                "decode_ns": 107649900
+              },
+              {
+                "total_ns": 93698600,
+                "read_ns": 8663500,
+                "decode_ns": 85035100
+              },
+              {
+                "total_ns": 94196700,
+                "read_ns": 6919200,
+                "decode_ns": 87277500
+              },
+              {
+                "total_ns": 100303300,
+                "read_ns": 6791700,
+                "decode_ns": 93511600
+              },
+              {
+                "total_ns": 90312000,
+                "read_ns": 8101100,
+                "decode_ns": 82210900
+              },
+              {
+                "total_ns": 106709200,
+                "read_ns": 7078400,
+                "decode_ns": 99630800
+              },
+              {
+                "total_ns": 88730400,
+                "read_ns": 7438400,
+                "decode_ns": 81292000
+              },
+              {
+                "total_ns": 90320100,
+                "read_ns": 7856400,
+                "decode_ns": 82463700
+              },
+              {
+                "total_ns": 86948700,
+                "read_ns": 7175900,
+                "decode_ns": 79772800
+              },
+              {
+                "total_ns": 96480200,
+                "read_ns": 7508200,
+                "decode_ns": 88972000
+              },
+              {
+                "total_ns": 91997800,
+                "read_ns": 7744500,
+                "decode_ns": 84253300
+              },
+              {
+                "total_ns": 100994900,
+                "read_ns": 7305300,
+                "decode_ns": 93689600
+              },
+              {
+                "total_ns": 94770100,
+                "read_ns": 7952400,
+                "decode_ns": 86817700
+              },
+              {
+                "total_ns": 91254900,
+                "read_ns": 6837200,
+                "decode_ns": 84417700
+              },
+              {
+                "total_ns": 90610200,
+                "read_ns": 7887400,
+                "decode_ns": 82722800
+              },
+              {
+                "total_ns": 90923700,
+                "read_ns": 7539900,
+                "decode_ns": 83383800
+              },
+              {
+                "total_ns": 89201100,
+                "read_ns": 6950400,
+                "decode_ns": 82250700
+              },
+              {
+                "total_ns": 92509100,
+                "read_ns": 6740000,
+                "decode_ns": 85769100
+              },
+              {
+                "total_ns": 95657000,
+                "read_ns": 6975500,
+                "decode_ns": 88681500
+              },
+              {
+                "total_ns": 92282700,
+                "read_ns": 7403000,
+                "decode_ns": 84879700
+              },
+              {
+                "total_ns": 97881200,
+                "read_ns": 6757400,
+                "decode_ns": 91123800
+              },
+              {
+                "total_ns": 90945900,
+                "read_ns": 7596500,
+                "decode_ns": 83349400
+              },
+              {
+                "total_ns": 97307700,
+                "read_ns": 8351600,
+                "decode_ns": 88956100
+              },
+              {
+                "total_ns": 91552700,
+                "read_ns": 9226000,
+                "decode_ns": 82326700
+              },
+              {
+                "total_ns": 95040700,
+                "read_ns": 7842700,
+                "decode_ns": 87198000
+              },
+              {
+                "total_ns": 93242600,
+                "read_ns": 6333000,
+                "decode_ns": 86909600
+              },
+              {
+                "total_ns": 98530200,
+                "read_ns": 7764400,
+                "decode_ns": 90765800
+              },
+              {
+                "total_ns": 103175800,
+                "read_ns": 8948300,
+                "decode_ns": 94227500
+              },
+              {
+                "total_ns": 88572100,
+                "read_ns": 6468200,
+                "decode_ns": 82103900
+              },
+              {
+                "total_ns": 89704300,
+                "read_ns": 6355700,
+                "decode_ns": 83348600
+              },
+              {
+                "total_ns": 104384400,
+                "read_ns": 7659800,
+                "decode_ns": 96724600
+              },
+              {
+                "total_ns": 94860600,
+                "read_ns": 7682300,
+                "decode_ns": 87178300
+              },
+              {
+                "total_ns": 95197800,
+                "read_ns": 9177800,
+                "decode_ns": 86020000
+              },
+              {
+                "total_ns": 99871100,
+                "read_ns": 7220700,
+                "decode_ns": 92650400
+              },
+              {
+                "total_ns": 90665300,
+                "read_ns": 7645200,
+                "decode_ns": 83020100
+              },
+              {
+                "total_ns": 89818300,
+                "read_ns": 7677500,
+                "decode_ns": 82140800
+              },
+              {
+                "total_ns": 88017500,
+                "read_ns": 6799600,
+                "decode_ns": 81217900
+              },
+              {
+                "total_ns": 91439600,
+                "read_ns": 8925600,
+                "decode_ns": 82514000
+              },
+              {
+                "total_ns": 94019900,
+                "read_ns": 7683800,
+                "decode_ns": 86336100
+              },
+              {
+                "total_ns": 89770600,
+                "read_ns": 7202000,
+                "decode_ns": 82568600
+              },
+              {
+                "total_ns": 97334400,
+                "read_ns": 7521700,
+                "decode_ns": 89812700
+              }
+            ]
+          }
+        }
+      },
+      "comparisons": {
+        "warm_buffered": {
+          "delta_zstd_over_zstd_total_median": 1.0451599039785406,
+          "delta_zstd_over_zstd_total_p95": 1.0310303444348636,
+          "delta_zstd_over_zstd_container_bytes": 0.6650385575037644
+        },
+        "os_cache_bypass": {
+          "delta_zstd_over_zstd_total_median": 1.0017278636346723,
+          "delta_zstd_over_zstd_total_p95": 0.9580620103798853,
+          "delta_zstd_over_zstd_container_bytes": 0.6650385575037644
+        }
+      }
+    },
+    {
+      "name": "001_N46E007",
+      "source": "data\\terrain\\N46E007.npy",
+      "source_npy_sha256": "f6f2ac65331a3eaaddeeeee37a5c308337f7350219405a6746f89b88a11bceab",
+      "shape": [
+        3601,
+        3601
+      ],
+      "dtype": "<u2",
+      "raw_bytes": 25934402,
+      "array_sha256": "824b276f5e250a2765abf5a9f12ee0ac9433f01f990b6e658f5abba222744737",
+      "files": {
+        "zstd": {
+          "path": "data\\disk-load-v2\\001_zstd.bin",
+          "container_bytes": 14761014,
+          "sha256": "1746b06f1ba5d7dd45f72df351df8834c9a3eb726ebbe9039b1daff7cf1575b9",
+          "post_benchmark_bytes": 14761014,
+          "post_benchmark_sha256": "1746b06f1ba5d7dd45f72df351df8834c9a3eb726ebbe9039b1daff7cf1575b9",
+          "post_benchmark_match": true
+        },
+        "delta_zstd": {
+          "path": "data\\disk-load-v2\\001_delta_zstd.bin",
+          "container_bytes": 8742429,
+          "sha256": "ea92b59400ef7e4c3ab874648b220a8126f43b63314c2ec80e13d9fb21b29d7b",
+          "post_benchmark_bytes": 8742429,
+          "post_benchmark_sha256": "ea92b59400ef7e4c3ab874648b220a8126f43b63314c2ec80e13d9fb21b29d7b",
+          "post_benchmark_match": true
+        }
+      },
+      "modes": {
+        "warm_buffered": {
+          "zstd": {
+            "repeats": 50,
+            "total": {
+              "median_ms": 84.5971,
+              "p95_ms": 90.854895
+            },
+            "read": {
+              "median_ms": 3.86685,
+              "p95_ms": 4.1842999999999995
+            },
+            "decode": {
+              "median_ms": 80.7094,
+              "p95_ms": 87.049255
+            },
+            "samples_ns": [
+              {
+                "total_ns": 85018000,
+                "read_ns": 3859000,
+                "decode_ns": 81159000
+              },
+              {
+                "total_ns": 84385800,
+                "read_ns": 3788300,
+                "decode_ns": 80597500
+              },
+              {
+                "total_ns": 86713700,
+                "read_ns": 3930500,
+                "decode_ns": 82783200
+              },
+              {
+                "total_ns": 86509500,
+                "read_ns": 4891400,
+                "decode_ns": 81618100
+              },
+              {
+                "total_ns": 83602900,
+                "read_ns": 3836400,
+                "decode_ns": 79766500
+              },
+              {
+                "total_ns": 86015800,
+                "read_ns": 3963700,
+                "decode_ns": 82052100
+              },
+              {
+                "total_ns": 86728600,
+                "read_ns": 3826300,
+                "decode_ns": 82902300
+              },
+              {
+                "total_ns": 82647800,
+                "read_ns": 3844000,
+                "decode_ns": 78803800
+              },
+              {
+                "total_ns": 83582000,
+                "read_ns": 3753600,
+                "decode_ns": 79828400
+              },
+              {
+                "total_ns": 84662400,
+                "read_ns": 3902100,
+                "decode_ns": 80760300
+              },
+              {
+                "total_ns": 94041700,
+                "read_ns": 3579900,
+                "decode_ns": 90461800
+              },
+              {
+                "total_ns": 86307400,
+                "read_ns": 3744900,
+                "decode_ns": 82562500
+              },
+              {
+                "total_ns": 84531800,
+                "read_ns": 3873300,
+                "decode_ns": 80658500
+              },
+              {
+                "total_ns": 84113500,
+                "read_ns": 3949900,
+                "decode_ns": 80163600
+              },
+              {
+                "total_ns": 88719900,
+                "read_ns": 4008400,
+                "decode_ns": 84711500
+              },
+              {
+                "total_ns": 84332700,
+                "read_ns": 3905800,
+                "decode_ns": 80426900
+              },
+              {
+                "total_ns": 84199000,
+                "read_ns": 3938500,
+                "decode_ns": 80260500
+              },
+              {
+                "total_ns": 84829100,
+                "read_ns": 3765500,
+                "decode_ns": 81063600
+              },
+              {
+                "total_ns": 84808900,
+                "read_ns": 3849900,
+                "decode_ns": 80959000
+              },
+              {
+                "total_ns": 84377100,
+                "read_ns": 3841300,
+                "decode_ns": 80535800
+              },
+              {
+                "total_ns": 83875700,
+                "read_ns": 3793200,
+                "decode_ns": 80082500
+              },
+              {
+                "total_ns": 86238400,
+                "read_ns": 3918200,
+                "decode_ns": 82320200
+              },
+              {
+                "total_ns": 83939100,
+                "read_ns": 3875000,
+                "decode_ns": 80064100
+              },
+              {
+                "total_ns": 85806600,
+                "read_ns": 3935300,
+                "decode_ns": 81871300
+              },
+              {
+                "total_ns": 83869700,
+                "read_ns": 3931200,
+                "decode_ns": 79938500
+              },
+              {
+                "total_ns": 83222000,
+                "read_ns": 3605900,
+                "decode_ns": 79616100
+              },
+              {
+                "total_ns": 83407900,
+                "read_ns": 3580300,
+                "decode_ns": 79827600
+              },
+              {
+                "total_ns": 90643200,
+                "read_ns": 3953700,
+                "decode_ns": 86689500
+              },
+              {
+                "total_ns": 84078200,
+                "read_ns": 4067300,
+                "decode_ns": 80010900
+              },
+              {
+                "total_ns": 84764400,
+                "read_ns": 3789800,
+                "decode_ns": 80974600
+              },
+              {
+                "total_ns": 80947700,
+                "read_ns": 4076300,
+                "decode_ns": 76871400
+              },
+              {
+                "total_ns": 93744200,
+                "read_ns": 3881900,
+                "decode_ns": 89862300
+              },
+              {
+                "total_ns": 83054700,
+                "read_ns": 3937000,
+                "decode_ns": 79117700
+              },
+              {
+                "total_ns": 82991000,
+                "read_ns": 3602500,
+                "decode_ns": 79388500
+              },
+              {
+                "total_ns": 88767900,
+                "read_ns": 3847200,
+                "decode_ns": 84920700
+              },
+              {
+                "total_ns": 84279000,
+                "read_ns": 3860400,
+                "decode_ns": 80418600
+              },
+              {
+                "total_ns": 82569800,
+                "read_ns": 3684800,
+                "decode_ns": 78885000
+              },
+              {
+                "total_ns": 83613800,
+                "read_ns": 3553900,
+                "decode_ns": 80059900
+              },
+              {
+                "total_ns": 87626300,
+                "read_ns": 3771600,
+                "decode_ns": 83854700
+              },
+              {
+                "total_ns": 83702800,
+                "read_ns": 3876200,
+                "decode_ns": 79826600
+              },
+              {
+                "total_ns": 84184700,
+                "read_ns": 4021100,
+                "decode_ns": 80163600
+              },
+              {
+                "total_ns": 91028100,
+                "read_ns": 3684500,
+                "decode_ns": 87343600
+              },
+              {
+                "total_ns": 86524600,
+                "read_ns": 4271600,
+                "decode_ns": 82253000
+              },
+              {
+                "total_ns": 85080100,
+                "read_ns": 3891300,
+                "decode_ns": 81188800
+              },
+              {
+                "total_ns": 85410300,
+                "read_ns": 3787000,
+                "decode_ns": 81623300
+              },
+              {
+                "total_ns": 84031700,
+                "read_ns": 4631700,
+                "decode_ns": 79400000
+              },
+              {
+                "total_ns": 84791400,
+                "read_ns": 3789000,
+                "decode_ns": 81002400
+              },
+              {
+                "total_ns": 85069000,
+                "read_ns": 4018600,
+                "decode_ns": 81050400
+              },
+              {
+                "total_ns": 83981800,
+                "read_ns": 3783100,
+                "decode_ns": 80198700
+              },
+              {
+                "total_ns": 85448100,
+                "read_ns": 4077600,
+                "decode_ns": 81370500
+              }
+            ]
+          },
+          "delta_zstd": {
+            "repeats": 50,
+            "total": {
+              "median_ms": 86.9619,
+              "p95_ms": 99.572215
+            },
+            "read": {
+              "median_ms": 2.32505,
+              "p95_ms": 2.606645
+            },
+            "decode": {
+              "median_ms": 84.51635,
+              "p95_ms": 97.11239
+            },
+            "samples_ns": [
+              {
+                "total_ns": 88471000,
+                "read_ns": 3008000,
+                "decode_ns": 85463000
+              },
+              {
+                "total_ns": 85186000,
+                "read_ns": 2238500,
+                "decode_ns": 82947500
+              },
+              {
+                "total_ns": 88743200,
+                "read_ns": 2765000,
+                "decode_ns": 85978200
+              },
+              {
+                "total_ns": 86525300,
+                "read_ns": 2383200,
+                "decode_ns": 84142100
+              },
+              {
+                "total_ns": 85718600,
+                "read_ns": 2325300,
+                "decode_ns": 83393300
+              },
+              {
+                "total_ns": 83306800,
+                "read_ns": 2303400,
+                "decode_ns": 81003400
+              },
+              {
+                "total_ns": 89910600,
+                "read_ns": 2380300,
+                "decode_ns": 87530300
+              },
+              {
+                "total_ns": 98184400,
+                "read_ns": 2443600,
+                "decode_ns": 95740800
+              },
+              {
+                "total_ns": 85329100,
+                "read_ns": 2278300,
+                "decode_ns": 83050800
+              },
+              {
+                "total_ns": 86672000,
+                "read_ns": 2412500,
+                "decode_ns": 84259500
+              },
+              {
+                "total_ns": 85125100,
+                "read_ns": 2300000,
+                "decode_ns": 82825100
+              },
+              {
+                "total_ns": 86777500,
+                "read_ns": 2239000,
+                "decode_ns": 84538500
+              },
+              {
+                "total_ns": 85263100,
+                "read_ns": 2580300,
+                "decode_ns": 82682800
+              },
+              {
+                "total_ns": 91301500,
+                "read_ns": 2493200,
+                "decode_ns": 88808300
+              },
+              {
+                "total_ns": 85781400,
+                "read_ns": 2334100,
+                "decode_ns": 83447300
+              },
+              {
+                "total_ns": 87295300,
+                "read_ns": 2576900,
+                "decode_ns": 84718400
+              },
+              {
+                "total_ns": 85971600,
+                "read_ns": 2529300,
+                "decode_ns": 83442300
+              },
+              {
+                "total_ns": 88579500,
+                "read_ns": 2335800,
+                "decode_ns": 86243700
+              },
+              {
+                "total_ns": 87082200,
+                "read_ns": 2305100,
+                "decode_ns": 84777100
+              },
+              {
+                "total_ns": 91494500,
+                "read_ns": 2277400,
+                "decode_ns": 89217100
+              },
+              {
+                "total_ns": 91353500,
+                "read_ns": 2212500,
+                "decode_ns": 89141000
+              },
+              {
+                "total_ns": 85939900,
+                "read_ns": 2247300,
+                "decode_ns": 83692600
+              },
+              {
+                "total_ns": 90760800,
+                "read_ns": 2318700,
+                "decode_ns": 88442100
+              },
+              {
+                "total_ns": 85645500,
+                "read_ns": 2407500,
+                "decode_ns": 83238000
+              },
+              {
+                "total_ns": 85424100,
+                "read_ns": 2310300,
+                "decode_ns": 83113800
+              },
+              {
+                "total_ns": 84920600,
+                "read_ns": 2253800,
+                "decode_ns": 82666800
+              },
+              {
+                "total_ns": 87756600,
+                "read_ns": 2444800,
+                "decode_ns": 85311800
+              },
+              {
+                "total_ns": 85395400,
+                "read_ns": 2243700,
+                "decode_ns": 83151700
+              },
+              {
+                "total_ns": 88874600,
+                "read_ns": 2513600,
+                "decode_ns": 86361000
+              },
+              {
+                "total_ns": 92178900,
+                "read_ns": 2262900,
+                "decode_ns": 89916000
+              },
+              {
+                "total_ns": 87471500,
+                "read_ns": 2359300,
+                "decode_ns": 85112200
+              },
+              {
+                "total_ns": 108542400,
+                "read_ns": 2348700,
+                "decode_ns": 106193700
+              },
+              {
+                "total_ns": 86197100,
+                "read_ns": 2324800,
+                "decode_ns": 83872300
+              },
+              {
+                "total_ns": 106049900,
+                "read_ns": 2324700,
+                "decode_ns": 103725200
+              },
+              {
+                "total_ns": 86043300,
+                "read_ns": 2275100,
+                "decode_ns": 83768200
+              },
+              {
+                "total_ns": 90968800,
+                "read_ns": 2276800,
+                "decode_ns": 88692000
+              },
+              {
+                "total_ns": 86945800,
+                "read_ns": 2534600,
+                "decode_ns": 84411200
+              },
+              {
+                "total_ns": 85165100,
+                "read_ns": 2286900,
+                "decode_ns": 82878200
+              },
+              {
+                "total_ns": 85545900,
+                "read_ns": 2248000,
+                "decode_ns": 83297900
+              },
+              {
+                "total_ns": 100707700,
+                "read_ns": 2473100,
+                "decode_ns": 98234600
+              },
+              {
+                "total_ns": 87025200,
+                "read_ns": 2531000,
+                "decode_ns": 84494200
+              },
+              {
+                "total_ns": 94622400,
+                "read_ns": 2287500,
+                "decode_ns": 92334900
+              },
+              {
+                "total_ns": 88986600,
+                "read_ns": 2434100,
+                "decode_ns": 86552500
+              },
+              {
+                "total_ns": 85851800,
+                "read_ns": 2628200,
+                "decode_ns": 83223600
+              },
+              {
+                "total_ns": 85561400,
+                "read_ns": 2306700,
+                "decode_ns": 83254700
+              },
+              {
+                "total_ns": 92226400,
+                "read_ns": 2338700,
+                "decode_ns": 89887700
+              },
+              {
+                "total_ns": 87632200,
+                "read_ns": 2251900,
+                "decode_ns": 85380300
+              },
+              {
+                "total_ns": 86978000,
+                "read_ns": 2256700,
+                "decode_ns": 84721300
+              },
+              {
+                "total_ns": 86307600,
+                "read_ns": 2337300,
+                "decode_ns": 83970300
+              },
+              {
+                "total_ns": 86202500,
+                "read_ns": 2303800,
+                "decode_ns": 83898700
+              }
+            ]
+          }
+        },
+        "os_cache_bypass": {
+          "zstd": {
+            "repeats": 50,
+            "total": {
+              "median_ms": 93.5403,
+              "p95_ms": 106.722135
+            },
+            "read": {
+              "median_ms": 11.92935,
+              "p95_ms": 12.71857
+            },
+            "decode": {
+              "median_ms": 82.0471,
+              "p95_ms": 94.985695
+            },
+            "samples_ns": [
+              {
+                "total_ns": 101132000,
+                "read_ns": 12169400,
+                "decode_ns": 88962600
+              },
+              {
+                "total_ns": 92878400,
+                "read_ns": 12168000,
+                "decode_ns": 80710400
+              },
+              {
+                "total_ns": 105177300,
+                "read_ns": 11462400,
+                "decode_ns": 93714900
+              },
+              {
+                "total_ns": 92628700,
+                "read_ns": 11793900,
+                "decode_ns": 80834800
+              },
+              {
+                "total_ns": 88525700,
+                "read_ns": 12513000,
+                "decode_ns": 76012700
+              },
+              {
+                "total_ns": 96129400,
+                "read_ns": 12067100,
+                "decode_ns": 84062300
+              },
+              {
+                "total_ns": 99347900,
+                "read_ns": 10720400,
+                "decode_ns": 88627500
+              },
+              {
+                "total_ns": 94734200,
+                "read_ns": 12157000,
+                "decode_ns": 82577200
+              },
+              {
+                "total_ns": 92476100,
+                "read_ns": 12187500,
+                "decode_ns": 80288600
+              },
+              {
+                "total_ns": 92641400,
+                "read_ns": 11089800,
+                "decode_ns": 81551600
+              },
+              {
+                "total_ns": 108156300,
+                "read_ns": 12701300,
+                "decode_ns": 95455000
+              },
+              {
+                "total_ns": 107724600,
+                "read_ns": 11669400,
+                "decode_ns": 96055200
+              },
+              {
+                "total_ns": 93430900,
+                "read_ns": 12552100,
+                "decode_ns": 80878800
+              },
+              {
+                "total_ns": 91944600,
+                "read_ns": 11794700,
+                "decode_ns": 80149900
+              },
+              {
+                "total_ns": 91936600,
+                "read_ns": 11276400,
+                "decode_ns": 80660200
+              },
+              {
+                "total_ns": 92859700,
+                "read_ns": 12574000,
+                "decode_ns": 80285700
+              },
+              {
+                "total_ns": 98613400,
+                "read_ns": 12337200,
+                "decode_ns": 86276200
+              },
+              {
+                "total_ns": 91797100,
+                "read_ns": 11854500,
+                "decode_ns": 79942600
+              },
+              {
+                "total_ns": 92182400,
+                "read_ns": 12169900,
+                "decode_ns": 80012500
+              },
+              {
+                "total_ns": 96210000,
+                "read_ns": 11689400,
+                "decode_ns": 84520600
+              },
+              {
+                "total_ns": 91935800,
+                "read_ns": 12035100,
+                "decode_ns": 79900700
+              },
+              {
+                "total_ns": 100565600,
+                "read_ns": 12244700,
+                "decode_ns": 88320900
+              },
+              {
+                "total_ns": 93649700,
+                "read_ns": 9745800,
+                "decode_ns": 83903900
+              },
+              {
+                "total_ns": 95244400,
+                "read_ns": 12418300,
+                "decode_ns": 82826100
+              },
+              {
+                "total_ns": 89453400,
+                "read_ns": 11030900,
+                "decode_ns": 78422500
+              },
+              {
+                "total_ns": 92666200,
+                "read_ns": 12352400,
+                "decode_ns": 80313800
+              },
+              {
+                "total_ns": 92646900,
+                "read_ns": 11715300,
+                "decode_ns": 80931600
+              },
+              {
+                "total_ns": 92666000,
+                "read_ns": 12012900,
+                "decode_ns": 80653100
+              },
+              {
+                "total_ns": 95275300,
+                "read_ns": 12732700,
+                "decode_ns": 82542600
+              },
+              {
+                "total_ns": 96150400,
+                "read_ns": 11687900,
+                "decode_ns": 84462500
+              },
+              {
+                "total_ns": 105496900,
+                "read_ns": 12756300,
+                "decode_ns": 92740600
+              },
+              {
+                "total_ns": 91533900,
+                "read_ns": 11594800,
+                "decode_ns": 79939100
+              },
+              {
+                "total_ns": 92490400,
+                "read_ns": 11755500,
+                "decode_ns": 80734900
+              },
+              {
+                "total_ns": 102376800,
+                "read_ns": 11956900,
+                "decode_ns": 90419900
+              },
+              {
+                "total_ns": 92127800,
+                "read_ns": 12470500,
+                "decode_ns": 79657300
+              },
+              {
+                "total_ns": 93119900,
+                "read_ns": 12154300,
+                "decode_ns": 80965600
+              },
+              {
+                "total_ns": 105092200,
+                "read_ns": 11862900,
+                "decode_ns": 93229300
+              },
+              {
+                "total_ns": 113133900,
+                "read_ns": 11936600,
+                "decode_ns": 101197300
+              },
+              {
+                "total_ns": 91376700,
+                "read_ns": 11947100,
+                "decode_ns": 79429600
+              },
+              {
+                "total_ns": 100985400,
+                "read_ns": 11524700,
+                "decode_ns": 89460700
+              },
+              {
+                "total_ns": 100910300,
+                "read_ns": 10205900,
+                "decode_ns": 90704400
+              },
+              {
+                "total_ns": 104191000,
+                "read_ns": 12979200,
+                "decode_ns": 91211800
+              },
+              {
+                "total_ns": 105052400,
+                "read_ns": 11024500,
+                "decode_ns": 94027900
+              },
+              {
+                "total_ns": 102824900,
+                "read_ns": 11919700,
+                "decode_ns": 90905200
+              },
+              {
+                "total_ns": 92597100,
+                "read_ns": 11572100,
+                "decode_ns": 81025000
+              },
+              {
+                "total_ns": 92411800,
+                "read_ns": 11973200,
+                "decode_ns": 80438600
+              },
+              {
+                "total_ns": 96647300,
+                "read_ns": 11213900,
+                "decode_ns": 85433400
+              },
+              {
+                "total_ns": 92688200,
+                "read_ns": 11822900,
+                "decode_ns": 80865300
+              },
+              {
+                "total_ns": 92971500,
+                "read_ns": 11922100,
+                "decode_ns": 81049400
+              },
+              {
+                "total_ns": 104743500,
+                "read_ns": 10331400,
+                "decode_ns": 94412100
+              }
+            ]
+          },
+          "delta_zstd": {
+            "repeats": 50,
+            "total": {
+              "median_ms": 94.7094,
+              "p95_ms": 108.240565
+            },
+            "read": {
+              "median_ms": 8.0582,
+              "p95_ms": 9.18212
+            },
+            "decode": {
+              "median_ms": 86.7559,
+              "p95_ms": 100.424955
+            },
+            "samples_ns": [
+              {
+                "total_ns": 91436800,
+                "read_ns": 8424200,
+                "decode_ns": 83012600
+              },
+              {
+                "total_ns": 92577100,
+                "read_ns": 8021200,
+                "decode_ns": 84555900
+              },
+              {
+                "total_ns": 99545300,
+                "read_ns": 8070200,
+                "decode_ns": 91475100
+              },
+              {
+                "total_ns": 97432300,
+                "read_ns": 8077600,
+                "decode_ns": 89354700
+              },
+              {
+                "total_ns": 101124200,
+                "read_ns": 8788600,
+                "decode_ns": 92335600
+              },
+              {
+                "total_ns": 95211100,
+                "read_ns": 8826500,
+                "decode_ns": 86384600
+              },
+              {
+                "total_ns": 94715500,
+                "read_ns": 7818900,
+                "decode_ns": 86896600
+              },
+              {
+                "total_ns": 91311100,
+                "read_ns": 8172800,
+                "decode_ns": 83138300
+              },
+              {
+                "total_ns": 92649600,
+                "read_ns": 9679800,
+                "decode_ns": 82969800
+              },
+              {
+                "total_ns": 96649400,
+                "read_ns": 9260600,
+                "decode_ns": 87388800
+              },
+              {
+                "total_ns": 98373300,
+                "read_ns": 7903300,
+                "decode_ns": 90470000
+              },
+              {
+                "total_ns": 90823700,
+                "read_ns": 7134700,
+                "decode_ns": 83689000
+              },
+              {
+                "total_ns": 100851400,
+                "read_ns": 8558200,
+                "decode_ns": 92293200
+              },
+              {
+                "total_ns": 90115200,
+                "read_ns": 7052400,
+                "decode_ns": 83062800
+              },
+              {
+                "total_ns": 97158100,
+                "read_ns": 7910200,
+                "decode_ns": 89247900
+              },
+              {
+                "total_ns": 92756400,
+                "read_ns": 8349100,
+                "decode_ns": 84407300
+              },
+              {
+                "total_ns": 107961000,
+                "read_ns": 9518500,
+                "decode_ns": 98442500
+              },
+              {
+                "total_ns": 89346200,
+                "read_ns": 8157500,
+                "decode_ns": 81188700
+              },
+              {
+                "total_ns": 93414000,
+                "read_ns": 7542600,
+                "decode_ns": 85871400
+              },
+              {
+                "total_ns": 94703300,
+                "read_ns": 7119400,
+                "decode_ns": 87583900
+              },
+              {
+                "total_ns": 90988900,
+                "read_ns": 8104400,
+                "decode_ns": 82884500
+              },
+              {
+                "total_ns": 91997600,
+                "read_ns": 8046200,
+                "decode_ns": 83951400
+              },
+              {
+                "total_ns": 103402200,
+                "read_ns": 6489700,
+                "decode_ns": 96912500
+              },
+              {
+                "total_ns": 90710600,
+                "read_ns": 8027500,
+                "decode_ns": 82683100
+              },
+              {
+                "total_ns": 107860700,
+                "read_ns": 8665600,
+                "decode_ns": 99195100
+              },
+              {
+                "total_ns": 92002000,
+                "read_ns": 8454800,
+                "decode_ns": 83547200
+              },
+              {
+                "total_ns": 92106700,
+                "read_ns": 7562900,
+                "decode_ns": 84543800
+              },
+              {
+                "total_ns": 92053600,
+                "read_ns": 7876300,
+                "decode_ns": 84177300
+              },
+              {
+                "total_ns": 102914500,
+                "read_ns": 8879800,
+                "decode_ns": 94034700
+              },
+              {
+                "total_ns": 103705200,
+                "read_ns": 7884400,
+                "decode_ns": 95820800
+              },
+              {
+                "total_ns": 111971100,
+                "read_ns": 8343600,
+                "decode_ns": 103627500
+              },
+              {
+                "total_ns": 93711800,
+                "read_ns": 8245500,
+                "decode_ns": 85466300
+              },
+              {
+                "total_ns": 99053100,
+                "read_ns": 8150400,
+                "decode_ns": 90902700
+              },
+              {
+                "total_ns": 101360300,
+                "read_ns": 7349200,
+                "decode_ns": 94011100
+              },
+              {
+                "total_ns": 100340100,
+                "read_ns": 8468600,
+                "decode_ns": 91871500
+              },
+              {
+                "total_ns": 92276000,
+                "read_ns": 7973900,
+                "decode_ns": 84302100
+              },
+              {
+                "total_ns": 108469300,
+                "read_ns": 7038100,
+                "decode_ns": 101431200
+              },
+              {
+                "total_ns": 93577800,
+                "read_ns": 9086200,
+                "decode_ns": 84491600
+              },
+              {
+                "total_ns": 96618900,
+                "read_ns": 7822700,
+                "decode_ns": 88796200
+              },
+              {
+                "total_ns": 98593600,
+                "read_ns": 8241100,
+                "decode_ns": 90352500
+              },
+              {
+                "total_ns": 103457800,
+                "read_ns": 7201500,
+                "decode_ns": 96256300
+              },
+              {
+                "total_ns": 94316100,
+                "read_ns": 7700900,
+                "decode_ns": 86615200
+              },
+              {
+                "total_ns": 112131200,
+                "read_ns": 8580100,
+                "decode_ns": 103551100
+              },
+              {
+                "total_ns": 92098400,
+                "read_ns": 8030300,
+                "decode_ns": 84068100
+              },
+              {
+                "total_ns": 91432000,
+                "read_ns": 7946200,
+                "decode_ns": 83485800
+              },
+              {
+                "total_ns": 93076700,
+                "read_ns": 8000800,
+                "decode_ns": 85075900
+              },
+              {
+                "total_ns": 90811100,
+                "read_ns": 7709400,
+                "decode_ns": 83101700
+              },
+              {
+                "total_ns": 101932300,
+                "read_ns": 8287800,
+                "decode_ns": 93644500
+              },
+              {
+                "total_ns": 91453900,
+                "read_ns": 7866000,
+                "decode_ns": 83587900
+              },
+              {
+                "total_ns": 100421400,
+                "read_ns": 8310900,
+                "decode_ns": 92110500
+              }
+            ]
+          }
+        }
+      },
+      "comparisons": {
+        "warm_buffered": {
+          "delta_zstd_over_zstd_total_median": 1.02795367689909,
+          "delta_zstd_over_zstd_total_p95": 1.0959477197128453,
+          "delta_zstd_over_zstd_container_bytes": 0.5922647996946552
+        },
+        "os_cache_bypass": {
+          "delta_zstd_over_zstd_total_median": 1.0124983563234242,
+          "delta_zstd_over_zstd_total_p95": 1.0142278825287745,
+          "delta_zstd_over_zstd_container_bytes": 0.5922647996946552
+        }
+      }
+    }
+  ]
+}

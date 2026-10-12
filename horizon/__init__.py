@@ -1,0 +1,1 @@
+"""HORIZON heightmap compression prototype."""

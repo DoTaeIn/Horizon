@@ -1,0 +1,69 @@
+{
+  "attribution": [
+    "Mapzen / Tilezen",
+    "Terrain data courtesy of the U.S. Geological Survey.",
+    "Produced using Copernicus data and information funded by the European Union - EU-DEM layers.",
+    "NOAA / ETOPO1"
+  ],
+  "attribution_url": "https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "dataset": "Mapzen/Tilezen Skadi terrain tiles (HGT, composited real-world DEM)",
+  "dataset_note": "Composited from several public elevation sources; not necessarily original NASA SRTM exclusively. No ground-truth accuracy is claimed.",
+  "extent": {
+    "col_order": "west-to-east",
+    "crs": "WGS84 geographic degrees",
+    "east_lon": 8,
+    "north_lat": 47,
+    "note": "samples sit on the integer-degree grid; both edges are included",
+    "row_order": "north-to-south",
+    "south_lat": 46,
+    "west_lon": 7
+  },
+  "fetched_utc": "2026-10-12T05:12:55+00:00",
+  "files": {
+    "gzip": "N46E007.hgt.gz",
+    "json": "N46E007.json",
+    "npy": "N46E007.npy"
+  },
+  "http_headers": {
+    "content-length": "15958095",
+    "content-type": "application/x-gzip",
+    "etag": "\"481bdd4602bca6b6ffb497f18b566cc2-2\"",
+    "last-modified": "Sun, 24 Apr 2016 22:28:03 GMT"
+  },
+  "nodata_count": 0,
+  "normalization": {
+    "equation": "u = h + 32768 (h: signed int16 meters, u: uint16 little-endian)",
+    "inverse": "h = u - 32768, stored as big-endian int16, reproduces the original HGT bytes exactly",
+    "nodata_m": -32768,
+    "nodata_u": 0,
+    "offset": 32768
+  },
+  "normalized_dtype": "<u2",
+  "processing": "none: no smoothing, clipping, interpolation, resizing or region selection",
+  "raw_format": "signed int16 big-endian meters, rows north-to-south, nodata -32768",
+  "registry_url": "https://registry.opendata.aws/terrain-tiles/",
+  "schema_version": 1,
+  "sha256": {
+    "gzip": "cf790a87057dfdf126f9b314d9ec71d407afdedbe71c79e2b14c903d024ce0b9",
+    "normalized_uint16_le": "824b276f5e250a2765abf5a9f12ee0ac9433f01f990b6e658f5abba222744737",
+    "npy_file": "f6f2ac65331a3eaaddeeeee37a5c308337f7350219405a6746f89b88a11bceab",
+    "raw_hgt": "459a8feb64bb5f4a5b88718b4b4361e6c6646a1d7349503661df414deebdbd7b"
+  },
+  "shape": [
+    3601,
+    3601
+  ],
+  "sizes_bytes": {
+    "gzip": 15958095,
+    "npy_file": 25934530,
+    "raw_hgt": 25934402
+  },
+  "source_docs_url": "https://github.com/tilezen/joerd/blob/master/docs/data-sources.md",
+  "source_imagery_headers": {},
+  "source_imagery_note": "No source imagery header was present in the response; sources are not identified.",
+  "source_url": "https://elevation-tiles-prod.s3.amazonaws.com/skadi/N46/N46E007.hgt.gz",
+  "tile": "N46E007",
+  "valid_count": 12967201,
+  "valid_max_m": 4469,
+  "valid_min_m": 398
+}

@@ -1,0 +1,52 @@
+{
+  "scope": "tracemalloc peak for one whole delta_zstd decode; input/container allocated before tracing; excludes untraced native allocations and is not process RSS",
+  "repeats": 5,
+  "baseline_sha256": "9fa7a91167868235661113086f3dc5185387427ccd311ea3fa76147d4af63eec",
+  "current_sha256": "97b175adedc18462e2fc7f762b7d743ba4969ff96404d0a9496f4b8c815b6e08",
+  "cases": [
+    {
+      "tile": "N37E127",
+      "shape": [
+        3601,
+        3601
+      ],
+      "raw_bytes": 25934402,
+      "baseline_peak_bytes": [
+        85802702,
+        85800806,
+        85800806,
+        85800806,
+        85800806
+      ],
+      "current_peak_bytes": [
+        60387895,
+        60386015,
+        60386015,
+        60386015,
+        60386015
+      ]
+    },
+    {
+      "tile": "N46E007",
+      "shape": [
+        3601,
+        3601
+      ],
+      "raw_bytes": 25934402,
+      "baseline_peak_bytes": [
+        86546560,
+        86546560,
+        86546560,
+        86546560,
+        86546560
+      ],
+      "current_peak_bytes": [
+        61131769,
+        61131769,
+        61131769,
+        61131769,
+        61131769
+      ]
+    }
+  ]
+}

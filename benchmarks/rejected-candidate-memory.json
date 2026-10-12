@@ -1,0 +1,37 @@
+{
+  "note": "Python/NumPy allocations traced during decode only; excludes untraced native library allocations and is not total process RSS. Synthetic maps, not terrain test results.",
+  "results": [
+    {
+      "shape": [
+        256,
+        256
+      ],
+      "raw_bytes": 131072,
+      "source": "synthetic-memory-probe",
+      "before_traced_peak_bytes": 396577,
+      "after_traced_peak_bytes": 660000
+    },
+    {
+      "shape": [
+        1024,
+        1024
+      ],
+      "raw_bytes": 2097152,
+      "source": "synthetic-memory-probe",
+      "before_traced_peak_bytes": 6296664,
+      "after_traced_peak_bytes": 10491583
+    },
+    {
+      "shape": [
+        3601,
+        3601
+      ],
+      "raw_bytes": 25934402,
+      "source": "synthetic-memory-probe",
+      "before_traced_peak_bytes": 77827120,
+      "after_traced_peak_bytes": 129696539
+    }
+  ],
+  "baseline_sha256": "9fa7a91167868235661113086f3dc5185387427ccd311ea3fa76147d4af63eec",
+  "optimized_sha256": "fd4d9f262e21c8907268300a3a998f4ca3d247981af6856b4d21ff5ff7ab9fc3"
+}

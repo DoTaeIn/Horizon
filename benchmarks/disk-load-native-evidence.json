@@ -1,0 +1,152 @@
+{
+  "scope": "auditor wrappers call the real configured Windows APIs; no physical-read telemetry or device-cache eviction",
+  "containers": [
+    {
+      "path": "data\\disk-load-v2\\000_delta_zstd.bin",
+      "bytes": 7996675,
+      "sha256": "b36a8a4df6387b37cae55234d655de80530142b83840cca16c781b9fabae2089",
+      "events": [
+        {
+          "api": "CreateFileW",
+          "flags": 671088640
+        },
+        {
+          "api": "ReadFile",
+          "request_bytes": 7999488,
+          "buffer_mod_4096": 0,
+          "actual_bytes": 7996675,
+          "success": true
+        },
+        {
+          "api": "VirtualFree",
+          "success": true
+        },
+        {
+          "api": "CloseHandle",
+          "success": true
+        }
+      ]
+    },
+    {
+      "path": "data\\disk-load-v2\\000_zstd.bin",
+      "bytes": 12024378,
+      "sha256": "99d44614eb186e94827d9be15fe59466a683a04c1595e7246cbaeac23190777b",
+      "events": [
+        {
+          "api": "CreateFileW",
+          "flags": 671088640
+        },
+        {
+          "api": "ReadFile",
+          "request_bytes": 12025856,
+          "buffer_mod_4096": 0,
+          "actual_bytes": 12024378,
+          "success": true
+        },
+        {
+          "api": "VirtualFree",
+          "success": true
+        },
+        {
+          "api": "CloseHandle",
+          "success": true
+        }
+      ]
+    },
+    {
+      "path": "data\\disk-load-v2\\001_delta_zstd.bin",
+      "bytes": 8742429,
+      "sha256": "ea92b59400ef7e4c3ab874648b220a8126f43b63314c2ec80e13d9fb21b29d7b",
+      "events": [
+        {
+          "api": "CreateFileW",
+          "flags": 671088640
+        },
+        {
+          "api": "ReadFile",
+          "request_bytes": 8744960,
+          "buffer_mod_4096": 0,
+          "actual_bytes": 8742429,
+          "success": true
+        },
+        {
+          "api": "VirtualFree",
+          "success": true
+        },
+        {
+          "api": "CloseHandle",
+          "success": true
+        }
+      ]
+    },
+    {
+      "path": "data\\disk-load-v2\\001_zstd.bin",
+      "bytes": 14761014,
+      "sha256": "1746b06f1ba5d7dd45f72df351df8834c9a3eb726ebbe9039b1daff7cf1575b9",
+      "events": [
+        {
+          "api": "CreateFileW",
+          "flags": 671088640
+        },
+        {
+          "api": "ReadFile",
+          "request_bytes": 14761984,
+          "buffer_mod_4096": 0,
+          "actual_bytes": 14761014,
+          "success": true
+        },
+        {
+          "api": "VirtualFree",
+          "success": true
+        },
+        {
+          "api": "CloseHandle",
+          "success": true
+        }
+      ]
+    }
+  ],
+  "forced_ReadFile_error_87_cleanup": [
+    {
+      "api": "CreateFileW",
+      "flags": 671088640
+    },
+    {
+      "api": "ReadFile",
+      "request_bytes": 14761984,
+      "buffer_mod_4096": 0,
+      "actual_bytes": 0,
+      "success": false
+    },
+    {
+      "api": "VirtualFree",
+      "success": true
+    },
+    {
+      "api": "CloseHandle",
+      "success": true
+    }
+  ],
+  "storage_geometry": {
+    "method": "GetFileInformationByHandleEx(FileStorageInfo=16) on N37E127.npy, and GetDiskFreeSpaceW on its volume",
+    "volume_root": "C:\\",
+    "logical_sector_bytes": 512,
+    "physical_sector_atomicity_bytes": 4096,
+    "physical_sector_performance_bytes": 4096,
+    "effective_physical_sector_bytes": 4096,
+    "sector_alignment_offset": 0,
+    "partition_alignment_offset": 0,
+    "storage_info_flags": 15,
+    "physical_disk_model": "not inspected: storage CIM query unavailable in sandbox",
+    "physical_cache_eviction": false,
+    "global_os_cache_purge": false,
+    "filesystem": "NTFS"
+  },
+  "script_sha256": "a4f2deb970b393dee6629c21e19b28dd79bd1c04290eb4dda84ac864e7981b5e",
+  "additional_safety_checks": {
+    "existing_report_unchanged": true,
+    "existing_container_directory_unchanged": true,
+    "failed_preparation_removed_only_own_files": true,
+    "final_timed_samples_verified": 400
+  }
+}

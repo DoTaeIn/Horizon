@@ -1,0 +1,12 @@
+.venv/
+.uv-cache/
+.claude-runs/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+data/terrain/*.hgt.gz
+data/terrain/*.npy
+data/disk-load-*/
+data/terrain-local/
