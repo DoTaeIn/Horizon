@@ -1,0 +1,153 @@
+{
+  "date_local": "2026-10-12",
+  "timezone": "Asia/Seoul",
+  "auditor": "Codex",
+  "reports_verified": [
+    {
+      "report": "benchmarks/town-disk-1024-v1.json",
+      "input_sha256": "9deabb4337b2b178130ae75ca8b93eb688edfc300fb205a1b76adfd4260e19c8",
+      "load_samples": 1200,
+      "checks": [
+        "input regenerated",
+        "all source and persisted file hashes",
+        "all statistics recomputed",
+        "total=read+decode",
+        "same request schedules all methods/modes",
+        "pixel request inside returned region",
+        "partial bytes=24+32+selected container length",
+        "full loads read exactly file size",
+        "whole chunked redecoded exactly",
+        "no short reads in recorded successful samples"
+      ]
+    },
+    {
+      "report": "benchmarks/town-disk-1024-seed2-v1.json",
+      "input_sha256": "d61bc7b4ae591c5ff9cecdc8f6a29d8884b4b0b5c620096985990b28f1b1af0f",
+      "load_samples": 1200,
+      "checks": [
+        "input regenerated",
+        "all source and persisted file hashes",
+        "all statistics recomputed",
+        "total=read+decode",
+        "same request schedules all methods/modes",
+        "pixel request inside returned region",
+        "partial bytes=24+32+selected container length",
+        "full loads read exactly file size",
+        "whole chunked redecoded exactly",
+        "no short reads in recorded successful samples"
+      ]
+    }
+  ],
+  "native_fcntl_check": {
+    "real_calls_wrapped_not_stubbed": true,
+    "commands_and_args": [
+      [
+        48,
+        1
+      ],
+      [
+        48,
+        1
+      ],
+      [
+        48,
+        1
+      ],
+      [
+        48,
+        1
+      ]
+    ],
+    "loads": [
+      {
+        "loader": "load_whole",
+        "region": null,
+        "bytes_read": 375841,
+        "read_calls": 2
+      },
+      {
+        "loader": "load_chunked",
+        "region": null,
+        "bytes_read": 376285,
+        "read_calls": 3
+      },
+      {
+        "loader": "load_whole",
+        "region": [
+          256,
+          256,
+          256,
+          256
+        ],
+        "bytes_read": 375841,
+        "read_calls": 2
+      },
+      {
+        "loader": "load_chunked",
+        "region": [
+          256,
+          256,
+          256,
+          256
+        ],
+        "bytes_read": 25393,
+        "read_calls": 3
+      }
+    ]
+  },
+  "preexisting_output_and_directory_preserved": true,
+  "tests": {
+    "command": ".venv/bin/python -m unittest discover -s tests",
+    "total": 244,
+    "passed": 239,
+    "skipped": 5,
+    "failed": 0
+  },
+  "official_sources": [
+    "https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/fcntl.2.html",
+    "https://github.com/apple/darwin-xnu/blob/main/bsd/sys/fcntl.h"
+  ],
+  "local_sdk_F_NOCACHE": "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/fcntl.h:257",
+  "limitations": [
+    "F_NOCACHE requested, not verified cache eviction or physical cold",
+    "bytes are application syscall data, not physical device transfer",
+    "aligned single-chunk requests only",
+    "mode/method order static; whole/chunk pair order alternates",
+    "partial reads do not validate unread index entries or other chunks",
+    "single Mac desktop and two synthetic maps"
+  ],
+  "sha256": {
+    "horizon/town_disk.py": "38ac25b6ceeff3a7e0960aa983b6ebcfa79f0a3d869b4857def0e8ea845f3bd3",
+    "scripts/compare_town_disk.py": "d02dfd5df73cd1e233f45b6ca14be72eb67f9be56b8d7212efbe6adaece4d702",
+    "tests/test_town_disk.py": "c03fb2345551ec11317e3db9b968c65aee592ff4a0df3bee0efed78bbe7813e4",
+    "tests/test_town_disk_cli.py": "3bbbd67fe3ac64eceffb57ee8dca60ec8a9c1755e0309b1a007f6a3d1a37e7f8",
+    "docs/town-disk-method.md": "816f919ee1e03f6654878a6e8c18c0161df074d7a92b06250436f37e4d4a0315",
+    "benchmarks/town-disk-1024-v1.json": "6ac20e5634155236dda13bcbc0a63c51e543bf7ccac84e1515a303ce8c498def",
+    "benchmarks/town-disk-1024-seed2-v1.json": "58e847474767d2b584093c0fe91110973c900d0b24985de022f1a7df2a4eddaa",
+    "benchmarks/town-disk-audit.md": "ffdced394e76c363e3bdb98e3baf592cd850f5cb4420bb96165ef8f71b405440"
+  },
+  "implementers": [
+    {
+      "role": "module",
+      "session_id": "0e0048c5-9032-48b2-8934-126855f43ba4",
+      "models": [
+        "claude-opus-5"
+      ]
+    },
+    {
+      "role": "tests",
+      "session_id": "5c5c6a27-d3e7-4f00-bcaa-3a7f3c89c611",
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    {
+      "role": "CLI",
+      "session_id": "ac5cbf96-d67b-465b-b5f5-908baf5d3309",
+      "models": [
+        "claude-sonnet-5"
+      ]
+    }
+  ],
+  "same_input_hashes_as_prior_memory_benchmarks": true
+}

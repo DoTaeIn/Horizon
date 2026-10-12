@@ -1,0 +1,1188 @@
+{
+  "audit": "Independent recomputation of schedules, chunk intersections, actual requested bytes, file/source/input hashes, all raw timing identities and aggregates. Random ROI correctness separately audited 450 requests across all3codecs on513x769.",
+  "tests": {
+    "total": 300,
+    "passed": 295,
+    "skipped": 5
+  },
+  "claude_sessions": {
+    "roi_opus": "9325cb77-f939-4852-aece-1ef9efa48922",
+    "roi_tests_sonnet": "a26bea1d-f98e-479a-856d-9f3766d94196",
+    "movement_cli_sonnet": "cce0731e-6654-4117-80c5-043f587e6a03",
+    "movement_tests_opus": "9325cb77-f939-4852-aece-1ef9efa48922"
+  },
+  "reports": [
+    {
+      "report": "town-movement-1024-v1.json",
+      "seed": 20261012,
+      "input_sha256": "9deabb4337b2b178130ae75ca8b93eb688edfc300fb205a1b76adfd4260e19c8",
+      "load_count": 12960,
+      "paths": {
+        "smooth_walk": {
+          "distinct_chunk_sets": 10,
+          "chunk_set_changes": 11
+        },
+        "boundary_backtrack": {
+          "distinct_chunk_sets": 2,
+          "chunk_set_changes": 119
+        },
+        "teleport": {
+          "distinct_chunk_sets": 25,
+          "chunk_set_changes": 115
+        }
+      },
+      "cells": [
+        {
+          "method": "zstd",
+          "mode": "warm_buffered",
+          "trajectory": "smooth_walk",
+          "whole": {
+            "median_ms": 2.501854,
+            "p95_ms": 2.760976,
+            "max_ms": 3.136875
+          },
+          "region": {
+            "median_ms": 0.608375,
+            "p95_ms": 0.757715,
+            "max_ms": 2.957625
+          },
+          "speedup": 4.112,
+          "bytes_reduction_pct": 81.436,
+          "chunk_distribution": {
+            "1": 87,
+            "2": 48,
+            "4": 225
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 302.032749,
+            "p95_ms": 305.983115,
+            "max_ms": 306.422045
+          },
+          "region_trajectory_ms": {
+            "median_ms": 58.50679,
+            "p95_ms": 67.28895,
+            "max_ms": 68.264745
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "warm_buffered",
+          "trajectory": "boundary_backtrack",
+          "whole": {
+            "median_ms": 2.502896,
+            "p95_ms": 2.772194,
+            "max_ms": 2.9795
+          },
+          "region": {
+            "median_ms": 0.669625,
+            "p95_ms": 0.756756,
+            "max_ms": 0.893167
+          },
+          "speedup": 3.738,
+          "bytes_reduction_pct": 75.345,
+          "chunk_distribution": {
+            "4": 360
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 301.443758,
+            "p95_ms": 304.189537,
+            "max_ms": 304.494624
+          },
+          "region_trajectory_ms": {
+            "median_ms": 81.291707,
+            "p95_ms": 82.162912,
+            "max_ms": 82.259713
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "warm_buffered",
+          "trajectory": "teleport",
+          "whole": {
+            "median_ms": 2.498875,
+            "p95_ms": 2.724071,
+            "max_ms": 2.89575
+          },
+          "region": {
+            "median_ms": 0.613541,
+            "p95_ms": 0.771004,
+            "max_ms": 0.939875
+          },
+          "speedup": 4.073,
+          "bytes_reduction_pct": 81.582,
+          "chunk_distribution": {
+            "1": 33,
+            "2": 138,
+            "4": 189
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 303.279088,
+            "p95_ms": 303.309836,
+            "max_ms": 303.313253
+          },
+          "region_trajectory_ms": {
+            "median_ms": 60.963582,
+            "p95_ms": 62.906157,
+            "max_ms": 63.121999
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "macos_nocache",
+          "trajectory": "smooth_walk",
+          "whole": {
+            "median_ms": 2.493354,
+            "p95_ms": 2.754538,
+            "max_ms": 2.975333
+          },
+          "region": {
+            "median_ms": 0.656937,
+            "p95_ms": 0.763791,
+            "max_ms": 1.178458
+          },
+          "speedup": 3.795,
+          "bytes_reduction_pct": 81.436,
+          "chunk_distribution": {
+            "1": 87,
+            "2": 48,
+            "4": 225
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 303.198872,
+            "p95_ms": 303.212481,
+            "max_ms": 303.213993
+          },
+          "region_trajectory_ms": {
+            "median_ms": 63.865288,
+            "p95_ms": 63.883331,
+            "max_ms": 63.885336
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "macos_nocache",
+          "trajectory": "boundary_backtrack",
+          "whole": {
+            "median_ms": 2.505,
+            "p95_ms": 2.754929,
+            "max_ms": 3.238917
+          },
+          "region": {
+            "median_ms": 0.746084,
+            "p95_ms": 0.893817,
+            "max_ms": 1.456
+          },
+          "speedup": 3.358,
+          "bytes_reduction_pct": 75.345,
+          "chunk_distribution": {
+            "4": 360
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 301.680917,
+            "p95_ms": 305.67902,
+            "max_ms": 306.123254
+          },
+          "region_trajectory_ms": {
+            "median_ms": 90.611541,
+            "p95_ms": 91.781993,
+            "max_ms": 91.912043
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "macos_nocache",
+          "trajectory": "teleport",
+          "whole": {
+            "median_ms": 2.5205,
+            "p95_ms": 2.834478,
+            "max_ms": 3.252542
+          },
+          "region": {
+            "median_ms": 0.619291,
+            "p95_ms": 0.793646,
+            "max_ms": 1.279959
+          },
+          "speedup": 4.07,
+          "bytes_reduction_pct": 81.582,
+          "chunk_distribution": {
+            "1": 33,
+            "2": 138,
+            "4": 189
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 306.193959,
+            "p95_ms": 309.406063,
+            "max_ms": 309.762963
+          },
+          "region_trajectory_ms": {
+            "median_ms": 62.208081,
+            "p95_ms": 65.191843,
+            "max_ms": 65.523372
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "warm_buffered",
+          "trajectory": "smooth_walk",
+          "whole": {
+            "median_ms": 1.756167,
+            "p95_ms": 2.14688,
+            "max_ms": 2.402916
+          },
+          "region": {
+            "median_ms": 0.440813,
+            "p95_ms": 0.569544,
+            "max_ms": 0.875583
+          },
+          "speedup": 3.984,
+          "bytes_reduction_pct": 81.63,
+          "chunk_distribution": {
+            "1": 87,
+            "2": 48,
+            "4": 225
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 214.873203,
+            "p95_ms": 218.513747,
+            "max_ms": 218.918252
+          },
+          "region_trajectory_ms": {
+            "median_ms": 44.339498,
+            "p95_ms": 45.21767,
+            "max_ms": 45.315245
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "warm_buffered",
+          "trajectory": "boundary_backtrack",
+          "whole": {
+            "median_ms": 1.731146,
+            "p95_ms": 2.128666,
+            "max_ms": 2.42725
+          },
+          "region": {
+            "median_ms": 0.480855,
+            "p95_ms": 0.643334,
+            "max_ms": 1.137
+          },
+          "speedup": 3.6,
+          "bytes_reduction_pct": 74.395,
+          "chunk_distribution": {
+            "4": 360
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 212.354966,
+            "p95_ms": 215.352111,
+            "max_ms": 215.685127
+          },
+          "region_trajectory_ms": {
+            "median_ms": 60.566048,
+            "p95_ms": 61.404461,
+            "max_ms": 61.497618
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "warm_buffered",
+          "trajectory": "teleport",
+          "whole": {
+            "median_ms": 1.737167,
+            "p95_ms": 2.119429,
+            "max_ms": 2.55775
+          },
+          "region": {
+            "median_ms": 0.452979,
+            "p95_ms": 0.717551,
+            "max_ms": 1.815334
+          },
+          "speedup": 3.835,
+          "bytes_reduction_pct": 81.467,
+          "chunk_distribution": {
+            "1": 33,
+            "2": 138,
+            "4": 189
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 214.836417,
+            "p95_ms": 216.859428,
+            "max_ms": 217.084207
+          },
+          "region_trajectory_ms": {
+            "median_ms": 58.00646,
+            "p95_ms": 58.010435,
+            "max_ms": 58.010877
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "macos_nocache",
+          "trajectory": "smooth_walk",
+          "whole": {
+            "median_ms": 1.772834,
+            "p95_ms": 2.200588,
+            "max_ms": 2.752333
+          },
+          "region": {
+            "median_ms": 0.534458,
+            "p95_ms": 0.813865,
+            "max_ms": 1.481708
+          },
+          "speedup": 3.317,
+          "bytes_reduction_pct": 81.63,
+          "chunk_distribution": {
+            "1": 87,
+            "2": 48,
+            "4": 225
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 219.271086,
+            "p95_ms": 221.934528,
+            "max_ms": 222.230466
+          },
+          "region_trajectory_ms": {
+            "median_ms": 56.379459,
+            "p95_ms": 57.165529,
+            "max_ms": 57.25287
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "macos_nocache",
+          "trajectory": "boundary_backtrack",
+          "whole": {
+            "median_ms": 1.775125,
+            "p95_ms": 2.205063,
+            "max_ms": 2.603333
+          },
+          "region": {
+            "median_ms": 0.636688,
+            "p95_ms": 0.997849,
+            "max_ms": 1.207208
+          },
+          "speedup": 2.788,
+          "bytes_reduction_pct": 74.395,
+          "chunk_distribution": {
+            "4": 360
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 219.564171,
+            "p95_ms": 219.677716,
+            "max_ms": 219.690332
+          },
+          "region_trajectory_ms": {
+            "median_ms": 78.135537,
+            "p95_ms": 80.339947,
+            "max_ms": 80.584882
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "macos_nocache",
+          "trajectory": "teleport",
+          "whole": {
+            "median_ms": 1.742521,
+            "p95_ms": 2.08094,
+            "max_ms": 2.676792
+          },
+          "region": {
+            "median_ms": 0.463584,
+            "p95_ms": 0.680858,
+            "max_ms": 1.368167
+          },
+          "speedup": 3.759,
+          "bytes_reduction_pct": 81.467,
+          "chunk_distribution": {
+            "1": 33,
+            "2": 138,
+            "4": 189
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 214.360793,
+            "p95_ms": 215.479531,
+            "max_ms": 215.603835
+          },
+          "region_trajectory_ms": {
+            "median_ms": 50.427161,
+            "p95_ms": 58.07353,
+            "max_ms": 58.923127
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "warm_buffered",
+          "trajectory": "smooth_walk",
+          "whole": {
+            "median_ms": 4.470292,
+            "p95_ms": 4.889795,
+            "max_ms": 5.630667
+          },
+          "region": {
+            "median_ms": 1.050791,
+            "p95_ms": 1.239277,
+            "max_ms": 1.586208
+          },
+          "speedup": 4.254,
+          "bytes_reduction_pct": 81.341,
+          "chunk_distribution": {
+            "1": 87,
+            "2": 48,
+            "4": 225
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 537.686462,
+            "p95_ms": 544.025717,
+            "max_ms": 544.730079
+          },
+          "region_trajectory_ms": {
+            "median_ms": 102.097209,
+            "p95_ms": 102.269966,
+            "max_ms": 102.289161
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "warm_buffered",
+          "trajectory": "boundary_backtrack",
+          "whole": {
+            "median_ms": 4.561417,
+            "p95_ms": 5.093188,
+            "max_ms": 5.693541
+          },
+          "region": {
+            "median_ms": 1.177146,
+            "p95_ms": 1.582767,
+            "max_ms": 2.854875
+          },
+          "speedup": 3.875,
+          "bytes_reduction_pct": 74.6,
+          "chunk_distribution": {
+            "4": 360
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 553.346712,
+            "p95_ms": 555.182972,
+            "max_ms": 555.387001
+          },
+          "region_trajectory_ms": {
+            "median_ms": 148.217997,
+            "p95_ms": 149.123582,
+            "max_ms": 149.224203
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "warm_buffered",
+          "trajectory": "teleport",
+          "whole": {
+            "median_ms": 4.749917,
+            "p95_ms": 5.501509,
+            "max_ms": 9.812
+          },
+          "region": {
+            "median_ms": 1.115229,
+            "p95_ms": 1.596732,
+            "max_ms": 5.181333
+          },
+          "speedup": 4.259,
+          "bytes_reduction_pct": 81.381,
+          "chunk_distribution": {
+            "1": 33,
+            "2": 138,
+            "4": 189
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 574.109297,
+            "p95_ms": 596.300934,
+            "max_ms": 598.766672
+          },
+          "region_trajectory_ms": {
+            "median_ms": 117.698671,
+            "p95_ms": 120.509744,
+            "max_ms": 120.822086
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "macos_nocache",
+          "trajectory": "smooth_walk",
+          "whole": {
+            "median_ms": 4.459437,
+            "p95_ms": 4.835379,
+            "max_ms": 5.224583
+          },
+          "region": {
+            "median_ms": 1.097604,
+            "p95_ms": 1.230294,
+            "max_ms": 1.673584
+          },
+          "speedup": 4.063,
+          "bytes_reduction_pct": 81.341,
+          "chunk_distribution": {
+            "1": 87,
+            "2": 48,
+            "4": 225
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 537.33775,
+            "p95_ms": 540.394712,
+            "max_ms": 540.734375
+          },
+          "region_trajectory_ms": {
+            "median_ms": 104.704261,
+            "p95_ms": 104.809254,
+            "max_ms": 104.82092
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "macos_nocache",
+          "trajectory": "boundary_backtrack",
+          "whole": {
+            "median_ms": 4.395791,
+            "p95_ms": 4.70462,
+            "max_ms": 5.178875
+          },
+          "region": {
+            "median_ms": 1.132229,
+            "p95_ms": 1.250969,
+            "max_ms": 1.5155
+          },
+          "speedup": 3.882,
+          "bytes_reduction_pct": 74.6,
+          "chunk_distribution": {
+            "4": 360
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 532.0885,
+            "p95_ms": 534.717396,
+            "max_ms": 535.009496
+          },
+          "region_trajectory_ms": {
+            "median_ms": 135.926251,
+            "p95_ms": 140.753099,
+            "max_ms": 141.289415
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "macos_nocache",
+          "trajectory": "teleport",
+          "whole": {
+            "median_ms": 4.43523,
+            "p95_ms": 4.8325,
+            "max_ms": 5.4375
+          },
+          "region": {
+            "median_ms": 1.067333,
+            "p95_ms": 1.245837,
+            "max_ms": 1.8425
+          },
+          "speedup": 4.155,
+          "bytes_reduction_pct": 81.381,
+          "chunk_distribution": {
+            "1": 33,
+            "2": 138,
+            "4": 189
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 534.080875,
+            "p95_ms": 541.153495,
+            "max_ms": 541.939342
+          },
+          "region_trajectory_ms": {
+            "median_ms": 103.373206,
+            "p95_ms": 106.948155,
+            "max_ms": 107.345371
+          }
+        }
+      ]
+    },
+    {
+      "report": "town-movement-1024-seed2-v1.json",
+      "seed": 20261013,
+      "input_sha256": "d61bc7b4ae591c5ff9cecdc8f6a29d8884b4b0b5c620096985990b28f1b1af0f",
+      "load_count": 12960,
+      "paths": {
+        "smooth_walk": {
+          "distinct_chunk_sets": 10,
+          "chunk_set_changes": 12
+        },
+        "boundary_backtrack": {
+          "distinct_chunk_sets": 2,
+          "chunk_set_changes": 119
+        },
+        "teleport": {
+          "distinct_chunk_sets": 25,
+          "chunk_set_changes": 110
+        }
+      },
+      "cells": [
+        {
+          "method": "zstd",
+          "mode": "warm_buffered",
+          "trajectory": "smooth_walk",
+          "whole": {
+            "median_ms": 2.405271,
+            "p95_ms": 2.650232,
+            "max_ms": 3.311875
+          },
+          "region": {
+            "median_ms": 0.563333,
+            "p95_ms": 0.717163,
+            "max_ms": 1.213208
+          },
+          "speedup": 4.27,
+          "bytes_reduction_pct": 81.23,
+          "chunk_distribution": {
+            "1": 12,
+            "2": 162,
+            "4": 186
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 293.192212,
+            "p95_ms": 293.861698,
+            "max_ms": 293.936085
+          },
+          "region_trajectory_ms": {
+            "median_ms": 57.963797,
+            "p95_ms": 60.508169,
+            "max_ms": 60.790877
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "warm_buffered",
+          "trajectory": "boundary_backtrack",
+          "whole": {
+            "median_ms": 2.412562,
+            "p95_ms": 2.803293,
+            "max_ms": 2.96525
+          },
+          "region": {
+            "median_ms": 0.666375,
+            "p95_ms": 0.827772,
+            "max_ms": 1.265
+          },
+          "speedup": 3.62,
+          "bytes_reduction_pct": 74.966,
+          "chunk_distribution": {
+            "4": 360
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 291.591083,
+            "p95_ms": 299.721905,
+            "max_ms": 300.62533
+          },
+          "region_trajectory_ms": {
+            "median_ms": 82.860955,
+            "p95_ms": 85.505643,
+            "max_ms": 85.799497
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "warm_buffered",
+          "trajectory": "teleport",
+          "whole": {
+            "median_ms": 2.434396,
+            "p95_ms": 2.83429,
+            "max_ms": 3.056458
+          },
+          "region": {
+            "median_ms": 0.570291,
+            "p95_ms": 0.804275,
+            "max_ms": 1.576125
+          },
+          "speedup": 4.269,
+          "bytes_reduction_pct": 81.592,
+          "chunk_distribution": {
+            "1": 21,
+            "2": 159,
+            "4": 180
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 299.456752,
+            "p95_ms": 301.108697,
+            "max_ms": 301.292246
+          },
+          "region_trajectory_ms": {
+            "median_ms": 61.232166,
+            "p95_ms": 65.543542,
+            "max_ms": 66.022584
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "macos_nocache",
+          "trajectory": "smooth_walk",
+          "whole": {
+            "median_ms": 2.393021,
+            "p95_ms": 2.574781,
+            "max_ms": 3.424375
+          },
+          "region": {
+            "median_ms": 0.554021,
+            "p95_ms": 0.728802,
+            "max_ms": 1.363334
+          },
+          "speedup": 4.319,
+          "bytes_reduction_pct": 81.23,
+          "chunk_distribution": {
+            "1": 12,
+            "2": 162,
+            "4": 186
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 288.652921,
+            "p95_ms": 291.369231,
+            "max_ms": 291.671043
+          },
+          "region_trajectory_ms": {
+            "median_ms": 57.535747,
+            "p95_ms": 57.737725,
+            "max_ms": 57.760167
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "macos_nocache",
+          "trajectory": "boundary_backtrack",
+          "whole": {
+            "median_ms": 2.394375,
+            "p95_ms": 2.666167,
+            "max_ms": 3.242291
+          },
+          "region": {
+            "median_ms": 0.631521,
+            "p95_ms": 0.763113,
+            "max_ms": 0.986584
+          },
+          "speedup": 3.791,
+          "bytes_reduction_pct": 74.966,
+          "chunk_distribution": {
+            "4": 360
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 291.677246,
+            "p95_ms": 293.100456,
+            "max_ms": 293.25859
+          },
+          "region_trajectory_ms": {
+            "median_ms": 77.49608,
+            "p95_ms": 78.970998,
+            "max_ms": 79.134878
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "macos_nocache",
+          "trajectory": "teleport",
+          "whole": {
+            "median_ms": 2.384271,
+            "p95_ms": 2.540159,
+            "max_ms": 2.868459
+          },
+          "region": {
+            "median_ms": 0.52523,
+            "p95_ms": 0.690892,
+            "max_ms": 0.850958
+          },
+          "speedup": 4.539,
+          "bytes_reduction_pct": 81.592,
+          "chunk_distribution": {
+            "1": 21,
+            "2": 159,
+            "4": 180
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 288.556251,
+            "p95_ms": 289.294319,
+            "max_ms": 289.376327
+          },
+          "region_trajectory_ms": {
+            "median_ms": 57.044079,
+            "p95_ms": 57.328076,
+            "max_ms": 57.359631
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "warm_buffered",
+          "trajectory": "smooth_walk",
+          "whole": {
+            "median_ms": 1.554542,
+            "p95_ms": 1.794718,
+            "max_ms": 2.240625
+          },
+          "region": {
+            "median_ms": 0.358583,
+            "p95_ms": 0.45896,
+            "max_ms": 0.682583
+          },
+          "speedup": 4.335,
+          "bytes_reduction_pct": 81.518,
+          "chunk_distribution": {
+            "1": 12,
+            "2": 162,
+            "4": 186
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 190.40413,
+            "p95_ms": 192.994406,
+            "max_ms": 193.282214
+          },
+          "region_trajectory_ms": {
+            "median_ms": 37.870117,
+            "p95_ms": 39.255069,
+            "max_ms": 39.408953
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "warm_buffered",
+          "trajectory": "boundary_backtrack",
+          "whole": {
+            "median_ms": 1.575833,
+            "p95_ms": 1.763743,
+            "max_ms": 2.094875
+          },
+          "region": {
+            "median_ms": 0.42425,
+            "p95_ms": 0.506202,
+            "max_ms": 0.788458
+          },
+          "speedup": 3.714,
+          "bytes_reduction_pct": 74.301,
+          "chunk_distribution": {
+            "4": 360
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 191.278083,
+            "p95_ms": 193.96124,
+            "max_ms": 194.259369
+          },
+          "region_trajectory_ms": {
+            "median_ms": 52.427457,
+            "p95_ms": 52.52514,
+            "max_ms": 52.535994
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "warm_buffered",
+          "trajectory": "teleport",
+          "whole": {
+            "median_ms": 1.571271,
+            "p95_ms": 1.82241,
+            "max_ms": 2.419667
+          },
+          "region": {
+            "median_ms": 0.3685,
+            "p95_ms": 0.482763,
+            "max_ms": 1.177542
+          },
+          "speedup": 4.264,
+          "bytes_reduction_pct": 81.493,
+          "chunk_distribution": {
+            "1": 21,
+            "2": 159,
+            "4": 180
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 188.913839,
+            "p95_ms": 199.446234,
+            "max_ms": 200.6165
+          },
+          "region_trajectory_ms": {
+            "median_ms": 38.847411,
+            "p95_ms": 41.429407,
+            "max_ms": 41.716296
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "macos_nocache",
+          "trajectory": "smooth_walk",
+          "whole": {
+            "median_ms": 1.5545,
+            "p95_ms": 1.734179,
+            "max_ms": 2.351291
+          },
+          "region": {
+            "median_ms": 0.366688,
+            "p95_ms": 0.543335,
+            "max_ms": 0.72525
+          },
+          "speedup": 4.239,
+          "bytes_reduction_pct": 81.518,
+          "chunk_distribution": {
+            "1": 12,
+            "2": 162,
+            "4": 186
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 188.809753,
+            "p95_ms": 191.154133,
+            "max_ms": 191.41462
+          },
+          "region_trajectory_ms": {
+            "median_ms": 40.412758,
+            "p95_ms": 43.307259,
+            "max_ms": 43.62887
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "macos_nocache",
+          "trajectory": "boundary_backtrack",
+          "whole": {
+            "median_ms": 1.577042,
+            "p95_ms": 1.714851,
+            "max_ms": 2.234958
+          },
+          "region": {
+            "median_ms": 0.483417,
+            "p95_ms": 0.683552,
+            "max_ms": 1.147875
+          },
+          "speedup": 3.262,
+          "bytes_reduction_pct": 74.301,
+          "chunk_distribution": {
+            "4": 360
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 190.953752,
+            "p95_ms": 191.20174,
+            "max_ms": 191.229294
+          },
+          "region_trajectory_ms": {
+            "median_ms": 61.050749,
+            "p95_ms": 65.470654,
+            "max_ms": 65.961755
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "macos_nocache",
+          "trajectory": "teleport",
+          "whole": {
+            "median_ms": 1.572333,
+            "p95_ms": 1.80085,
+            "max_ms": 2.965667
+          },
+          "region": {
+            "median_ms": 0.381063,
+            "p95_ms": 0.65864,
+            "max_ms": 0.77875
+          },
+          "speedup": 4.126,
+          "bytes_reduction_pct": 81.493,
+          "chunk_distribution": {
+            "1": 21,
+            "2": 159,
+            "4": 180
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 192.907289,
+            "p95_ms": 194.190171,
+            "max_ms": 194.332713
+          },
+          "region_trajectory_ms": {
+            "median_ms": 50.671162,
+            "p95_ms": 53.225815,
+            "max_ms": 53.509665
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "warm_buffered",
+          "trajectory": "smooth_walk",
+          "whole": {
+            "median_ms": 4.340854,
+            "p95_ms": 5.025215,
+            "max_ms": 8.2935
+          },
+          "region": {
+            "median_ms": 0.966395,
+            "p95_ms": 1.255221,
+            "max_ms": 2.178709
+          },
+          "speedup": 4.492,
+          "bytes_reduction_pct": 81.399,
+          "chunk_distribution": {
+            "1": 12,
+            "2": 162,
+            "4": 186
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 528.773005,
+            "p95_ms": 546.436023,
+            "max_ms": 548.398581
+          },
+          "region_trajectory_ms": {
+            "median_ms": 100.324923,
+            "p95_ms": 103.26447,
+            "max_ms": 103.591086
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "warm_buffered",
+          "trajectory": "boundary_backtrack",
+          "whole": {
+            "median_ms": 4.4095,
+            "p95_ms": 5.440856,
+            "max_ms": 7.252666
+          },
+          "region": {
+            "median_ms": 1.134625,
+            "p95_ms": 1.505415,
+            "max_ms": 4.047291
+          },
+          "speedup": 3.886,
+          "bytes_reduction_pct": 74.4,
+          "chunk_distribution": {
+            "4": 360
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 540.05867,
+            "p95_ms": 559.246593,
+            "max_ms": 561.378584
+          },
+          "region_trajectory_ms": {
+            "median_ms": 139.518577,
+            "p95_ms": 149.841357,
+            "max_ms": 150.988332
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "warm_buffered",
+          "trajectory": "teleport",
+          "whole": {
+            "median_ms": 4.309417,
+            "p95_ms": 4.8094,
+            "max_ms": 5.625542
+          },
+          "region": {
+            "median_ms": 0.881084,
+            "p95_ms": 1.235324,
+            "max_ms": 1.711667
+          },
+          "speedup": 4.891,
+          "bytes_reduction_pct": 81.455,
+          "chunk_distribution": {
+            "1": 21,
+            "2": 159,
+            "4": 180
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 526.216004,
+            "p95_ms": 526.631198,
+            "max_ms": 526.677331
+          },
+          "region_trajectory_ms": {
+            "median_ms": 99.209165,
+            "p95_ms": 99.595273,
+            "max_ms": 99.638174
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "macos_nocache",
+          "trajectory": "smooth_walk",
+          "whole": {
+            "median_ms": 4.398708,
+            "p95_ms": 5.052652,
+            "max_ms": 6.017792
+          },
+          "region": {
+            "median_ms": 0.968562,
+            "p95_ms": 1.311265,
+            "max_ms": 2.573292
+          },
+          "speedup": 4.541,
+          "bytes_reduction_pct": 81.399,
+          "chunk_distribution": {
+            "1": 12,
+            "2": 162,
+            "4": 186
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 535.91088,
+            "p95_ms": 540.040043,
+            "max_ms": 540.498839
+          },
+          "region_trajectory_ms": {
+            "median_ms": 103.203032,
+            "p95_ms": 104.013523,
+            "max_ms": 104.103578
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "macos_nocache",
+          "trajectory": "boundary_backtrack",
+          "whole": {
+            "median_ms": 4.211437,
+            "p95_ms": 4.851146,
+            "max_ms": 5.3255
+          },
+          "region": {
+            "median_ms": 1.067292,
+            "p95_ms": 1.314936,
+            "max_ms": 1.677583
+          },
+          "speedup": 3.946,
+          "bytes_reduction_pct": 74.4,
+          "chunk_distribution": {
+            "4": 360
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 519.815213,
+            "p95_ms": 520.834903,
+            "max_ms": 520.948202
+          },
+          "region_trajectory_ms": {
+            "median_ms": 131.589207,
+            "p95_ms": 134.98217,
+            "max_ms": 135.359166
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "macos_nocache",
+          "trajectory": "teleport",
+          "whole": {
+            "median_ms": 4.13752,
+            "p95_ms": 5.129367,
+            "max_ms": 7.057917
+          },
+          "region": {
+            "median_ms": 0.939896,
+            "p95_ms": 1.309802,
+            "max_ms": 2.197666
+          },
+          "speedup": 4.402,
+          "bytes_reduction_pct": 81.455,
+          "chunk_distribution": {
+            "1": 21,
+            "2": 159,
+            "4": 180
+          },
+          "whole_trajectory_ms": {
+            "median_ms": 497.384504,
+            "p95_ms": 568.959102,
+            "max_ms": 576.911835
+          },
+          "region_trajectory_ms": {
+            "median_ms": 92.729205,
+            "p95_ms": 111.298418,
+            "max_ms": 113.361664
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "date_local": "2026-10-12",
+  "timezone": "Asia/Seoul",
+  "implementers": [
+    {
+      "role": "map",
+      "session_id": "3f62a386-ba73-4542-abdf-c91785952854",
+      "models": [
+        "claude-opus-5"
+      ]
+    },
+    {
+      "role": "chunk comparison",
+      "session_id": "9311a2fb-c977-46c6-a8af-5fc7048a3e6e",
+      "models": [
+        "claude-sonnet-5"
+      ]
+    },
+    {
+      "role": "CLI preview and documentation",
+      "session_id": "a26bf737-4951-4b41-ad57-b75a4ea12e9e",
+      "models": [
+        "claude-sonnet-5"
+      ]
+    }
+  ],
+  "auditor": "Codex",
+  "tests": {
+    "command": ".venv/bin/python -m unittest discover -s tests",
+    "exit_code": 0,
+    "output": ".....................................................................................................................ssss....................................................................................\n----------------------------------------------------------------------\nRan 205 tests in 2.048s\n\nOK (skipped=4)"
+  },
+  "reports_verified": [
+    {
+      "file": "benchmarks/town-1024-v1.json",
+      "regenerated_input_sha256": "9deabb4337b2b178130ae75ca8b93eb688edfc300fb205a1b76adfd4260e19c8",
+      "configurations": 12,
+      "repeats": 30,
+      "checks": [
+        "input hash regenerated",
+        "exact match all configs",
+        "serialized size accounting",
+        "raw sample counts",
+        "median and p95 recomputed"
+      ]
+    },
+    {
+      "file": "benchmarks/town-1024-seed2-v1.json",
+      "regenerated_input_sha256": "d61bc7b4ae591c5ff9cecdc8f6a29d8884b4b0b5c620096985990b28f1b1af0f",
+      "configurations": 12,
+      "repeats": 30,
+      "checks": [
+        "input hash regenerated",
+        "exact match all configs",
+        "serialized size accounting",
+        "raw sample counts",
+        "median and p95 recomputed"
+      ]
+    },
+    {
+      "file": "benchmarks/town-1025-edge-v1.json",
+      "regenerated_input_sha256": "de3c66a68f085d216c56319f59777cc6008532af05bf2ed9dc9a5dacb7e3f7e5",
+      "configurations": 12,
+      "repeats": 30,
+      "checks": [
+        "input hash regenerated",
+        "exact match all configs",
+        "serialized size accounting",
+        "raw sample counts",
+        "median and p95 recomputed"
+      ]
+    }
+  ],
+  "sha256": {
+    "horizon/codec.py": "4e69e6748af02fbfd443537749c3eb16cb08d3b059f994db8448f41d47a2a3c2",
+    "horizon/town_map.py": "3217b311721360dd044008dabf687ce0e62b1d87933b9b7c713baf42e09f9945",
+    "horizon/chunk_benchmark.py": "52aaf0f6d1617fd4cab77a12924d9ddd90950a5e70a3b95bb5e02314cc0aa1cc",
+    "scripts/compare_town.py": "a824b2927b8c1cbfa7ab7a86cd22a462aae40d659b61d471d2980a4871f2dc9a",
+    "tests/test_town_map.py": "cc1eed46868a28ab7011965edd459432ff53fc05d6ce2c46f7325a9e22e61627",
+    "tests/test_chunk_benchmark.py": "7794c0d7ae28cf860276862a9538bf1af82710941b8dc3ee769e621f1b9e121b",
+    "tests/test_compare_town.py": "c028e609c6d12e78e8c92cbfba798d3f5e8be163b58f0064b677ea843229907b",
+    "docs/town-benchmark-method.md": "6f118f9edb5c3d254f9c58f406ffc5a3e212b401d07515a4fbe4f0ce11387ba9",
+    "benchmarks/town-audit.md": "eaa4944e37f99b834dc641332944b97285eeb4dd119688947d374ea10cbab0b8",
+    "benchmarks/town-layout.png": "be12b0a981257deaea2d8d97cc070eb48bc1e34ad872ebd36c18d4138982791a",
+    "benchmarks/town-1024-v1.json": "e035deb822c3ae9a3df95c2f8e9db4dfdf632817fdf788dd3d6127351e3d2088",
+    "benchmarks/town-1024-seed2-v1.json": "4269f46b4c4209c8c7f09f4e2fabe6d2abd3fc258e99939e142bef424c6946a9",
+    "benchmarks/town-1025-edge-v1.json": "da1b35e4d46dc9ef0a04a86a3b254bb39bff6b4181e0290d258145d5fac8ac49"
+  },
+  "limitations": [
+    "warm in-memory only",
+    "synthetic heightmaps, no real game assets",
+    "private trusted-input chunk index",
+    "uniform chunk sampling overrepresents tiny edge chunks",
+    "no memory, filesystem, engine, GPU or collision timing"
+  ]
+}
