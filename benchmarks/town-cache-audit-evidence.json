@@ -1,0 +1,4903 @@
+{
+  "scope": "Independent recomputation; raw constructor metrics observed after original constructors returned, library load methods unchanged. Timing and memory audits are separate.",
+  "tests": {
+    "total": 350,
+    "passed": 345,
+    "skipped": 5
+  },
+  "random_roi_audit": {
+    "requests": 2700,
+    "lru_transitions": 1350,
+    "shape": [
+      513,
+      769
+    ],
+    "capacities": [
+      1,
+      4,
+      8
+    ],
+    "codecs": [
+      "zstd",
+      "lz4",
+      "delta_zstd"
+    ]
+  },
+  "reports": [
+    {
+      "seed": 20261012,
+      "file": "town-cache-1024-v1.json",
+      "load_count": 25920,
+      "cells": [
+        {
+          "method": "zstd",
+          "mode": "warm_buffered",
+          "trajectory": "smooth_walk",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.570855,
+                "p95_ms": 0.704771,
+                "max_ms": 1.532625
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.623666,
+                "p95_ms": 0.623742,
+                "max_ms": 0.62375
+              },
+              "trajectory_including_startup": {
+                "median_ms": 57.673792,
+                "p95_ms": 58.541282,
+                "max_ms": 58.63767
+              },
+              "trajectory_movement_only": {
+                "median_ms": 57.673792,
+                "p95_ms": 58.541282,
+                "max_ms": 58.63767
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 33290598,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.008917,
+                "p95_ms": 0.184783,
+                "max_ms": 0.670083
+              },
+              "startup": {
+                "median_ms": 0.038584,
+                "p95_ms": 0.052871,
+                "max_ms": 0.054458
+              },
+              "first_viewport": {
+                "median_ms": 0.650041,
+                "p95_ms": 0.689416,
+                "max_ms": 0.693791
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.572246,
+                "p95_ms": 3.627826,
+                "max_ms": 3.634001
+              },
+              "trajectory_movement_only": {
+                "median_ms": 3.533662,
+                "p95_ms": 3.60263,
+                "max_ms": 3.610293
+              },
+              "hit_rate": 0.9556786703601108,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 1498713,
+              "hit_only_frame_count": 336,
+              "miss_frame_count": 24
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.008417,
+                "p95_ms": 0.166892,
+                "max_ms": 0.616709
+              },
+              "startup": {
+                "median_ms": 0.026834,
+                "p95_ms": 0.075583,
+                "max_ms": 0.081
+              },
+              "first_viewport": {
+                "median_ms": 0.621125,
+                "p95_ms": 0.690051,
+                "max_ms": 0.697709
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.342539,
+                "p95_ms": 3.441916,
+                "max_ms": 3.452958
+              },
+              "trajectory_movement_only": {
+                "median_ms": 3.323122,
+                "p95_ms": 3.367074,
+                "max_ms": 3.371958
+              },
+              "hit_rate": 0.9584487534626038,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 1390758,
+              "hit_only_frame_count": 336,
+              "miss_frame_count": 24
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.004167,
+                "p95_ms": 0.010352,
+                "max_ms": 0.015125
+              },
+              "startup": {
+                "median_ms": 2.703959,
+                "p95_ms": 3.446646,
+                "max_ms": 3.529167
+              },
+              "first_viewport": {
+                "median_ms": 2.711959,
+                "p95_ms": 3.452509,
+                "max_ms": 3.534792
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.319451,
+                "p95_ms": 4.056375,
+                "max_ms": 4.138256
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.609089,
+                "p95_ms": 0.614852,
+                "max_ms": 0.615492
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1494441,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "warm_buffered",
+          "trajectory": "boundary_backtrack",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.63875,
+                "p95_ms": 0.825862,
+                "max_ms": 6.641375
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.663834,
+                "p95_ms": 0.670958,
+                "max_ms": 0.67175
+              },
+              "trajectory_including_startup": {
+                "median_ms": 83.685125,
+                "p95_ms": 88.41339,
+                "max_ms": 88.938753
+              },
+              "trajectory_movement_only": {
+                "median_ms": 83.685125,
+                "p95_ms": 88.41339,
+                "max_ms": 88.938753
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 44214660,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.309312,
+                "p95_ms": 0.437525,
+                "max_ms": 0.689667
+              },
+              "startup": {
+                "median_ms": 0.035083,
+                "p95_ms": 0.036508,
+                "max_ms": 0.036666
+              },
+              "first_viewport": {
+                "median_ms": 0.656917,
+                "p95_ms": 0.719391,
+                "max_ms": 0.726333
+              },
+              "trajectory_including_startup": {
+                "median_ms": 39.834957,
+                "p95_ms": 40.341995,
+                "max_ms": 40.398333
+              },
+              "trajectory_movement_only": {
+                "median_ms": 39.798291,
+                "p95_ms": 40.306754,
+                "max_ms": 40.36325
+              },
+              "hit_rate": 0.49583333333333335,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 22183119,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.009083,
+                "p95_ms": 0.015138,
+                "max_ms": 0.714208
+              },
+              "startup": {
+                "median_ms": 0.026041,
+                "p95_ms": 0.029642,
+                "max_ms": 0.030042
+              },
+              "first_viewport": {
+                "median_ms": 0.693875,
+                "p95_ms": 0.6989,
+                "max_ms": 0.699458
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.198294,
+                "p95_ms": 2.458423,
+                "max_ms": 2.487326
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.168252,
+                "p95_ms": 2.431982,
+                "max_ms": 2.461285
+              },
+              "hit_rate": 0.9875,
+              "resident_bytes_peak": 786432,
+              "bytes_read_including_startup_all_repeats": 551772,
+              "hit_only_frame_count": 354,
+              "miss_frame_count": 6
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.004083,
+                "p95_ms": 0.008879,
+                "max_ms": 0.018083
+              },
+              "startup": {
+                "median_ms": 2.583458,
+                "p95_ms": 2.686246,
+                "max_ms": 2.697667
+              },
+              "first_viewport": {
+                "median_ms": 2.589792,
+                "p95_ms": 2.691642,
+                "max_ms": 2.702959
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.228917,
+                "p95_ms": 3.275799,
+                "max_ms": 3.281008
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.583341,
+                "p95_ms": 0.639247,
+                "max_ms": 0.645459
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1494441,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "warm_buffered",
+          "trajectory": "teleport",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.579687,
+                "p95_ms": 0.778718,
+                "max_ms": 1.345833
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.319292,
+                "p95_ms": 0.343892,
+                "max_ms": 0.346625
+              },
+              "trajectory_including_startup": {
+                "median_ms": 60.546789,
+                "p95_ms": 60.607167,
+                "max_ms": 60.613876
+              },
+              "trajectory_movement_only": {
+                "median_ms": 60.546789,
+                "p95_ms": 60.607167,
+                "max_ms": 60.613876
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 33028806,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.317604,
+                "p95_ms": 0.629677,
+                "max_ms": 0.876583
+              },
+              "startup": {
+                "median_ms": 0.025417,
+                "p95_ms": 0.027366,
+                "max_ms": 0.027583
+              },
+              "first_viewport": {
+                "median_ms": 0.327543,
+                "p95_ms": 0.329229,
+                "max_ms": 0.329416
+              },
+              "trajectory_including_startup": {
+                "median_ms": 42.893882,
+                "p95_ms": 43.758516,
+                "max_ms": 43.854587
+              },
+              "trajectory_movement_only": {
+                "median_ms": 42.869298,
+                "p95_ms": 43.733183,
+                "max_ms": 43.82917
+              },
+              "hit_rate": 0.2140845070422535,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 25786338,
+              "hit_only_frame_count": 15,
+              "miss_frame_count": 345
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.169916,
+                "p95_ms": 0.570205,
+                "max_ms": 0.778583
+              },
+              "startup": {
+                "median_ms": 0.026708,
+                "p95_ms": 0.038746,
+                "max_ms": 0.040083
+              },
+              "first_viewport": {
+                "median_ms": 0.342375,
+                "p95_ms": 0.370538,
+                "max_ms": 0.373667
+              },
+              "trajectory_including_startup": {
+                "median_ms": 26.613041,
+                "p95_ms": 27.140187,
+                "max_ms": 27.198759
+              },
+              "trajectory_movement_only": {
+                "median_ms": 26.591832,
+                "p95_ms": 27.101992,
+                "max_ms": 27.158676
+              },
+              "hit_rate": 0.523943661971831,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 15686913,
+              "hit_only_frame_count": 81,
+              "miss_frame_count": 279
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.008646,
+                "p95_ms": 0.012418,
+                "max_ms": 0.022375
+              },
+              "startup": {
+                "median_ms": 2.556334,
+                "p95_ms": 2.787934,
+                "max_ms": 2.813667
+              },
+              "first_viewport": {
+                "median_ms": 2.563209,
+                "p95_ms": 2.799759,
+                "max_ms": 2.826042
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.572964,
+                "p95_ms": 3.894293,
+                "max_ms": 3.929996
+              },
+              "trajectory_movement_only": {
+                "median_ms": 1.022919,
+                "p95_ms": 1.106988,
+                "max_ms": 1.116329
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1494441,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "macos_nocache",
+          "trajectory": "smooth_walk",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.557667,
+                "p95_ms": 0.72879,
+                "max_ms": 1.383833
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.592167,
+                "p95_ms": 0.678117,
+                "max_ms": 0.687667
+              },
+              "trajectory_including_startup": {
+                "median_ms": 54.568041,
+                "p95_ms": 57.912069,
+                "max_ms": 58.283628
+              },
+              "trajectory_movement_only": {
+                "median_ms": 54.568041,
+                "p95_ms": 57.912069,
+                "max_ms": 58.283628
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 33290598,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.008667,
+                "p95_ms": 0.179631,
+                "max_ms": 0.691083
+              },
+              "startup": {
+                "median_ms": 0.029,
+                "p95_ms": 0.073362,
+                "max_ms": 0.078291
+              },
+              "first_viewport": {
+                "median_ms": 0.682999,
+                "p95_ms": 0.7145,
+                "max_ms": 0.718
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.532536,
+                "p95_ms": 3.559763,
+                "max_ms": 3.562788
+              },
+              "trajectory_movement_only": {
+                "median_ms": 3.484497,
+                "p95_ms": 3.503507,
+                "max_ms": 3.505619
+              },
+              "hit_rate": 0.9556786703601108,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 1498713,
+              "hit_only_frame_count": 336,
+              "miss_frame_count": 24
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.00825,
+                "p95_ms": 0.166785,
+                "max_ms": 0.645791
+              },
+              "startup": {
+                "median_ms": 0.030708,
+                "p95_ms": 0.035771,
+                "max_ms": 0.036334
+              },
+              "first_viewport": {
+                "median_ms": 0.627334,
+                "p95_ms": 0.66472,
+                "max_ms": 0.668874
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.217582,
+                "p95_ms": 3.315385,
+                "max_ms": 3.326252
+              },
+              "trajectory_movement_only": {
+                "median_ms": 3.186874,
+                "p95_ms": 3.291539,
+                "max_ms": 3.303169
+              },
+              "hit_rate": 0.9584487534626038,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 1390758,
+              "hit_only_frame_count": 336,
+              "miss_frame_count": 24
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.003958,
+                "p95_ms": 0.009708,
+                "max_ms": 0.022833
+              },
+              "startup": {
+                "median_ms": 2.542125,
+                "p95_ms": 2.716913,
+                "max_ms": 2.736334
+              },
+              "first_viewport": {
+                "median_ms": 2.551792,
+                "p95_ms": 2.720768,
+                "max_ms": 2.739543
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.126204,
+                "p95_ms": 3.279629,
+                "max_ms": 3.296676
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.584079,
+                "p95_ms": 0.621283,
+                "max_ms": 0.625417
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1494441,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "macos_nocache",
+          "trajectory": "boundary_backtrack",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.623146,
+                "p95_ms": 0.721426,
+                "max_ms": 1.046875
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.662583,
+                "p95_ms": 0.749321,
+                "max_ms": 0.758958
+              },
+              "trajectory_including_startup": {
+                "median_ms": 76.174378,
+                "p95_ms": 77.246954,
+                "max_ms": 77.366129
+              },
+              "trajectory_movement_only": {
+                "median_ms": 76.174378,
+                "p95_ms": 77.246954,
+                "max_ms": 77.366129
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 44214660,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.304354,
+                "p95_ms": 0.363685,
+                "max_ms": 1.241166
+              },
+              "startup": {
+                "median_ms": 0.034542,
+                "p95_ms": 0.061054,
+                "max_ms": 0.064
+              },
+              "first_viewport": {
+                "median_ms": 0.694875,
+                "p95_ms": 0.736126,
+                "max_ms": 0.740709
+              },
+              "trajectory_including_startup": {
+                "median_ms": 37.582039,
+                "p95_ms": 38.225316,
+                "max_ms": 38.296791
+              },
+              "trajectory_movement_only": {
+                "median_ms": 37.547497,
+                "p95_ms": 38.164262,
+                "max_ms": 38.232791
+              },
+              "hit_rate": 0.49583333333333335,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 22183119,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.008792,
+                "p95_ms": 0.016527,
+                "max_ms": 0.665292
+              },
+              "startup": {
+                "median_ms": 0.026583,
+                "p95_ms": 0.057371,
+                "max_ms": 0.060792
+              },
+              "first_viewport": {
+                "median_ms": 0.691875,
+                "p95_ms": 0.716026,
+                "max_ms": 0.718709
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.132418,
+                "p95_ms": 2.404704,
+                "max_ms": 2.434958
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.071626,
+                "p95_ms": 2.3747,
+                "max_ms": 2.408375
+              },
+              "hit_rate": 0.9875,
+              "resident_bytes_peak": 786432,
+              "bytes_read_including_startup_all_repeats": 551772,
+              "hit_only_frame_count": 354,
+              "miss_frame_count": 6
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.00375,
+                "p95_ms": 0.00817,
+                "max_ms": 0.019083
+              },
+              "startup": {
+                "median_ms": 2.864084,
+                "p95_ms": 3.052071,
+                "max_ms": 3.072958
+              },
+              "first_viewport": {
+                "median_ms": 2.867709,
+                "p95_ms": 3.057795,
+                "max_ms": 3.078916
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.321667,
+                "p95_ms": 3.640079,
+                "max_ms": 3.675458
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.503831,
+                "p95_ms": 0.592633,
+                "max_ms": 0.6025
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1494441,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "macos_nocache",
+          "trajectory": "teleport",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.579312,
+                "p95_ms": 0.698519,
+                "max_ms": 1.005166
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.33625,
+                "p95_ms": 0.371388,
+                "max_ms": 0.375292
+              },
+              "trajectory_including_startup": {
+                "median_ms": 57.930541,
+                "p95_ms": 58.147108,
+                "max_ms": 58.171171
+              },
+              "trajectory_movement_only": {
+                "median_ms": 57.930541,
+                "p95_ms": 58.147108,
+                "max_ms": 58.171171
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 33028806,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.317584,
+                "p95_ms": 0.619608,
+                "max_ms": 0.80275
+              },
+              "startup": {
+                "median_ms": 0.033,
+                "p95_ms": 0.0333,
+                "max_ms": 0.033333
+              },
+              "first_viewport": {
+                "median_ms": 0.364334,
+                "p95_ms": 0.380008,
+                "max_ms": 0.38175
+              },
+              "trajectory_including_startup": {
+                "median_ms": 42.902627,
+                "p95_ms": 43.248414,
+                "max_ms": 43.286835
+              },
+              "trajectory_movement_only": {
+                "median_ms": 42.869627,
+                "p95_ms": 43.218002,
+                "max_ms": 43.25671
+              },
+              "hit_rate": 0.2140845070422535,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 25786338,
+              "hit_only_frame_count": 15,
+              "miss_frame_count": 345
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.171667,
+                "p95_ms": 0.539616,
+                "max_ms": 1.283209
+              },
+              "startup": {
+                "median_ms": 0.023958,
+                "p95_ms": 0.048671,
+                "max_ms": 0.051417
+              },
+              "first_viewport": {
+                "median_ms": 0.341458,
+                "p95_ms": 0.411021,
+                "max_ms": 0.41875
+              },
+              "trajectory_including_startup": {
+                "median_ms": 26.451631,
+                "p95_ms": 27.673675,
+                "max_ms": 27.809458
+              },
+              "trajectory_movement_only": {
+                "median_ms": 26.400214,
+                "p95_ms": 27.646971,
+                "max_ms": 27.7855
+              },
+              "hit_rate": 0.523943661971831,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 15686913,
+              "hit_only_frame_count": 81,
+              "miss_frame_count": 279
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.008959,
+                "p95_ms": 0.01284,
+                "max_ms": 0.027833
+              },
+              "startup": {
+                "median_ms": 2.582959,
+                "p95_ms": 2.668534,
+                "max_ms": 2.678042
+              },
+              "first_viewport": {
+                "median_ms": 2.586667,
+                "p95_ms": 2.67843,
+                "max_ms": 2.688626
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.690375,
+                "p95_ms": 3.747717,
+                "max_ms": 3.754088
+              },
+              "trajectory_movement_only": {
+                "median_ms": 1.077547,
+                "p95_ms": 1.104429,
+                "max_ms": 1.107416
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1494441,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "warm_buffered",
+          "trajectory": "smooth_walk",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.38973,
+                "p95_ms": 0.48001,
+                "max_ms": 0.835875
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.451583,
+                "p95_ms": 0.514584,
+                "max_ms": 0.521584
+              },
+              "trajectory_including_startup": {
+                "median_ms": 38.883714,
+                "p95_ms": 40.809073,
+                "max_ms": 41.023002
+              },
+              "trajectory_movement_only": {
+                "median_ms": 38.883714,
+                "p95_ms": 40.809073,
+                "max_ms": 41.023002
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 54142335,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.008375,
+                "p95_ms": 0.12379,
+                "max_ms": 0.70525
+              },
+              "startup": {
+                "median_ms": 0.025208,
+                "p95_ms": 0.03297,
+                "max_ms": 0.033833
+              },
+              "first_viewport": {
+                "median_ms": 0.439875,
+                "p95_ms": 0.7014,
+                "max_ms": 0.730458
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.892794,
+                "p95_ms": 3.027521,
+                "max_ms": 3.042491
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.858961,
+                "p95_ms": 3.001451,
+                "max_ms": 3.017283
+              },
+              "hit_rate": 0.9556786703601108,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 2470323,
+              "hit_only_frame_count": 336,
+              "miss_frame_count": 24
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.008125,
+                "p95_ms": 0.115716,
+                "max_ms": 0.431333
+              },
+              "startup": {
+                "median_ms": 0.024333,
+                "p95_ms": 0.025833,
+                "max_ms": 0.026
+              },
+              "first_viewport": {
+                "median_ms": 0.453291,
+                "p95_ms": 0.454116,
+                "max_ms": 0.454208
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.617249,
+                "p95_ms": 2.664458,
+                "max_ms": 2.669703
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.591249,
+                "p95_ms": 2.642095,
+                "max_ms": 2.647745
+              },
+              "hit_rate": 0.9584487534626038,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 2309946,
+              "hit_only_frame_count": 336,
+              "miss_frame_count": 24
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.004083,
+                "p95_ms": 0.010548,
+                "max_ms": 0.116833
+              },
+              "startup": {
+                "median_ms": 1.772208,
+                "p95_ms": 2.197796,
+                "max_ms": 2.245083
+              },
+              "first_viewport": {
+                "median_ms": 1.790166,
+                "p95_ms": 2.203866,
+                "max_ms": 2.249833
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.603791,
+                "p95_ms": 2.796125,
+                "max_ms": 2.817496
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.572413,
+                "p95_ms": 0.805666,
+                "max_ms": 0.831583
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 2456121,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "warm_buffered",
+          "trajectory": "boundary_backtrack",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.449105,
+                "p95_ms": 0.623734,
+                "max_ms": 2.453708
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.444167,
+                "p95_ms": 0.454216,
+                "max_ms": 0.455333
+              },
+              "trajectory_including_startup": {
+                "median_ms": 58.310163,
+                "p95_ms": 58.372532,
+                "max_ms": 58.379462
+              },
+              "trajectory_movement_only": {
+                "median_ms": 58.310163,
+                "p95_ms": 58.372532,
+                "max_ms": 58.379462
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 75465540,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.219521,
+                "p95_ms": 0.28696,
+                "max_ms": 0.553584
+              },
+              "startup": {
+                "median_ms": 0.028,
+                "p95_ms": 0.031525,
+                "max_ms": 0.031917
+              },
+              "first_viewport": {
+                "median_ms": 0.4735,
+                "p95_ms": 0.492737,
+                "max_ms": 0.494875
+              },
+              "trajectory_including_startup": {
+                "median_ms": 27.178127,
+                "p95_ms": 28.332489,
+                "max_ms": 28.460751
+              },
+              "trajectory_movement_only": {
+                "median_ms": 27.150127,
+                "p95_ms": 28.305238,
+                "max_ms": 28.433584
+              },
+              "hit_rate": 0.49583333333333335,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 37529649,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.008875,
+                "p95_ms": 0.016172,
+                "max_ms": 0.542125
+              },
+              "startup": {
+                "median_ms": 0.023167,
+                "p95_ms": 0.023429,
+                "max_ms": 0.023458
+              },
+              "first_viewport": {
+                "median_ms": 0.42375,
+                "p95_ms": 0.550725,
+                "max_ms": 0.564833
+              },
+              "trajectory_including_startup": {
+                "median_ms": 1.811749,
+                "p95_ms": 2.045711,
+                "max_ms": 2.071707
+              },
+              "trajectory_movement_only": {
+                "median_ms": 1.788291,
+                "p95_ms": 2.022928,
+                "max_ms": 2.048999
+              },
+              "hit_rate": 0.9875,
+              "resident_bytes_peak": 786432,
+              "bytes_read_including_startup_all_repeats": 938970,
+              "hit_only_frame_count": 354,
+              "miss_frame_count": 6
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.00398,
+                "p95_ms": 0.009334,
+                "max_ms": 0.036875
+              },
+              "startup": {
+                "median_ms": 1.784958,
+                "p95_ms": 2.03242,
+                "max_ms": 2.059916
+              },
+              "first_viewport": {
+                "median_ms": 1.788791,
+                "p95_ms": 2.03644,
+                "max_ms": 2.063957
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.358167,
+                "p95_ms": 2.610165,
+                "max_ms": 2.638165
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.578249,
+                "p95_ms": 0.6456,
+                "max_ms": 0.653083
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 2456121,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "warm_buffered",
+          "trajectory": "teleport",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.386667,
+                "p95_ms": 0.514381,
+                "max_ms": 1.331708
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.245333,
+                "p95_ms": 0.271921,
+                "max_ms": 0.274875
+              },
+              "trajectory_including_startup": {
+                "median_ms": 42.624709,
+                "p95_ms": 42.755088,
+                "max_ms": 42.769575
+              },
+              "trajectory_movement_only": {
+                "median_ms": 42.624709,
+                "p95_ms": 42.755088,
+                "max_ms": 42.769575
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 54622485,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.231875,
+                "p95_ms": 0.449896,
+                "max_ms": 0.576459
+              },
+              "startup": {
+                "median_ms": 0.029792,
+                "p95_ms": 0.052629,
+                "max_ms": 0.055166
+              },
+              "first_viewport": {
+                "median_ms": 0.270626,
+                "p95_ms": 0.294849,
+                "max_ms": 0.297541
+              },
+              "trajectory_including_startup": {
+                "median_ms": 30.788792,
+                "p95_ms": 31.236918,
+                "max_ms": 31.28671
+              },
+              "trajectory_movement_only": {
+                "median_ms": 30.76175,
+                "p95_ms": 31.207401,
+                "max_ms": 31.256918
+              },
+              "hit_rate": 0.2140845070422535,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 42806487,
+              "hit_only_frame_count": 15,
+              "miss_frame_count": 345
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.123042,
+                "p95_ms": 0.395496,
+                "max_ms": 0.600333
+              },
+              "startup": {
+                "median_ms": 0.022667,
+                "p95_ms": 0.035829,
+                "max_ms": 0.037291
+              },
+              "first_viewport": {
+                "median_ms": 0.273625,
+                "p95_ms": 0.285624,
+                "max_ms": 0.286957
+              },
+              "trajectory_including_startup": {
+                "median_ms": 19.182041,
+                "p95_ms": 19.799029,
+                "max_ms": 19.867583
+              },
+              "trajectory_movement_only": {
+                "median_ms": 19.159374,
+                "p95_ms": 19.779437,
+                "max_ms": 19.848333
+              },
+              "hit_rate": 0.523943661971831,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 25988829,
+              "hit_only_frame_count": 81,
+              "miss_frame_count": 279
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.008646,
+                "p95_ms": 0.01201,
+                "max_ms": 0.02725
+              },
+              "startup": {
+                "median_ms": 1.762709,
+                "p95_ms": 2.064059,
+                "max_ms": 2.097542
+              },
+              "first_viewport": {
+                "median_ms": 1.77425,
+                "p95_ms": 2.068437,
+                "max_ms": 2.101125
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.879874,
+                "p95_ms": 3.064677,
+                "max_ms": 3.085211
+              },
+              "trajectory_movement_only": {
+                "median_ms": 1.054749,
+                "p95_ms": 1.110923,
+                "max_ms": 1.117165
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 2456121,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "macos_nocache",
+          "trajectory": "smooth_walk",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.371417,
+                "p95_ms": 0.502258,
+                "max_ms": 0.707625
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.440709,
+                "p95_ms": 0.503371,
+                "max_ms": 0.510333
+              },
+              "trajectory_including_startup": {
+                "median_ms": 37.796251,
+                "p95_ms": 41.876248,
+                "max_ms": 42.329581
+              },
+              "trajectory_movement_only": {
+                "median_ms": 37.796251,
+                "p95_ms": 41.876248,
+                "max_ms": 42.329581
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 54142335,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.008625,
+                "p95_ms": 0.115621,
+                "max_ms": 0.402
+              },
+              "startup": {
+                "median_ms": 0.065958,
+                "p95_ms": 0.070271,
+                "max_ms": 0.07075
+              },
+              "first_viewport": {
+                "median_ms": 0.410874,
+                "p95_ms": 0.466562,
+                "max_ms": 0.47275
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.605538,
+                "p95_ms": 2.828968,
+                "max_ms": 2.853794
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.53958,
+                "p95_ms": 2.758698,
+                "max_ms": 2.783044
+              },
+              "hit_rate": 0.9556786703601108,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 2470323,
+              "hit_only_frame_count": 336,
+              "miss_frame_count": 24
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.008313,
+                "p95_ms": 0.111031,
+                "max_ms": 0.399917
+              },
+              "startup": {
+                "median_ms": 0.02825,
+                "p95_ms": 0.031775,
+                "max_ms": 0.032167
+              },
+              "first_viewport": {
+                "median_ms": 0.414667,
+                "p95_ms": 0.426817,
+                "max_ms": 0.428167
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.423631,
+                "p95_ms": 2.691005,
+                "max_ms": 2.720713
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.395381,
+                "p95_ms": 2.659229,
+                "max_ms": 2.688546
+              },
+              "hit_rate": 0.9584487534626038,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 2309946,
+              "hit_only_frame_count": 336,
+              "miss_frame_count": 24
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.004083,
+                "p95_ms": 0.009921,
+                "max_ms": 0.0505
+              },
+              "startup": {
+                "median_ms": 2.124584,
+                "p95_ms": 2.17922,
+                "max_ms": 2.185291
+              },
+              "first_viewport": {
+                "median_ms": 2.128209,
+                "p95_ms": 2.18307,
+                "max_ms": 2.189166
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.70316,
+                "p95_ms": 2.917296,
+                "max_ms": 2.941089
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.517869,
+                "p95_ms": 0.786641,
+                "max_ms": 0.816505
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 2456121,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "macos_nocache",
+          "trajectory": "boundary_backtrack",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.433979,
+                "p95_ms": 0.5643,
+                "max_ms": 0.888166
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.437166,
+                "p95_ms": 0.514155,
+                "max_ms": 0.522709
+              },
+              "trajectory_including_startup": {
+                "median_ms": 51.975787,
+                "p95_ms": 56.625382,
+                "max_ms": 57.142004
+              },
+              "trajectory_movement_only": {
+                "median_ms": 51.975787,
+                "p95_ms": 56.625382,
+                "max_ms": 57.142004
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 75465540,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.215125,
+                "p95_ms": 0.271641,
+                "max_ms": 1.192791
+              },
+              "startup": {
+                "median_ms": 0.031792,
+                "p95_ms": 0.032317,
+                "max_ms": 0.032375
+              },
+              "first_viewport": {
+                "median_ms": 0.465375,
+                "p95_ms": 0.54315,
+                "max_ms": 0.551792
+              },
+              "trajectory_including_startup": {
+                "median_ms": 26.981961,
+                "p95_ms": 28.248036,
+                "max_ms": 28.388711
+              },
+              "trajectory_movement_only": {
+                "median_ms": 26.954794,
+                "p95_ms": 28.216182,
+                "max_ms": 28.356336
+              },
+              "hit_rate": 0.49583333333333335,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 37529649,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.008521,
+                "p95_ms": 0.014201,
+                "max_ms": 0.421833
+              },
+              "startup": {
+                "median_ms": 0.026833,
+                "p95_ms": 0.028071,
+                "max_ms": 0.028208
+              },
+              "first_viewport": {
+                "median_ms": 0.436291,
+                "p95_ms": 0.447429,
+                "max_ms": 0.448666
+              },
+              "trajectory_including_startup": {
+                "median_ms": 1.698877,
+                "p95_ms": 1.833943,
+                "max_ms": 1.84895
+              },
+              "trajectory_movement_only": {
+                "median_ms": 1.676752,
+                "p95_ms": 1.807581,
+                "max_ms": 1.822117
+              },
+              "hit_rate": 0.9875,
+              "resident_bytes_peak": 786432,
+              "bytes_read_including_startup_all_repeats": 938970,
+              "hit_only_frame_count": 354,
+              "miss_frame_count": 6
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.003646,
+                "p95_ms": 0.008129,
+                "max_ms": 0.020375
+              },
+              "startup": {
+                "median_ms": 1.828625,
+                "p95_ms": 2.129637,
+                "max_ms": 2.163083
+              },
+              "first_viewport": {
+                "median_ms": 1.833084,
+                "p95_ms": 2.13477,
+                "max_ms": 2.168291
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.293787,
+                "p95_ms": 2.707457,
+                "max_ms": 2.75342
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.467579,
+                "p95_ms": 0.578061,
+                "max_ms": 0.590337
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 2456121,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "macos_nocache",
+          "trajectory": "teleport",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.386104,
+                "p95_ms": 0.500854,
+                "max_ms": 0.750958
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.246875,
+                "p95_ms": 0.272937,
+                "max_ms": 0.275833
+              },
+              "trajectory_including_startup": {
+                "median_ms": 41.492335,
+                "p95_ms": 41.854506,
+                "max_ms": 41.894747
+              },
+              "trajectory_movement_only": {
+                "median_ms": 41.492335,
+                "p95_ms": 41.854506,
+                "max_ms": 41.894747
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 54622485,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.230813,
+                "p95_ms": 0.448849,
+                "max_ms": 0.823416
+              },
+              "startup": {
+                "median_ms": 0.028834,
+                "p95_ms": 0.067159,
+                "max_ms": 0.071417
+              },
+              "first_viewport": {
+                "median_ms": 0.243667,
+                "p95_ms": 0.272992,
+                "max_ms": 0.27625
+              },
+              "trajectory_including_startup": {
+                "median_ms": 30.322665,
+                "p95_ms": 31.096775,
+                "max_ms": 31.182787
+              },
+              "trajectory_movement_only": {
+                "median_ms": 30.293831,
+                "p95_ms": 31.029616,
+                "max_ms": 31.11137
+              },
+              "hit_rate": 0.2140845070422535,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 42806487,
+              "hit_only_frame_count": 15,
+              "miss_frame_count": 345
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.124042,
+                "p95_ms": 0.384416,
+                "max_ms": 0.479125
+              },
+              "startup": {
+                "median_ms": 0.023333,
+                "p95_ms": 0.035934,
+                "max_ms": 0.037334
+              },
+              "first_viewport": {
+                "median_ms": 0.237749,
+                "p95_ms": 0.280463,
+                "max_ms": 0.285209
+              },
+              "trajectory_including_startup": {
+                "median_ms": 18.729303,
+                "p95_ms": 19.201909,
+                "max_ms": 19.254421
+              },
+              "trajectory_movement_only": {
+                "median_ms": 18.70597,
+                "p95_ms": 19.165975,
+                "max_ms": 19.217087
+              },
+              "hit_rate": 0.523943661971831,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 25988829,
+              "hit_only_frame_count": 81,
+              "miss_frame_count": 279
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.008438,
+                "p95_ms": 0.012,
+                "max_ms": 0.038917
+              },
+              "startup": {
+                "median_ms": 1.816167,
+                "p95_ms": 2.269654,
+                "max_ms": 2.320042
+              },
+              "first_viewport": {
+                "median_ms": 1.821209,
+                "p95_ms": 2.273646,
+                "max_ms": 2.323917
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.8475,
+                "p95_ms": 3.30361,
+                "max_ms": 3.354289
+              },
+              "trajectory_movement_only": {
+                "median_ms": 1.034247,
+                "p95_ms": 1.035861,
+                "max_ms": 1.03604
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 2456121,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "warm_buffered",
+          "trajectory": "smooth_walk",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.969249,
+                "p95_ms": 1.156974,
+                "max_ms": 1.659875
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 1.103,
+                "p95_ms": 1.175863,
+                "max_ms": 1.183959
+              },
+              "trajectory_including_startup": {
+                "median_ms": 92.869076,
+                "p95_ms": 95.512529,
+                "max_ms": 95.806246
+              },
+              "trajectory_movement_only": {
+                "median_ms": 92.869076,
+                "p95_ms": 95.512529,
+                "max_ms": 95.806246
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 25245990,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.008854,
+                "p95_ms": 0.331214,
+                "max_ms": 1.116875
+              },
+              "startup": {
+                "median_ms": 0.031584,
+                "p95_ms": 0.034246,
+                "max_ms": 0.034542
+              },
+              "first_viewport": {
+                "median_ms": 1.046876,
+                "p95_ms": 1.140963,
+                "max_ms": 1.151417
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.290671,
+                "p95_ms": 5.379425,
+                "max_ms": 5.389287
+              },
+              "trajectory_movement_only": {
+                "median_ms": 5.256129,
+                "p95_ms": 5.347546,
+                "max_ms": 5.357703
+              },
+              "hit_rate": 0.9556786703601108,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 1135908,
+              "hit_only_frame_count": 336,
+              "miss_frame_count": 24
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.008521,
+                "p95_ms": 0.280407,
+                "max_ms": 1.377875
+              },
+              "startup": {
+                "median_ms": 0.023584,
+                "p95_ms": 0.026621,
+                "max_ms": 0.026959
+              },
+              "first_viewport": {
+                "median_ms": 1.032333,
+                "p95_ms": 1.115847,
+                "max_ms": 1.125126
+              },
+              "trajectory_including_startup": {
+                "median_ms": 4.990326,
+                "p95_ms": 6.011909,
+                "max_ms": 6.125418
+              },
+              "trajectory_movement_only": {
+                "median_ms": 4.967368,
+                "p95_ms": 5.988387,
+                "max_ms": 6.101834
+              },
+              "hit_rate": 0.9584487534626038,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 1059897,
+              "hit_only_frame_count": 336,
+              "miss_frame_count": 24
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.004396,
+                "p95_ms": 0.011543,
+                "max_ms": 0.02425
+              },
+              "startup": {
+                "median_ms": 4.781875,
+                "p95_ms": 5.416375,
+                "max_ms": 5.486875
+              },
+              "first_viewport": {
+                "median_ms": 4.80225,
+                "p95_ms": 5.425537,
+                "max_ms": 5.494791
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.441292,
+                "p95_ms": 6.154956,
+                "max_ms": 6.234252
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.659417,
+                "p95_ms": 0.738581,
+                "max_ms": 0.747377
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1127523,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "warm_buffered",
+          "trajectory": "boundary_backtrack",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 1.041229,
+                "p95_ms": 1.164462,
+                "max_ms": 1.521666
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 1.061,
+                "p95_ms": 1.099513,
+                "max_ms": 1.103792
+              },
+              "trajectory_including_startup": {
+                "median_ms": 125.849133,
+                "p95_ms": 127.397652,
+                "max_ms": 127.56971
+              },
+              "trajectory_movement_only": {
+                "median_ms": 125.849133,
+                "p95_ms": 127.397652,
+                "max_ms": 127.56971
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 34366500,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.504229,
+                "p95_ms": 0.570985,
+                "max_ms": 32.970625
+              },
+              "startup": {
+                "median_ms": 0.030583,
+                "p95_ms": 0.033096,
+                "max_ms": 0.033375
+              },
+              "first_viewport": {
+                "median_ms": 1.02925,
+                "p95_ms": 1.139763,
+                "max_ms": 1.152042
+              },
+              "trajectory_including_startup": {
+                "median_ms": 61.550251,
+                "p95_ms": 91.760402,
+                "max_ms": 95.117085
+              },
+              "trajectory_movement_only": {
+                "median_ms": 61.519668,
+                "p95_ms": 91.735144,
+                "max_ms": 95.092419
+              },
+              "hit_rate": 0.49583333333333335,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 17294403,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.008834,
+                "p95_ms": 0.018377,
+                "max_ms": 1.165375
+              },
+              "startup": {
+                "median_ms": 0.027375,
+                "p95_ms": 0.029287,
+                "max_ms": 0.0295
+              },
+              "first_viewport": {
+                "median_ms": 1.043708,
+                "p95_ms": 1.179758,
+                "max_ms": 1.194875
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.767826,
+                "p95_ms": 2.920874,
+                "max_ms": 2.937879
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.744993,
+                "p95_ms": 2.89204,
+                "max_ms": 2.908379
+              },
+              "hit_rate": 0.9875,
+              "resident_bytes_peak": 786432,
+              "bytes_read_including_startup_all_repeats": 429312,
+              "hit_only_frame_count": 354,
+              "miss_frame_count": 6
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.004041,
+                "p95_ms": 0.008758,
+                "max_ms": 0.01825
+              },
+              "startup": {
+                "median_ms": 4.400625,
+                "p95_ms": 4.761899,
+                "max_ms": 4.802041
+              },
+              "first_viewport": {
+                "median_ms": 4.406042,
+                "p95_ms": 4.768404,
+                "max_ms": 4.808666
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.04646,
+                "p95_ms": 5.311585,
+                "max_ms": 5.341043
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.539002,
+                "p95_ms": 0.635152,
+                "max_ms": 0.645835
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1127523,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "warm_buffered",
+          "trajectory": "teleport",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.981666,
+                "p95_ms": 1.242975,
+                "max_ms": 2.527041
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.552834,
+                "p95_ms": 0.579083,
+                "max_ms": 0.582
+              },
+              "trajectory_including_startup": {
+                "median_ms": 99.594046,
+                "p95_ms": 99.716968,
+                "max_ms": 99.730626
+              },
+              "trajectory_movement_only": {
+                "median_ms": 99.594046,
+                "p95_ms": 99.716968,
+                "max_ms": 99.730626
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 25191795,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.533917,
+                "p95_ms": 1.053502,
+                "max_ms": 1.673416
+              },
+              "startup": {
+                "median_ms": 0.037583,
+                "p95_ms": 0.047258,
+                "max_ms": 0.048333
+              },
+              "first_viewport": {
+                "median_ms": 0.57125,
+                "p95_ms": 0.649362,
+                "max_ms": 0.658041
+              },
+              "trajectory_including_startup": {
+                "median_ms": 72.876963,
+                "p95_ms": 73.569846,
+                "max_ms": 73.646833
+              },
+              "trajectory_movement_only": {
+                "median_ms": 72.82863,
+                "p95_ms": 73.536137,
+                "max_ms": 73.614749
+              },
+              "hit_rate": 0.2140845070422535,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 19650741,
+              "hit_only_frame_count": 15,
+              "miss_frame_count": 345
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.293249,
+                "p95_ms": 0.961752,
+                "max_ms": 1.421166
+              },
+              "startup": {
+                "median_ms": 0.025584,
+                "p95_ms": 0.032222,
+                "max_ms": 0.032959
+              },
+              "first_viewport": {
+                "median_ms": 0.574751,
+                "p95_ms": 0.580601,
+                "max_ms": 0.581251
+              },
+              "trajectory_including_startup": {
+                "median_ms": 44.703758,
+                "p95_ms": 44.982002,
+                "max_ms": 45.012918
+              },
+              "trajectory_movement_only": {
+                "median_ms": 44.670799,
+                "p95_ms": 44.957182,
+                "max_ms": 44.989002
+              },
+              "hit_rate": 0.523943661971831,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 11915391,
+              "hit_only_frame_count": 81,
+              "miss_frame_count": 279
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.010042,
+                "p95_ms": 0.013295,
+                "max_ms": 0.036167
+              },
+              "startup": {
+                "median_ms": 4.274541,
+                "p95_ms": 4.450004,
+                "max_ms": 4.4695
+              },
+              "first_viewport": {
+                "median_ms": 4.278624,
+                "p95_ms": 4.457463,
+                "max_ms": 4.477334
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.488118,
+                "p95_ms": 5.683237,
+                "max_ms": 5.704917
+              },
+              "trajectory_movement_only": {
+                "median_ms": 1.213577,
+                "p95_ms": 1.233233,
+                "max_ms": 1.235417
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1127523,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "macos_nocache",
+          "trajectory": "smooth_walk",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.98275,
+                "p95_ms": 1.197573,
+                "max_ms": 1.919084
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 1.04625,
+                "p95_ms": 1.063837,
+                "max_ms": 1.065791
+              },
+              "trajectory_including_startup": {
+                "median_ms": 97.241327,
+                "p95_ms": 99.121811,
+                "max_ms": 99.330754
+              },
+              "trajectory_movement_only": {
+                "median_ms": 97.241327,
+                "p95_ms": 99.121811,
+                "max_ms": 99.330754
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 25245990,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.009209,
+                "p95_ms": 0.318315,
+                "max_ms": 1.037166
+              },
+              "startup": {
+                "median_ms": 0.033166,
+                "p95_ms": 0.045617,
+                "max_ms": 0.047
+              },
+              "first_viewport": {
+                "median_ms": 1.062666,
+                "p95_ms": 1.063191,
+                "max_ms": 1.063249
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.422584,
+                "p95_ms": 5.537483,
+                "max_ms": 5.550249
+              },
+              "trajectory_movement_only": {
+                "median_ms": 5.389418,
+                "p95_ms": 5.510691,
+                "max_ms": 5.524166
+              },
+              "hit_rate": 0.9556786703601108,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 1135908,
+              "hit_only_frame_count": 336,
+              "miss_frame_count": 24
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.008667,
+                "p95_ms": 0.257107,
+                "max_ms": 1.058958
+              },
+              "startup": {
+                "median_ms": 0.029083,
+                "p95_ms": 0.030208,
+                "max_ms": 0.030333
+              },
+              "first_viewport": {
+                "median_ms": 1.044958,
+                "p95_ms": 1.083733,
+                "max_ms": 1.088041
+              },
+              "trajectory_including_startup": {
+                "median_ms": 4.940534,
+                "p95_ms": 4.950133,
+                "max_ms": 4.9512
+              },
+              "trajectory_movement_only": {
+                "median_ms": 4.916451,
+                "p95_ms": 4.92155,
+                "max_ms": 4.922117
+              },
+              "hit_rate": 0.9584487534626038,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 1059897,
+              "hit_only_frame_count": 336,
+              "miss_frame_count": 24
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.004688,
+                "p95_ms": 0.011679,
+                "max_ms": 0.022875
+              },
+              "startup": {
+                "median_ms": 4.567833,
+                "p95_ms": 4.709358,
+                "max_ms": 4.725083
+              },
+              "first_viewport": {
+                "median_ms": 4.574666,
+                "p95_ms": 4.720092,
+                "max_ms": 4.73625
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.29629,
+                "p95_ms": 5.483494,
+                "max_ms": 5.504294
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.728457,
+                "p95_ms": 0.774136,
+                "max_ms": 0.779211
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1127523,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "macos_nocache",
+          "trajectory": "boundary_backtrack",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 1.057312,
+                "p95_ms": 1.227864,
+                "max_ms": 1.571333
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 1.063792,
+                "p95_ms": 1.354979,
+                "max_ms": 1.387333
+              },
+              "trajectory_including_startup": {
+                "median_ms": 129.10787,
+                "p95_ms": 129.344985,
+                "max_ms": 129.371331
+              },
+              "trajectory_movement_only": {
+                "median_ms": 129.10787,
+                "p95_ms": 129.344985,
+                "max_ms": 129.371331
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 34366500,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.507688,
+                "p95_ms": 0.58176,
+                "max_ms": 1.187459
+              },
+              "startup": {
+                "median_ms": 0.044875,
+                "p95_ms": 0.051137,
+                "max_ms": 0.051833
+              },
+              "first_viewport": {
+                "median_ms": 1.082583,
+                "p95_ms": 1.204909,
+                "max_ms": 1.218501
+              },
+              "trajectory_including_startup": {
+                "median_ms": 62.053039,
+                "p95_ms": 62.380386,
+                "max_ms": 62.416758
+              },
+              "trajectory_movement_only": {
+                "median_ms": 62.008164,
+                "p95_ms": 62.347961,
+                "max_ms": 62.385716
+              },
+              "hit_rate": 0.49583333333333335,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 17294403,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.009125,
+                "p95_ms": 0.017299,
+                "max_ms": 1.025709
+              },
+              "startup": {
+                "median_ms": 0.028333,
+                "p95_ms": 0.028896,
+                "max_ms": 0.028958
+              },
+              "first_viewport": {
+                "median_ms": 1.02575,
+                "p95_ms": 1.051213,
+                "max_ms": 1.054042
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.720828,
+                "p95_ms": 2.803184,
+                "max_ms": 2.812335
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.692495,
+                "p95_ms": 2.776576,
+                "max_ms": 2.785918
+              },
+              "hit_rate": 0.9875,
+              "resident_bytes_peak": 786432,
+              "bytes_read_including_startup_all_repeats": 429312,
+              "hit_only_frame_count": 354,
+              "miss_frame_count": 6
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.004105,
+                "p95_ms": 0.008758,
+                "max_ms": 0.021834
+              },
+              "startup": {
+                "median_ms": 5.033917,
+                "p95_ms": 5.339241,
+                "max_ms": 5.373166
+              },
+              "first_viewport": {
+                "median_ms": 5.042458,
+                "p95_ms": 5.35202,
+                "max_ms": 5.386416
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.603043,
+                "p95_ms": 5.971444,
+                "max_ms": 6.012377
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.569126,
+                "p95_ms": 0.632203,
+                "max_ms": 0.639211
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1127523,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "macos_nocache",
+          "trajectory": "teleport",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.969938,
+                "p95_ms": 1.117461,
+                "max_ms": 1.585875
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.564667,
+                "p95_ms": 0.569729,
+                "max_ms": 0.570292
+              },
+              "trajectory_including_startup": {
+                "median_ms": 94.721957,
+                "p95_ms": 94.762683,
+                "max_ms": 94.767208
+              },
+              "trajectory_movement_only": {
+                "median_ms": 94.721957,
+                "p95_ms": 94.762683,
+                "max_ms": 94.767208
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 25191795,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.525855,
+                "p95_ms": 1.037235,
+                "max_ms": 1.159042
+              },
+              "startup": {
+                "median_ms": 0.042666,
+                "p95_ms": 0.096442,
+                "max_ms": 0.102417
+              },
+              "first_viewport": {
+                "median_ms": 0.584792,
+                "p95_ms": 0.612841,
+                "max_ms": 0.615958
+              },
+              "trajectory_including_startup": {
+                "median_ms": 70.983628,
+                "p95_ms": 72.141846,
+                "max_ms": 72.270537
+              },
+              "trajectory_movement_only": {
+                "median_ms": 70.955378,
+                "p95_ms": 72.046846,
+                "max_ms": 72.16812
+              },
+              "hit_rate": 0.2140845070422535,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 19650741,
+              "hit_only_frame_count": 15,
+              "miss_frame_count": 345
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.274813,
+                "p95_ms": 0.885044,
+                "max_ms": 1.06125
+              },
+              "startup": {
+                "median_ms": 0.03225,
+                "p95_ms": 0.041625,
+                "max_ms": 0.042667
+              },
+              "first_viewport": {
+                "median_ms": 0.587708,
+                "p95_ms": 0.598996,
+                "max_ms": 0.60025
+              },
+              "trajectory_including_startup": {
+                "median_ms": 43.451914,
+                "p95_ms": 44.068791,
+                "max_ms": 44.137333
+              },
+              "trajectory_movement_only": {
+                "median_ms": 43.409247,
+                "p95_ms": 44.035499,
+                "max_ms": 44.105083
+              },
+              "hit_rate": 0.523943661971831,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 11915391,
+              "hit_only_frame_count": 81,
+              "miss_frame_count": 279
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.009125,
+                "p95_ms": 0.012377,
+                "max_ms": 0.02
+              },
+              "startup": {
+                "median_ms": 4.728875,
+                "p95_ms": 5.78465,
+                "max_ms": 5.901958
+              },
+              "first_viewport": {
+                "median_ms": 4.738,
+                "p95_ms": 5.790474,
+                "max_ms": 5.907416
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.794671,
+                "p95_ms": 6.908533,
+                "max_ms": 7.032295
+              },
+              "trajectory_movement_only": {
+                "median_ms": 1.10062,
+                "p95_ms": 1.127365,
+                "max_ms": 1.130337
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1127523,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "seed": 20261013,
+      "file": "town-cache-1024-seed2-v1.json",
+      "load_count": 25920,
+      "cells": [
+        {
+          "method": "zstd",
+          "mode": "warm_buffered",
+          "trajectory": "smooth_walk",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.536145,
+                "p95_ms": 0.879622,
+                "max_ms": 1.519042
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.855,
+                "p95_ms": 1.191524,
+                "max_ms": 1.228916
+              },
+              "trajectory_including_startup": {
+                "median_ms": 61.433589,
+                "p95_ms": 67.297829,
+                "max_ms": 67.949411
+              },
+              "trajectory_movement_only": {
+                "median_ms": 61.433589,
+                "p95_ms": 67.297829,
+                "max_ms": 67.949411
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 33715875,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.009437,
+                "p95_ms": 0.207098,
+                "max_ms": 0.715583
+              },
+              "startup": {
+                "median_ms": 0.02625,
+                "p95_ms": 0.047738,
+                "max_ms": 0.050125
+              },
+              "first_viewport": {
+                "median_ms": 0.604791,
+                "p95_ms": 0.749616,
+                "max_ms": 0.765708
+              },
+              "trajectory_including_startup": {
+                "median_ms": 4.132629,
+                "p95_ms": 4.317428,
+                "max_ms": 4.337961
+              },
+              "trajectory_movement_only": {
+                "median_ms": 4.110379,
+                "p95_ms": 4.27009,
+                "max_ms": 4.287836
+              },
+              "hit_rate": 0.95,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 1681443,
+              "hit_only_frame_count": 330,
+              "miss_frame_count": 30
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.008875,
+                "p95_ms": 0.1807,
+                "max_ms": 0.683208
+              },
+              "startup": {
+                "median_ms": 0.028791,
+                "p95_ms": 0.029054,
+                "max_ms": 0.029083
+              },
+              "first_viewport": {
+                "median_ms": 0.606124,
+                "p95_ms": 0.701674,
+                "max_ms": 0.712291
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.34241,
+                "p95_ms": 3.581105,
+                "max_ms": 3.607627
+              },
+              "trajectory_movement_only": {
+                "median_ms": 3.323077,
+                "p95_ms": 3.552997,
+                "max_ms": 3.578544
+              },
+              "hit_rate": 0.9611111111111111,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 1297170,
+              "hit_only_frame_count": 339,
+              "miss_frame_count": 21
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.005667,
+                "p95_ms": 0.012638,
+                "max_ms": 0.025417
+              },
+              "startup": {
+                "median_ms": 2.554083,
+                "p95_ms": 3.365171,
+                "max_ms": 3.455292
+              },
+              "first_viewport": {
+                "median_ms": 2.557625,
+                "p95_ms": 3.377413,
+                "max_ms": 3.468501
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.317126,
+                "p95_ms": 4.263062,
+                "max_ms": 4.368166
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.782542,
+                "p95_ms": 0.899841,
+                "max_ms": 0.912874
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1496883,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "warm_buffered",
+          "trajectory": "boundary_backtrack",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.673396,
+                "p95_ms": 1.075689,
+                "max_ms": 2.175875
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.663292,
+                "p95_ms": 1.119629,
+                "max_ms": 1.170333
+              },
+              "trajectory_including_startup": {
+                "median_ms": 87.340834,
+                "p95_ms": 88.38937,
+                "max_ms": 88.505874
+              },
+              "trajectory_movement_only": {
+                "median_ms": 87.340834,
+                "p95_ms": 88.38937,
+                "max_ms": 88.505874
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 44966880,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.313792,
+                "p95_ms": 0.459808,
+                "max_ms": 6.434042
+              },
+              "startup": {
+                "median_ms": 0.035458,
+                "p95_ms": 0.038421,
+                "max_ms": 0.03875
+              },
+              "first_viewport": {
+                "median_ms": 0.642292,
+                "p95_ms": 0.691604,
+                "max_ms": 0.697083
+              },
+              "trajectory_including_startup": {
+                "median_ms": 42.481627,
+                "p95_ms": 44.192224,
+                "max_ms": 44.38229
+              },
+              "trajectory_movement_only": {
+                "median_ms": 42.446169,
+                "p95_ms": 44.153803,
+                "max_ms": 44.34354
+              },
+              "hit_rate": 0.49583333333333335,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 21415233,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.011375,
+                "p95_ms": 0.024349,
+                "max_ms": 0.594792
+              },
+              "startup": {
+                "median_ms": 0.023875,
+                "p95_ms": 0.029238,
+                "max_ms": 0.029834
+              },
+              "first_viewport": {
+                "median_ms": 0.595583,
+                "p95_ms": 0.621722,
+                "max_ms": 0.624626
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.500673,
+                "p95_ms": 2.63098,
+                "max_ms": 2.645458
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.477589,
+                "p95_ms": 2.607184,
+                "max_ms": 2.621583
+              },
+              "hit_rate": 0.9875,
+              "resident_bytes_peak": 786432,
+              "bytes_read_including_startup_all_repeats": 551535,
+              "hit_only_frame_count": 354,
+              "miss_frame_count": 6
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.007458,
+                "p95_ms": 0.013205,
+                "max_ms": 0.023542
+              },
+              "startup": {
+                "median_ms": 2.526667,
+                "p95_ms": 2.594429,
+                "max_ms": 2.601958
+              },
+              "first_viewport": {
+                "median_ms": 2.531084,
+                "p95_ms": 2.599708,
+                "max_ms": 2.607333
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.450082,
+                "p95_ms": 3.650787,
+                "max_ms": 3.673087
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.946998,
+                "p95_ms": 1.058716,
+                "max_ms": 1.071129
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1496883,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "warm_buffered",
+          "trajectory": "teleport",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.511188,
+                "p95_ms": 0.824401,
+                "max_ms": 1.502583
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.682417,
+                "p95_ms": 0.886042,
+                "max_ms": 0.908667
+              },
+              "trajectory_including_startup": {
+                "median_ms": 60.271166,
+                "p95_ms": 63.972334,
+                "max_ms": 64.383575
+              },
+              "trajectory_movement_only": {
+                "median_ms": 60.271166,
+                "p95_ms": 63.972334,
+                "max_ms": 64.383575
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 33065715,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.319792,
+                "p95_ms": 0.66244,
+                "max_ms": 0.911
+              },
+              "startup": {
+                "median_ms": 0.07825,
+                "p95_ms": 0.080763,
+                "max_ms": 0.081042
+              },
+              "first_viewport": {
+                "median_ms": 0.713417,
+                "p95_ms": 0.719266,
+                "max_ms": 0.719916
+              },
+              "trajectory_including_startup": {
+                "median_ms": 40.658418,
+                "p95_ms": 41.32483,
+                "max_ms": 41.398876
+              },
+              "trajectory_movement_only": {
+                "median_ms": 40.635918,
+                "p95_ms": 41.252155,
+                "max_ms": 41.320626
+              },
+              "hit_rate": 0.2776203966005666,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 23766897,
+              "hit_only_frame_count": 45,
+              "miss_frame_count": 315
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.278396,
+                "p95_ms": 0.638688,
+                "max_ms": 2.000125
+              },
+              "startup": {
+                "median_ms": 0.029542,
+                "p95_ms": 0.035766,
+                "max_ms": 0.036458
+              },
+              "first_viewport": {
+                "median_ms": 0.696,
+                "p95_ms": 0.746287,
+                "max_ms": 0.751875
+              },
+              "trajectory_including_startup": {
+                "median_ms": 31.047417,
+                "p95_ms": 31.090128,
+                "max_ms": 31.094874
+              },
+              "trajectory_movement_only": {
+                "median_ms": 31.010959,
+                "p95_ms": 31.059895,
+                "max_ms": 31.065332
+              },
+              "hit_rate": 0.48441926345609065,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 16954530,
+              "hit_only_frame_count": 93,
+              "miss_frame_count": 267
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.010146,
+                "p95_ms": 0.013921,
+                "max_ms": 0.024917
+              },
+              "startup": {
+                "median_ms": 2.624458,
+                "p95_ms": 2.813121,
+                "max_ms": 2.834084
+              },
+              "first_viewport": {
+                "median_ms": 2.630249,
+                "p95_ms": 2.827538,
+                "max_ms": 2.849459
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.813787,
+                "p95_ms": 4.088554,
+                "max_ms": 4.119084
+              },
+              "trajectory_movement_only": {
+                "median_ms": 1.189329,
+                "p95_ms": 1.275433,
+                "max_ms": 1.285
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1496883,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "macos_nocache",
+          "trajectory": "smooth_walk",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.532396,
+                "p95_ms": 0.773379,
+                "max_ms": 1.45375
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.586917,
+                "p95_ms": 0.649579,
+                "max_ms": 0.656542
+              },
+              "trajectory_including_startup": {
+                "median_ms": 60.778333,
+                "p95_ms": 61.039975,
+                "max_ms": 61.069046
+              },
+              "trajectory_movement_only": {
+                "median_ms": 60.778333,
+                "p95_ms": 61.039975,
+                "max_ms": 61.069046
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 33715875,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.008688,
+                "p95_ms": 0.188913,
+                "max_ms": 0.599792
+              },
+              "startup": {
+                "median_ms": 0.050417,
+                "p95_ms": 0.095904,
+                "max_ms": 0.100958
+              },
+              "first_viewport": {
+                "median_ms": 0.627459,
+                "p95_ms": 0.639609,
+                "max_ms": 0.640959
+              },
+              "trajectory_including_startup": {
+                "median_ms": 4.065623,
+                "p95_ms": 4.068654,
+                "max_ms": 4.068991
+              },
+              "trajectory_movement_only": {
+                "median_ms": 3.968214,
+                "p95_ms": 4.030982,
+                "max_ms": 4.037956
+              },
+              "hit_rate": 0.95,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 1681443,
+              "hit_only_frame_count": 330,
+              "miss_frame_count": 30
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.008459,
+                "p95_ms": 0.167566,
+                "max_ms": 0.622583
+              },
+              "startup": {
+                "median_ms": 0.028875,
+                "p95_ms": 0.03465,
+                "max_ms": 0.035292
+              },
+              "first_viewport": {
+                "median_ms": 0.594501,
+                "p95_ms": 0.645762,
+                "max_ms": 0.651458
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.220118,
+                "p95_ms": 3.406276,
+                "max_ms": 3.42696
+              },
+              "trajectory_movement_only": {
+                "median_ms": 3.184826,
+                "p95_ms": 3.376759,
+                "max_ms": 3.398085
+              },
+              "hit_rate": 0.9611111111111111,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 1297170,
+              "hit_only_frame_count": 339,
+              "miss_frame_count": 21
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.004854,
+                "p95_ms": 0.011727,
+                "max_ms": 0.02175
+              },
+              "startup": {
+                "median_ms": 2.605834,
+                "p95_ms": 2.785721,
+                "max_ms": 2.805709
+              },
+              "first_viewport": {
+                "median_ms": 2.610126,
+                "p95_ms": 2.789976,
+                "max_ms": 2.809959
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.274037,
+                "p95_ms": 3.564366,
+                "max_ms": 3.596625
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.697751,
+                "p95_ms": 0.7816,
+                "max_ms": 0.790916
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1496883,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "macos_nocache",
+          "trajectory": "boundary_backtrack",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.65173,
+                "p95_ms": 0.804104,
+                "max_ms": 2.064334
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.661791,
+                "p95_ms": 0.69288,
+                "max_ms": 0.696334
+              },
+              "trajectory_including_startup": {
+                "median_ms": 80.378004,
+                "p95_ms": 84.067363,
+                "max_ms": 84.477292
+              },
+              "trajectory_movement_only": {
+                "median_ms": 80.378004,
+                "p95_ms": 84.067363,
+                "max_ms": 84.477292
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 44966880,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.308104,
+                "p95_ms": 0.367213,
+                "max_ms": 0.690167
+              },
+              "startup": {
+                "median_ms": 0.040166,
+                "p95_ms": 0.053104,
+                "max_ms": 0.054542
+              },
+              "first_viewport": {
+                "median_ms": 0.704584,
+                "p95_ms": 0.727758,
+                "max_ms": 0.730333
+              },
+              "trajectory_including_startup": {
+                "median_ms": 37.916699,
+                "p95_ms": 38.113619,
+                "max_ms": 38.135499
+              },
+              "trajectory_movement_only": {
+                "median_ms": 37.862157,
+                "p95_ms": 38.084877,
+                "max_ms": 38.109624
+              },
+              "hit_rate": 0.49583333333333335,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 21415233,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.009875,
+                "p95_ms": 0.019175,
+                "max_ms": 0.697375
+              },
+              "startup": {
+                "median_ms": 0.030375,
+                "p95_ms": 0.059251,
+                "max_ms": 0.062459
+              },
+              "first_viewport": {
+                "median_ms": 0.704542,
+                "p95_ms": 0.716504,
+                "max_ms": 0.717833
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.31283,
+                "p95_ms": 2.324761,
+                "max_ms": 2.326087
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.263628,
+                "p95_ms": 2.289498,
+                "max_ms": 2.292372
+              },
+              "hit_rate": 0.9875,
+              "resident_bytes_peak": 786432,
+              "bytes_read_including_startup_all_repeats": 551535,
+              "hit_only_frame_count": 354,
+              "miss_frame_count": 6
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.00475,
+                "p95_ms": 0.011046,
+                "max_ms": 0.031541
+              },
+              "startup": {
+                "median_ms": 2.565292,
+                "p95_ms": 2.635004,
+                "max_ms": 2.64275
+              },
+              "first_viewport": {
+                "median_ms": 2.5695,
+                "p95_ms": 2.641538,
+                "max_ms": 2.649542
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.302789,
+                "p95_ms": 3.32428,
+                "max_ms": 3.326668
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.683918,
+                "p95_ms": 0.732139,
+                "max_ms": 0.737497
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1496883,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "zstd",
+          "mode": "macos_nocache",
+          "trajectory": "teleport",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.527687,
+                "p95_ms": 0.759377,
+                "max_ms": 1.398667
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.670583,
+                "p95_ms": 0.694133,
+                "max_ms": 0.69675
+              },
+              "trajectory_including_startup": {
+                "median_ms": 59.510753,
+                "p95_ms": 61.828779,
+                "max_ms": 62.086337
+              },
+              "trajectory_movement_only": {
+                "median_ms": 59.510753,
+                "p95_ms": 61.828779,
+                "max_ms": 62.086337
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 33065715,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.319708,
+                "p95_ms": 0.642716,
+                "max_ms": 0.815083
+              },
+              "startup": {
+                "median_ms": 0.029625,
+                "p95_ms": 0.048376,
+                "max_ms": 0.050459
+              },
+              "first_viewport": {
+                "median_ms": 0.673291,
+                "p95_ms": 0.675992,
+                "max_ms": 0.676292
+              },
+              "trajectory_including_startup": {
+                "median_ms": 40.540957,
+                "p95_ms": 40.994177,
+                "max_ms": 41.044535
+              },
+              "trajectory_movement_only": {
+                "median_ms": 40.490498,
+                "p95_ms": 40.962469,
+                "max_ms": 41.01491
+              },
+              "hit_rate": 0.2776203966005666,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 23766897,
+              "hit_only_frame_count": 45,
+              "miss_frame_count": 315
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.285459,
+                "p95_ms": 0.622954,
+                "max_ms": 1.617291
+              },
+              "startup": {
+                "median_ms": 0.023084,
+                "p95_ms": 0.040859,
+                "max_ms": 0.042834
+              },
+              "first_viewport": {
+                "median_ms": 0.701125,
+                "p95_ms": 0.715601,
+                "max_ms": 0.717209
+              },
+              "trajectory_including_startup": {
+                "median_ms": 30.023294,
+                "p95_ms": 30.277249,
+                "max_ms": 30.305466
+              },
+              "trajectory_movement_only": {
+                "median_ms": 29.98046,
+                "p95_ms": 30.25219,
+                "max_ms": 30.282382
+              },
+              "hit_rate": 0.48441926345609065,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 16954530,
+              "hit_only_frame_count": 93,
+              "miss_frame_count": 267
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.009792,
+                "p95_ms": 0.013879,
+                "max_ms": 0.026292
+              },
+              "startup": {
+                "median_ms": 2.680166,
+                "p95_ms": 2.884317,
+                "max_ms": 2.907
+              },
+              "first_viewport": {
+                "median_ms": 2.686499,
+                "p95_ms": 2.89905,
+                "max_ms": 2.922667
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.906622,
+                "p95_ms": 4.083136,
+                "max_ms": 4.102749
+              },
+              "trajectory_movement_only": {
+                "median_ms": 1.195749,
+                "p95_ms": 1.223385,
+                "max_ms": 1.226456
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1496883,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "warm_buffered",
+          "trajectory": "smooth_walk",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.373625,
+                "p95_ms": 0.507704,
+                "max_ms": 0.940042
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.47125,
+                "p95_ms": 0.4798,
+                "max_ms": 0.48075
+              },
+              "trajectory_including_startup": {
+                "median_ms": 41.908333,
+                "p95_ms": 43.51446,
+                "max_ms": 43.692919
+              },
+              "trajectory_movement_only": {
+                "median_ms": 41.908333,
+                "p95_ms": 43.51446,
+                "max_ms": 43.692919
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 54371823,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.008646,
+                "p95_ms": 0.15525,
+                "max_ms": 0.581958
+              },
+              "startup": {
+                "median_ms": 0.029041,
+                "p95_ms": 0.051129,
+                "max_ms": 0.053583
+              },
+              "first_viewport": {
+                "median_ms": 0.461124,
+                "p95_ms": 0.590125,
+                "max_ms": 0.604458
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.037213,
+                "p95_ms": 3.176227,
+                "max_ms": 3.191673
+              },
+              "trajectory_movement_only": {
+                "median_ms": 3.008172,
+                "p95_ms": 3.153073,
+                "max_ms": 3.169173
+              },
+              "hit_rate": 0.95,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 2740479,
+              "hit_only_frame_count": 330,
+              "miss_frame_count": 30
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.00825,
+                "p95_ms": 0.115436,
+                "max_ms": 0.488875
+              },
+              "startup": {
+                "median_ms": 0.022958,
+                "p95_ms": 0.027684,
+                "max_ms": 0.028209
+              },
+              "first_viewport": {
+                "median_ms": 0.457334,
+                "p95_ms": 0.506383,
+                "max_ms": 0.511833
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.621541,
+                "p95_ms": 2.654843,
+                "max_ms": 2.658543
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.601832,
+                "p95_ms": 2.63221,
+                "max_ms": 2.635585
+              },
+              "hit_rate": 0.9611111111111111,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 2142081,
+              "hit_only_frame_count": 339,
+              "miss_frame_count": 21
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.004792,
+                "p95_ms": 0.010587,
+                "max_ms": 0.017583
+              },
+              "startup": {
+                "median_ms": 2.139084,
+                "p95_ms": 2.308134,
+                "max_ms": 2.326917
+              },
+              "first_viewport": {
+                "median_ms": 2.145917,
+                "p95_ms": 2.312004,
+                "max_ms": 2.330458
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.783214,
+                "p95_ms": 3.002708,
+                "max_ms": 3.027096
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.697083,
+                "p95_ms": 0.699869,
+                "max_ms": 0.700179
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 2451612,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "warm_buffered",
+          "trajectory": "boundary_backtrack",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.471458,
+                "p95_ms": 0.741168,
+                "max_ms": 1.972625
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.501166,
+                "p95_ms": 0.666654,
+                "max_ms": 0.685042
+              },
+              "trajectory_including_startup": {
+                "median_ms": 59.244749,
+                "p95_ms": 62.933924,
+                "max_ms": 63.343832
+              },
+              "trajectory_movement_only": {
+                "median_ms": 59.244749,
+                "p95_ms": 62.933924,
+                "max_ms": 63.343832
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 75604140,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.233125,
+                "p95_ms": 0.347571,
+                "max_ms": 1.748875
+              },
+              "startup": {
+                "median_ms": 0.028333,
+                "p95_ms": 0.040221,
+                "max_ms": 0.041542
+              },
+              "first_viewport": {
+                "median_ms": 0.461874,
+                "p95_ms": 0.51805,
+                "max_ms": 0.524292
+              },
+              "trajectory_including_startup": {
+                "median_ms": 29.582417,
+                "p95_ms": 31.129928,
+                "max_ms": 31.301874
+              },
+              "trajectory_movement_only": {
+                "median_ms": 29.540875,
+                "p95_ms": 31.100274,
+                "max_ms": 31.273541
+              },
+              "hit_rate": 0.49583333333333335,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 36131007,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.009916,
+                "p95_ms": 0.018096,
+                "max_ms": 1.279584
+              },
+              "startup": {
+                "median_ms": 0.030084,
+                "p95_ms": 0.097809,
+                "max_ms": 0.105334
+              },
+              "first_viewport": {
+                "median_ms": 1.226209,
+                "p95_ms": 1.295059,
+                "max_ms": 1.302709
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.896334,
+                "p95_ms": 3.002497,
+                "max_ms": 3.014293
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.873209,
+                "p95_ms": 2.905384,
+                "max_ms": 2.908959
+              },
+              "hit_rate": 0.9875,
+              "resident_bytes_peak": 786432,
+              "bytes_read_including_startup_all_repeats": 928362,
+              "hit_only_frame_count": 354,
+              "miss_frame_count": 6
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.005333,
+                "p95_ms": 0.012583,
+                "max_ms": 0.023167
+              },
+              "startup": {
+                "median_ms": 1.822208,
+                "p95_ms": 1.837321,
+                "max_ms": 1.839
+              },
+              "first_viewport": {
+                "median_ms": 1.828041,
+                "p95_ms": 1.846942,
+                "max_ms": 1.849042
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.548004,
+                "p95_ms": 2.598175,
+                "max_ms": 2.60375
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.755337,
+                "p95_ms": 0.763809,
+                "max_ms": 0.76475
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 2451612,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "warm_buffered",
+          "trajectory": "teleport",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.396896,
+                "p95_ms": 0.724544,
+                "max_ms": 1.364708
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.411,
+                "p95_ms": 0.542888,
+                "max_ms": 0.557542
+              },
+              "trajectory_including_startup": {
+                "median_ms": 47.397499,
+                "p95_ms": 50.514987,
+                "max_ms": 50.861375
+              },
+              "trajectory_movement_only": {
+                "median_ms": 47.397499,
+                "p95_ms": 50.514987,
+                "max_ms": 50.861375
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 54446457,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.252938,
+                "p95_ms": 0.566369,
+                "max_ms": 0.870083
+              },
+              "startup": {
+                "median_ms": 0.031833,
+                "p95_ms": 0.058083,
+                "max_ms": 0.061
+              },
+              "first_viewport": {
+                "median_ms": 0.422208,
+                "p95_ms": 0.479808,
+                "max_ms": 0.486208
+              },
+              "trajectory_including_startup": {
+                "median_ms": 31.911543,
+                "p95_ms": 33.729246,
+                "max_ms": 33.931213
+              },
+              "trajectory_movement_only": {
+                "median_ms": 31.850543,
+                "p95_ms": 33.694496,
+                "max_ms": 33.89938
+              },
+              "hit_rate": 0.2776203966005666,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 39245616,
+              "hit_only_frame_count": 45,
+              "miss_frame_count": 315
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.194416,
+                "p95_ms": 0.499141,
+                "max_ms": 1.107125
+              },
+              "startup": {
+                "median_ms": 0.027875,
+                "p95_ms": 0.029263,
+                "max_ms": 0.029417
+              },
+              "first_viewport": {
+                "median_ms": 0.412583,
+                "p95_ms": 0.430508,
+                "max_ms": 0.4325
+              },
+              "trajectory_including_startup": {
+                "median_ms": 23.072664,
+                "p95_ms": 23.131421,
+                "max_ms": 23.13795
+              },
+              "trajectory_movement_only": {
+                "median_ms": 23.043247,
+                "p95_ms": 23.10853,
+                "max_ms": 23.115784
+              },
+              "hit_rate": 0.48441926345609065,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 28010805,
+              "hit_only_frame_count": 93,
+              "miss_frame_count": 267
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.010042,
+                "p95_ms": 0.012961,
+                "max_ms": 0.034625
+              },
+              "startup": {
+                "median_ms": 1.822333,
+                "p95_ms": 2.120946,
+                "max_ms": 2.154125
+              },
+              "first_viewport": {
+                "median_ms": 1.826166,
+                "p95_ms": 2.125604,
+                "max_ms": 2.158875
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.976917,
+                "p95_ms": 3.34573,
+                "max_ms": 3.386709
+              },
+              "trajectory_movement_only": {
+                "median_ms": 1.165838,
+                "p95_ms": 1.225909,
+                "max_ms": 1.232584
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 2451612,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "macos_nocache",
+          "trajectory": "smooth_walk",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.36398,
+                "p95_ms": 0.578498,
+                "max_ms": 1.817125
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.434667,
+                "p95_ms": 0.448654,
+                "max_ms": 0.450208
+              },
+              "trajectory_including_startup": {
+                "median_ms": 44.707786,
+                "p95_ms": 46.573531,
+                "max_ms": 46.780836
+              },
+              "trajectory_movement_only": {
+                "median_ms": 44.707786,
+                "p95_ms": 46.573531,
+                "max_ms": 46.780836
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 54371823,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.0085,
+                "p95_ms": 0.134177,
+                "max_ms": 0.752875
+              },
+              "startup": {
+                "median_ms": 0.025458,
+                "p95_ms": 0.042071,
+                "max_ms": 0.043917
+              },
+              "first_viewport": {
+                "median_ms": 0.399334,
+                "p95_ms": 0.464208,
+                "max_ms": 0.471416
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.379201,
+                "p95_ms": 3.482371,
+                "max_ms": 3.493834
+              },
+              "trajectory_movement_only": {
+                "median_ms": 3.353743,
+                "p95_ms": 3.4403,
+                "max_ms": 3.449917
+              },
+              "hit_rate": 0.95,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 2740479,
+              "hit_only_frame_count": 330,
+              "miss_frame_count": 30
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.008271,
+                "p95_ms": 0.122892,
+                "max_ms": 0.428916
+              },
+              "startup": {
+                "median_ms": 0.02725,
+                "p95_ms": 0.032425,
+                "max_ms": 0.033
+              },
+              "first_viewport": {
+                "median_ms": 0.420208,
+                "p95_ms": 0.449157,
+                "max_ms": 0.452374
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.643661,
+                "p95_ms": 2.653789,
+                "max_ms": 2.654914
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.616411,
+                "p95_ms": 2.629951,
+                "max_ms": 2.631456
+              },
+              "hit_rate": 0.9611111111111111,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 2142081,
+              "hit_only_frame_count": 339,
+              "miss_frame_count": 21
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.004541,
+                "p95_ms": 0.010754,
+                "max_ms": 0.024792
+              },
+              "startup": {
+                "median_ms": 1.848666,
+                "p95_ms": 1.892054,
+                "max_ms": 1.896875
+              },
+              "first_viewport": {
+                "median_ms": 1.852291,
+                "p95_ms": 1.896242,
+                "max_ms": 1.901125
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.513294,
+                "p95_ms": 2.58155,
+                "max_ms": 2.589134
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.692259,
+                "p95_ms": 0.703649,
+                "max_ms": 0.704915
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 2451612,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "macos_nocache",
+          "trajectory": "boundary_backtrack",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.497479,
+                "p95_ms": 0.736555,
+                "max_ms": 2.10575
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.477083,
+                "p95_ms": 0.581408,
+                "max_ms": 0.593
+              },
+              "trajectory_including_startup": {
+                "median_ms": 63.8095,
+                "p95_ms": 64.843674,
+                "max_ms": 64.958582
+              },
+              "trajectory_movement_only": {
+                "median_ms": 63.8095,
+                "p95_ms": 64.843674,
+                "max_ms": 64.958582
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 75604140,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.241458,
+                "p95_ms": 0.350077,
+                "max_ms": 0.731542
+              },
+              "startup": {
+                "median_ms": 0.064542,
+                "p95_ms": 0.065929,
+                "max_ms": 0.066083
+              },
+              "first_viewport": {
+                "median_ms": 0.498501,
+                "p95_ms": 0.57605,
+                "max_ms": 0.584667
+              },
+              "trajectory_including_startup": {
+                "median_ms": 31.065248,
+                "p95_ms": 31.118232,
+                "max_ms": 31.124119
+              },
+              "trajectory_movement_only": {
+                "median_ms": 30.999165,
+                "p95_ms": 31.053536,
+                "max_ms": 31.059577
+              },
+              "hit_rate": 0.49583333333333335,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 36131007,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.009938,
+                "p95_ms": 0.017977,
+                "max_ms": 0.632125
+              },
+              "startup": {
+                "median_ms": 0.027083,
+                "p95_ms": 0.034996,
+                "max_ms": 0.035875
+              },
+              "first_viewport": {
+                "median_ms": 0.550958,
+                "p95_ms": 0.648009,
+                "max_ms": 0.658792
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.067085,
+                "p95_ms": 2.182021,
+                "max_ms": 2.194792
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.03121,
+                "p95_ms": 2.154433,
+                "max_ms": 2.168125
+              },
+              "hit_rate": 0.9875,
+              "resident_bytes_peak": 786432,
+              "bytes_read_including_startup_all_repeats": 928362,
+              "hit_only_frame_count": 354,
+              "miss_frame_count": 6
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.005083,
+                "p95_ms": 0.010669,
+                "max_ms": 0.016458
+              },
+              "startup": {
+                "median_ms": 2.438583,
+                "p95_ms": 2.633583,
+                "max_ms": 2.65525
+              },
+              "first_viewport": {
+                "median_ms": 2.444333,
+                "p95_ms": 2.645633,
+                "max_ms": 2.668
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.164078,
+                "p95_ms": 3.346102,
+                "max_ms": 3.366327
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.715121,
+                "p95_ms": 0.724458,
+                "max_ms": 0.725495
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 2451612,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "lz4",
+          "mode": "macos_nocache",
+          "trajectory": "teleport",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.388292,
+                "p95_ms": 0.615925,
+                "max_ms": 2.233042
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 0.430916,
+                "p95_ms": 0.605592,
+                "max_ms": 0.625
+              },
+              "trajectory_including_startup": {
+                "median_ms": 47.274165,
+                "p95_ms": 47.326856,
+                "max_ms": 47.33271
+              },
+              "trajectory_movement_only": {
+                "median_ms": 47.274165,
+                "p95_ms": 47.326856,
+                "max_ms": 47.33271
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 54446457,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.252521,
+                "p95_ms": 0.540122,
+                "max_ms": 0.928209
+              },
+              "startup": {
+                "median_ms": 0.027625,
+                "p95_ms": 0.039474,
+                "max_ms": 0.040791
+              },
+              "first_viewport": {
+                "median_ms": 0.437792,
+                "p95_ms": 0.554791,
+                "max_ms": 0.567791
+              },
+              "trajectory_including_startup": {
+                "median_ms": 31.536581,
+                "p95_ms": 31.554208,
+                "max_ms": 31.556167
+              },
+              "trajectory_movement_only": {
+                "median_ms": 31.508956,
+                "p95_ms": 31.526621,
+                "max_ms": 31.528584
+              },
+              "hit_rate": 0.2776203966005666,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 39245616,
+              "hit_only_frame_count": 45,
+              "miss_frame_count": 315
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.195188,
+                "p95_ms": 0.450496,
+                "max_ms": 0.862625
+              },
+              "startup": {
+                "median_ms": 0.021333,
+                "p95_ms": 0.041471,
+                "max_ms": 0.043709
+              },
+              "first_viewport": {
+                "median_ms": 0.43525,
+                "p95_ms": 0.859226,
+                "max_ms": 0.906334
+              },
+              "trajectory_including_startup": {
+                "median_ms": 22.626296,
+                "p95_ms": 22.742957,
+                "max_ms": 22.755919
+              },
+              "trajectory_movement_only": {
+                "median_ms": 22.605463,
+                "p95_ms": 22.721674,
+                "max_ms": 22.734586
+              },
+              "hit_rate": 0.48441926345609065,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 28010805,
+              "hit_only_frame_count": 93,
+              "miss_frame_count": 267
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.010042,
+                "p95_ms": 0.013096,
+                "max_ms": 0.027333
+              },
+              "startup": {
+                "median_ms": 1.886791,
+                "p95_ms": 2.041292,
+                "max_ms": 2.058459
+              },
+              "first_viewport": {
+                "median_ms": 1.891041,
+                "p95_ms": 2.055592,
+                "max_ms": 2.073876
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.051087,
+                "p95_ms": 3.245591,
+                "max_ms": 3.267203
+              },
+              "trajectory_movement_only": {
+                "median_ms": 1.204752,
+                "p95_ms": 1.208345,
+                "max_ms": 1.208744
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 2451612,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "warm_buffered",
+          "trajectory": "smooth_walk",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.936646,
+                "p95_ms": 1.114998,
+                "max_ms": 1.73925
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 1.04775,
+                "p95_ms": 1.416525,
+                "max_ms": 1.4575
+              },
+              "trajectory_including_startup": {
+                "median_ms": 94.479588,
+                "p95_ms": 94.703261,
+                "max_ms": 94.728114
+              },
+              "trajectory_movement_only": {
+                "median_ms": 94.479588,
+                "p95_ms": 94.703261,
+                "max_ms": 94.728114
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 25127037,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.008959,
+                "p95_ms": 0.496255,
+                "max_ms": 1.270583
+              },
+              "startup": {
+                "median_ms": 0.029125,
+                "p95_ms": 0.03685,
+                "max_ms": 0.037708
+              },
+              "first_viewport": {
+                "median_ms": 1.060208,
+                "p95_ms": 1.249808,
+                "max_ms": 1.270875
+              },
+              "trajectory_including_startup": {
+                "median_ms": 6.057956,
+                "p95_ms": 7.38662,
+                "max_ms": 7.534249
+              },
+              "trajectory_movement_only": {
+                "median_ms": 6.028831,
+                "p95_ms": 7.34977,
+                "max_ms": 7.496541
+              },
+              "hit_rate": 0.95,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 1259154,
+              "hit_only_frame_count": 330,
+              "miss_frame_count": 30
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.0085,
+                "p95_ms": 0.270792,
+                "max_ms": 1.087625
+              },
+              "startup": {
+                "median_ms": 0.023,
+                "p95_ms": 0.024837,
+                "max_ms": 0.025041
+              },
+              "first_viewport": {
+                "median_ms": 1.093208,
+                "p95_ms": 1.11072,
+                "max_ms": 1.112666
+              },
+              "trajectory_including_startup": {
+                "median_ms": 4.805158,
+                "p95_ms": 4.840154,
+                "max_ms": 4.844042
+              },
+              "trajectory_movement_only": {
+                "median_ms": 4.782158,
+                "p95_ms": 4.815317,
+                "max_ms": 4.819001
+              },
+              "hit_rate": 0.9611111111111111,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 982461,
+              "hit_only_frame_count": 339,
+              "miss_frame_count": 21
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.005104,
+                "p95_ms": 0.011298,
+                "max_ms": 0.030833
+              },
+              "startup": {
+                "median_ms": 4.455875,
+                "p95_ms": 5.652388,
+                "max_ms": 5.785334
+              },
+              "first_viewport": {
+                "median_ms": 4.459667,
+                "p95_ms": 5.664204,
+                "max_ms": 5.798042
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.175258,
+                "p95_ms": 6.382147,
+                "max_ms": 6.516246
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.730912,
+                "p95_ms": 0.759416,
+                "max_ms": 0.762583
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1125696,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "warm_buffered",
+          "trajectory": "boundary_backtrack",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 1.09475,
+                "p95_ms": 1.301415,
+                "max_ms": 2.46725
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 1.087542,
+                "p95_ms": 1.167754,
+                "max_ms": 1.176667
+              },
+              "trajectory_including_startup": {
+                "median_ms": 134.858496,
+                "p95_ms": 135.442073,
+                "max_ms": 135.506915
+              },
+              "trajectory_movement_only": {
+                "median_ms": 134.858496,
+                "p95_ms": 135.442073,
+                "max_ms": 135.506915
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 34580880,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.524209,
+                "p95_ms": 0.602269,
+                "max_ms": 37.412833
+              },
+              "startup": {
+                "median_ms": 0.049333,
+                "p95_ms": 0.066321,
+                "max_ms": 0.068208
+              },
+              "first_viewport": {
+                "median_ms": 1.083666,
+                "p95_ms": 1.128553,
+                "max_ms": 1.133541
+              },
+              "trajectory_including_startup": {
+                "median_ms": 64.455209,
+                "p95_ms": 97.05276,
+                "max_ms": 100.67471
+              },
+              "trajectory_movement_only": {
+                "median_ms": 64.419876,
+                "p95_ms": 96.987839,
+                "max_ms": 100.606502
+              },
+              "hit_rate": 0.49583333333333335,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 16388517,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.010646,
+                "p95_ms": 0.021344,
+                "max_ms": 1.079208
+              },
+              "startup": {
+                "median_ms": 0.026667,
+                "p95_ms": 0.030342,
+                "max_ms": 0.03075
+              },
+              "first_viewport": {
+                "median_ms": 1.073917,
+                "p95_ms": 1.102679,
+                "max_ms": 1.105875
+              },
+              "trajectory_including_startup": {
+                "median_ms": 3.051506,
+                "p95_ms": 3.074411,
+                "max_ms": 3.076956
+              },
+              "trajectory_movement_only": {
+                "median_ms": 3.020756,
+                "p95_ms": 3.050186,
+                "max_ms": 3.053456
+              },
+              "hit_rate": 0.9875,
+              "resident_bytes_peak": 786432,
+              "bytes_read_including_startup_all_repeats": 423471,
+              "hit_only_frame_count": 354,
+              "miss_frame_count": 6
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.006646,
+                "p95_ms": 0.011925,
+                "max_ms": 0.023125
+              },
+              "startup": {
+                "median_ms": 4.624291,
+                "p95_ms": 4.795104,
+                "max_ms": 4.814083
+              },
+              "first_viewport": {
+                "median_ms": 4.630833,
+                "p95_ms": 4.807984,
+                "max_ms": 4.827667
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.429915,
+                "p95_ms": 5.593417,
+                "max_ms": 5.611584
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.805624,
+                "p95_ms": 0.873648,
+                "max_ms": 0.881206
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1125696,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "warm_buffered",
+          "trajectory": "teleport",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.880105,
+                "p95_ms": 1.28146,
+                "max_ms": 1.711875
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 1.441416,
+                "p95_ms": 1.484767,
+                "max_ms": 1.489584
+              },
+              "trajectory_including_startup": {
+                "median_ms": 100.656795,
+                "p95_ms": 101.295305,
+                "max_ms": 101.366251
+              },
+              "trajectory_movement_only": {
+                "median_ms": 100.656795,
+                "p95_ms": 101.295305,
+                "max_ms": 101.366251
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 25050963,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.538104,
+                "p95_ms": 1.107918,
+                "max_ms": 1.81175
+              },
+              "startup": {
+                "median_ms": 0.049625,
+                "p95_ms": 0.099687,
+                "max_ms": 0.10525
+              },
+              "first_viewport": {
+                "median_ms": 1.2065,
+                "p95_ms": 1.212988,
+                "max_ms": 1.213709
+              },
+              "trajectory_including_startup": {
+                "median_ms": 69.586167,
+                "p95_ms": 71.407845,
+                "max_ms": 71.610254
+              },
+              "trajectory_movement_only": {
+                "median_ms": 69.480917,
+                "p95_ms": 71.372195,
+                "max_ms": 71.582337
+              },
+              "hit_rate": 0.2776203966005666,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 17970585,
+              "hit_only_frame_count": 45,
+              "miss_frame_count": 315
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.48577,
+                "p95_ms": 1.072583,
+                "max_ms": 1.731667
+              },
+              "startup": {
+                "median_ms": 0.026209,
+                "p95_ms": 0.032658,
+                "max_ms": 0.033375
+              },
+              "first_viewport": {
+                "median_ms": 1.156625,
+                "p95_ms": 1.242426,
+                "max_ms": 1.251959
+              },
+              "trajectory_including_startup": {
+                "median_ms": 49.934503,
+                "p95_ms": 50.574293,
+                "max_ms": 50.645381
+              },
+              "trajectory_movement_only": {
+                "median_ms": 49.901128,
+                "p95_ms": 50.552768,
+                "max_ms": 50.625173
+              },
+              "hit_rate": 0.48441926345609065,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 12829758,
+              "hit_only_frame_count": 93,
+              "miss_frame_count": 267
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.010979,
+                "p95_ms": 0.018348,
+                "max_ms": 0.055416
+              },
+              "startup": {
+                "median_ms": 4.353875,
+                "p95_ms": 5.124088,
+                "max_ms": 5.209667
+              },
+              "first_viewport": {
+                "median_ms": 4.365625,
+                "p95_ms": 5.144012,
+                "max_ms": 5.2305
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.768961,
+                "p95_ms": 6.499868,
+                "max_ms": 6.58108
+              },
+              "trajectory_movement_only": {
+                "median_ms": 1.371413,
+                "p95_ms": 1.410719,
+                "max_ms": 1.415086
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1125696,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "macos_nocache",
+          "trajectory": "smooth_walk",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.916604,
+                "p95_ms": 1.137262,
+                "max_ms": 1.481792
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 1.01825,
+                "p95_ms": 1.135063,
+                "max_ms": 1.148042
+              },
+              "trajectory_including_startup": {
+                "median_ms": 94.246412,
+                "p95_ms": 94.912191,
+                "max_ms": 94.986167
+              },
+              "trajectory_movement_only": {
+                "median_ms": 94.246412,
+                "p95_ms": 94.912191,
+                "max_ms": 94.986167
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 25127037,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.008875,
+                "p95_ms": 0.391263,
+                "max_ms": 1.029542
+              },
+              "startup": {
+                "median_ms": 0.034208,
+                "p95_ms": 0.088658,
+                "max_ms": 0.094708
+              },
+              "first_viewport": {
+                "median_ms": 1.04025,
+                "p95_ms": 1.055588,
+                "max_ms": 1.057292
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.771376,
+                "p95_ms": 5.840079,
+                "max_ms": 5.847713
+              },
+              "trajectory_movement_only": {
+                "median_ms": 5.676668,
+                "p95_ms": 5.805634,
+                "max_ms": 5.819963
+              },
+              "hit_rate": 0.95,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 1259154,
+              "hit_only_frame_count": 330,
+              "miss_frame_count": 30
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.008625,
+                "p95_ms": 0.260432,
+                "max_ms": 1.129459
+              },
+              "startup": {
+                "median_ms": 0.025542,
+                "p95_ms": 0.035779,
+                "max_ms": 0.036917
+              },
+              "first_viewport": {
+                "median_ms": 1.075499,
+                "p95_ms": 1.147051,
+                "max_ms": 1.155001
+              },
+              "trajectory_including_startup": {
+                "median_ms": 4.725119,
+                "p95_ms": 4.775636,
+                "max_ms": 4.781249
+              },
+              "trajectory_movement_only": {
+                "median_ms": 4.701453,
+                "p95_ms": 4.750282,
+                "max_ms": 4.755707
+              },
+              "hit_rate": 0.9611111111111111,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 982461,
+              "hit_only_frame_count": 339,
+              "miss_frame_count": 21
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.005167,
+                "p95_ms": 0.011044,
+                "max_ms": 0.02275
+              },
+              "startup": {
+                "median_ms": 4.425458,
+                "p95_ms": 4.642471,
+                "max_ms": 4.666584
+              },
+              "first_viewport": {
+                "median_ms": 4.432125,
+                "p95_ms": 4.647488,
+                "max_ms": 4.671417
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.145501,
+                "p95_ms": 5.343573,
+                "max_ms": 5.365581
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.720043,
+                "p95_ms": 0.753045,
+                "max_ms": 0.756712
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1125696,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "macos_nocache",
+          "trajectory": "boundary_backtrack",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 1.097958,
+                "p95_ms": 1.377837,
+                "max_ms": 2.42225
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 1.061708,
+                "p95_ms": 1.122195,
+                "max_ms": 1.128916
+              },
+              "trajectory_including_startup": {
+                "median_ms": 135.290925,
+                "p95_ms": 136.984383,
+                "max_ms": 137.172545
+              },
+              "trajectory_movement_only": {
+                "median_ms": 135.290925,
+                "p95_ms": 136.984383,
+                "max_ms": 137.172545
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 34580880,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.524104,
+                "p95_ms": 0.608827,
+                "max_ms": 1.148125
+              },
+              "startup": {
+                "median_ms": 0.050625,
+                "p95_ms": 0.142425,
+                "max_ms": 0.152625
+              },
+              "first_viewport": {
+                "median_ms": 1.135334,
+                "p95_ms": 1.192408,
+                "max_ms": 1.19875
+              },
+              "trajectory_including_startup": {
+                "median_ms": 64.059004,
+                "p95_ms": 64.709323,
+                "max_ms": 64.781581
+              },
+              "trajectory_movement_only": {
+                "median_ms": 64.008379,
+                "p95_ms": 64.566898,
+                "max_ms": 64.628956
+              },
+              "hit_rate": 0.49583333333333335,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 16388517,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.011249,
+                "p95_ms": 0.022666,
+                "max_ms": 1.044167
+              },
+              "startup": {
+                "median_ms": 0.030708,
+                "p95_ms": 0.083396,
+                "max_ms": 0.08925
+              },
+              "first_viewport": {
+                "median_ms": 1.048167,
+                "p95_ms": 1.072204,
+                "max_ms": 1.074875
+              },
+              "trajectory_including_startup": {
+                "median_ms": 2.99249,
+                "p95_ms": 3.139237,
+                "max_ms": 3.155542
+              },
+              "trajectory_movement_only": {
+                "median_ms": 2.963073,
+                "p95_ms": 3.108658,
+                "max_ms": 3.124834
+              },
+              "hit_rate": 0.9875,
+              "resident_bytes_peak": 786432,
+              "bytes_read_including_startup_all_repeats": 423471,
+              "hit_only_frame_count": 354,
+              "miss_frame_count": 6
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.007271,
+                "p95_ms": 0.012168,
+                "max_ms": 0.029292
+              },
+              "startup": {
+                "median_ms": 5.047958,
+                "p95_ms": 6.993496,
+                "max_ms": 7.209667
+              },
+              "first_viewport": {
+                "median_ms": 5.058499,
+                "p95_ms": 7.003287,
+                "max_ms": 7.219375
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.90662,
+                "p95_ms": 7.851866,
+                "max_ms": 8.068005
+              },
+              "trajectory_movement_only": {
+                "median_ms": 0.858662,
+                "p95_ms": 0.887134,
+                "max_ms": 0.890298
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1125696,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        },
+        {
+          "method": "delta_zstd",
+          "mode": "macos_nocache",
+          "trajectory": "teleport",
+          "arms": {
+            "stateless": {
+              "frame": {
+                "median_ms": 0.820187,
+                "p95_ms": 1.268677,
+                "max_ms": 2.257916
+              },
+              "startup": {
+                "median_ms": 0.0,
+                "p95_ms": 0.0,
+                "max_ms": 0.0
+              },
+              "first_viewport": {
+                "median_ms": 1.001959,
+                "p95_ms": 1.045196,
+                "max_ms": 1.05
+              },
+              "trajectory_including_startup": {
+                "median_ms": 99.242124,
+                "p95_ms": 99.248276,
+                "max_ms": 99.24896
+              },
+              "trajectory_movement_only": {
+                "median_ms": 99.242124,
+                "p95_ms": 99.248276,
+                "max_ms": 99.24896
+              },
+              "hit_rate": 0.0,
+              "resident_bytes_peak": 0,
+              "bytes_read_including_startup_all_repeats": 25050963,
+              "hit_only_frame_count": 0,
+              "miss_frame_count": 360
+            },
+            "lru4": {
+              "frame": {
+                "median_ms": 0.535896,
+                "p95_ms": 1.083996,
+                "max_ms": 1.955292
+              },
+              "startup": {
+                "median_ms": 0.037125,
+                "p95_ms": 0.040125,
+                "max_ms": 0.040458
+              },
+              "first_viewport": {
+                "median_ms": 1.004792,
+                "p95_ms": 1.050992,
+                "max_ms": 1.056125
+              },
+              "trajectory_including_startup": {
+                "median_ms": 68.047259,
+                "p95_ms": 68.342825,
+                "max_ms": 68.375666
+              },
+              "trajectory_movement_only": {
+                "median_ms": 68.010134,
+                "p95_ms": 68.302701,
+                "max_ms": 68.335208
+              },
+              "hit_rate": 0.2776203966005666,
+              "resident_bytes_peak": 524288,
+              "bytes_read_including_startup_all_repeats": 17970585,
+              "hit_only_frame_count": 45,
+              "miss_frame_count": 315
+            },
+            "lru8": {
+              "frame": {
+                "median_ms": 0.481791,
+                "p95_ms": 1.033656,
+                "max_ms": 1.243083
+              },
+              "startup": {
+                "median_ms": 0.025875,
+                "p95_ms": 0.043501,
+                "max_ms": 0.045459
+              },
+              "first_viewport": {
+                "median_ms": 1.018834,
+                "p95_ms": 1.060271,
+                "max_ms": 1.064875
+              },
+              "trajectory_including_startup": {
+                "median_ms": 48.110241,
+                "p95_ms": 48.37759,
+                "max_ms": 48.407295
+              },
+              "trajectory_movement_only": {
+                "median_ms": 48.087033,
+                "p95_ms": 48.351981,
+                "max_ms": 48.38142
+              },
+              "hit_rate": 0.48441926345609065,
+              "resident_bytes_peak": 1048576,
+              "bytes_read_including_startup_all_repeats": 12829758,
+              "hit_only_frame_count": 93,
+              "miss_frame_count": 267
+            },
+            "whole_resident": {
+              "frame": {
+                "median_ms": 0.0105,
+                "p95_ms": 0.014919,
+                "max_ms": 0.029875
+              },
+              "startup": {
+                "median_ms": 4.438541,
+                "p95_ms": 4.448029,
+                "max_ms": 4.449083
+              },
+              "first_viewport": {
+                "median_ms": 4.449332,
+                "p95_ms": 4.454958,
+                "max_ms": 4.455583
+              },
+              "trajectory_including_startup": {
+                "median_ms": 5.685493,
+                "p95_ms": 5.734175,
+                "max_ms": 5.739584
+              },
+              "trajectory_movement_only": {
+                "median_ms": 1.284251,
+                "p95_ms": 1.289876,
+                "max_ms": 1.290501
+              },
+              "hit_rate": null,
+              "resident_bytes_peak": 2097152,
+              "bytes_read_including_startup_all_repeats": 1125696,
+              "hit_only_frame_count": 360,
+              "miss_frame_count": 0
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "memory_audit_probes": 216
+}
